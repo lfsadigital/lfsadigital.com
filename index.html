@@ -42,14 +42,12 @@ a:hover{color:var(--gold-dim)}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s}
 nav.scrolled{background:rgba(6,22,64,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.08)}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo-text{font-family:var(--heading);font-size:1.3rem;font-weight:700;letter-spacing:-.5px;text-decoration:none}
-.logo-bold{color:var(--white)}
-.logo-light{color:var(--gold);font-weight:400}
+.logo-img{height:40px;width:auto}
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
 .nav-links a{color:var(--gray-light);font-size:.875rem;font-weight:500;font-family:var(--heading);letter-spacing:.3px}
 .nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--gold);color:#000;padding:10px 24px;border-radius:8px;font-weight:700;font-size:.875rem;font-family:var(--heading);letter-spacing:.3px;transition:all .2s;border:none}
-.nav-cta:hover{background:var(--gold-dim);color:#000;transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
+.nav-cta{background:var(--gold)!important;color:#000000!important;padding:10px 24px;border-radius:8px;font-weight:700;font-size:.875rem;font-family:var(--heading);letter-spacing:.3px;transition:all .2s;border:none;text-decoration:none}
+.nav-cta:hover{background:var(--gold-dim)!important;color:#000000!important;transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
 .hamburger{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
 
 /* SHARED */
@@ -200,7 +198,7 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
 
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="#" class="logo-text"><span class="logo-bold">LFSA</span> <span class="logo-light">Digital</span></a>
+    <a href="#"><img src="logo.png" alt="LFSA Digital" class="logo-img"></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#how">Process</a></li>
@@ -441,7 +439,7 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
 
 <footer>
   <div class="footer-inner">
-    <a href="#" class="logo-text" style="opacity:.7"><span class="logo-bold">LFSA</span> <span class="logo-light">Digital</span></a>
+    <a href="#"><img src="logo.png" alt="LFSA Digital" style="height:28px;width:auto;opacity:.7"></a>
     <ul class="footer-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#how">Process</a></li>
