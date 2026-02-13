@@ -42,12 +42,14 @@ a:hover{color:var(--gold-dim)}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s}
 nav.scrolled{background:rgba(6,22,64,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.08)}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo-img{height:40px;width:auto}
+.logo-text{font-family:var(--heading);font-size:1.3rem;font-weight:700;letter-spacing:-.5px;text-decoration:none}
+.logo-bold{color:var(--white)}
+.logo-light{color:var(--gold);font-weight:400}
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
 .nav-links a{color:var(--gray-light);font-size:.875rem;font-weight:500;font-family:var(--heading);letter-spacing:.3px}
 .nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--gold);color:var(--bg-deep);padding:10px 24px;border-radius:8px;font-weight:700;font-size:.875rem;font-family:var(--heading);letter-spacing:.3px;transition:all .2s;border:none}
-.nav-cta:hover{background:var(--gold-dim);color:var(--bg-deep);transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
+.nav-cta{background:var(--gold);color:#000;padding:10px 24px;border-radius:8px;font-weight:700;font-size:.875rem;font-family:var(--heading);letter-spacing:.3px;transition:all .2s;border:none}
+.nav-cta:hover{background:var(--gold-dim);color:#000;transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
 .hamburger{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
 
 /* SHARED */
@@ -150,6 +152,23 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
 .glow-gold{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(245,197,24,.06) 0%,transparent 70%);pointer-events:none;z-index:0}
 .glow-cyan{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(45,160,224,.05) 0%,transparent 70%);pointer-events:none;z-index:0}
 
+/* EXIT POPUP */
+.exit-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.exit-overlay.show{display:flex}
+.exit-box{background:var(--bg);border:1px solid rgba(245,197,24,.2);border-radius:16px;padding:48px 40px;max-width:440px;width:90%;text-align:center;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.exit-box .close-btn{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--gray);font-size:1.2rem;cursor:pointer;transition:color .2s}
+.exit-box .close-btn:hover{color:var(--white)}
+.exit-box h3{font-family:var(--heading);font-size:1.6rem;font-weight:700;margin-bottom:8px}
+.exit-box h3 span{color:var(--gold)}
+.exit-box p{color:var(--gray);font-size:.95rem;margin-bottom:24px}
+.exit-form{display:flex;flex-direction:column;gap:12px}
+.exit-form input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 16px;color:var(--white);font-family:var(--body);font-size:.95rem;outline:none;transition:border-color .2s}
+.exit-form input::placeholder{color:var(--gray)}
+.exit-form input:focus{border-color:var(--gold)}
+.exit-form button{background:var(--gold);color:#000;border:none;border-radius:8px;padding:14px;font-family:var(--heading);font-weight:700;font-size:1rem;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.exit-form button:hover{background:var(--gold-dim);transform:translateY(-1px)}
+.exit-success{display:none;color:var(--gold);font-family:var(--heading);font-weight:600;font-size:1.1rem;padding:20px 0}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -181,7 +200,7 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
 
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="#"><img src="https://lfsadigital.com/assets/images/image01.jpg?v=70f3a54f" alt="LFSA Digital" class="logo-img"></a>
+    <a href="#" class="logo-text"><span class="logo-bold">LFSA</span> <span class="logo-light">Digital</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#how">Process</a></li>
@@ -422,7 +441,7 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
 
 <footer>
   <div class="footer-inner">
-    <a href="#"><img src="https://lfsadigital.com/assets/images/image01.jpg?v=70f3a54f" alt="LFSA Digital" style="height:28px;width:auto;opacity:.7"></a>
+    <a href="#" class="logo-text" style="opacity:.7"><span class="logo-bold">LFSA</span> <span class="logo-light">Digital</span></a>
     <ul class="footer-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#how">Process</a></li>
@@ -433,6 +452,21 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
     <div class="footer-tag">© 2026 LFSA Digital · Built with AI, obviously.</div>
   </div>
 </footer>
+
+<!-- EXIT INTENT POPUP -->
+<div class="exit-overlay" id="exitPopup">
+  <div class="exit-box">
+    <button class="close-btn" id="exitClose"><i class="fa-solid fa-xmark"></i></button>
+    <h3>Wait — before you go <span>👋</span></h3>
+    <p>Leave your email and we'll send you a free automation audit for your business. No spam, just value.</p>
+    <form class="exit-form" id="exitForm">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your best email" required>
+      <button type="submit">Get My Free Audit →</button>
+    </form>
+    <div class="exit-success" id="exitSuccess">✅ You're in! We'll be in touch soon.</div>
+  </div>
+</div>
 
 <script>
 // Nav scroll
@@ -450,6 +484,17 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // FAQ
 document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const active=btn.classList.contains('active');document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('active');b.nextElementSibling.classList.remove('open')});if(!active){btn.classList.add('active');btn.nextElementSibling.classList.add('open')}})});
+
+// Exit intent popup
+let exitShown=false;
+document.addEventListener('mouseout',e=>{if(!exitShown&&e.clientY<5&&!e.relatedTarget){exitShown=true;document.getElementById('exitPopup').classList.add('show');sessionStorage.setItem('exitShown','1')}});
+if(sessionStorage.getItem('exitShown'))exitShown=true;
+document.getElementById('exitClose').addEventListener('click',()=>document.getElementById('exitPopup').classList.remove('show'));
+document.getElementById('exitPopup').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('show')});
+document.getElementById('exitForm').addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.target);const name=fd.get('name'),email=fd.get('email');
+  // Send to n8n webhook
+  fetch('https://n8n.lfsadigital.com/webhook/exit-intent-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,source:'lfsadigital.com',timestamp:new Date().toISOString()})}).catch(()=>{});
+  e.target.style.display='none';document.getElementById('exitSuccess').style.display='block'});
 </script>
 </body>
 </html>
