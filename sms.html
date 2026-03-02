@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stay in the Loop — LFSA Digital SMS Updates</title>
+<meta name="description" content="Get AI automation tips, updates, and exclusive insights delivered straight to your phone. Opt in to SMS updates from LFSA Digital.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A2463;--bg-deep:#061640;--bg-card:rgba(255,255,255,0.04);
+  --gold:#F5C518;--gold-dim:#d4a912;--cyan:#2DA0E0;--cyan-dim:#2589c2;
+  --white:#f4f4f5;--gray:#94a3b8;--gray-light:#cbd5e1;
+  --heading:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --max:1100px;--radius:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath d='M0,128h512 M0,384h512 M320,128v256 M192,128V0 M448,128V0 M192,384v128 M448,384v128 M64,128v256' vector-effect='non-scaling-stroke' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1px'/%3E%3C/svg%3E");
+  background-size:8px;background-position:center;background-repeat:repeat}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold-dim)}
+::selection{background:var(--gold);color:var(--bg)}
+
+/* NAV */
+nav{background:rgba(6,22,64,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.08);position:relative;z-index:10}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo-img{height:40px;width:auto}
+.nav-back{color:var(--gray-light);font-size:.875rem;font-family:var(--heading);font-weight:500;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.nav-back:hover{color:var(--white)}
+
+/* MAIN */
+.page{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px;position:relative;z-index:1}
+.card{max-width:480px;width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:52px 44px;backdrop-filter:blur(8px);box-shadow:0 24px 80px rgba(0,0,0,.35)}
+
+/* Glow accent */
+.card::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:120px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:4px}
+
+.card-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--gold);margin-bottom:24px}
+.card h1{font-family:var(--heading);font-size:1.75rem;font-weight:700;line-height:1.15;letter-spacing:-.5px;margin-bottom:8px}
+.card .subtitle{color:var(--gray);font-size:.95rem;margin-bottom:32px;line-height:1.6}
+
+/* FORM */
+.sms-form{display:flex;flex-direction:column;gap:16px}
+.field{position:relative}
+.field input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 16px 16px 48px;color:var(--white);font-family:var(--body);font-size:.95rem;outline:none;transition:border-color .25s,box-shadow .25s}
+.field input::placeholder{color:var(--gray)}
+.field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.08)}
+.field i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:.9rem;pointer-events:none;transition:color .25s}
+.field input:focus+i,.field input:not(:placeholder-shown)+i{color:var(--gold)}
+
+/* Consent */
+.consent{display:flex;gap:10px;align-items:flex-start;cursor:pointer;user-select:none}
+.consent input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:18px;height:18px;min-width:18px;border:1px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.04);cursor:pointer;position:relative;top:2px;transition:all .2s}
+.consent input[type="checkbox"]:checked{background:var(--gold);border-color:var(--gold)}
+.consent input[type="checkbox"]:checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:12px;color:#000;font-weight:700}
+.consent span{color:var(--gray);font-size:.78rem;line-height:1.5}
+.consent a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
+
+/* Submit */
+.submit-btn{background:var(--gold);color:#000;border:none;border-radius:10px;padding:16px;font-family:var(--heading);font-weight:700;font-size:1rem;cursor:pointer;letter-spacing:.3px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px}
+.submit-btn:hover:not(:disabled){background:var(--gold-dim);transform:translateY(-1px);box-shadow:0 6px 24px rgba(245,197,24,.25)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.submit-btn .spinner{display:none;width:18px;height:18px;border:2px solid rgba(0,0,0,.2);border-top-color:#000;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Success */
+.success-state{display:none;text-align:center;padding:20px 0}
+.success-state i{font-size:2.5rem;color:var(--gold);margin-bottom:16px}
+.success-state h2{font-family:var(--heading);font-size:1.3rem;margin-bottom:8px}
+.success-state p{color:var(--gray);font-size:.9rem}
+
+/* Error */
+.error-msg{display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:12px 16px;font-size:.85rem;color:#fca5a5;text-align:center}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.04);padding:24px;text-align:center;position:relative;z-index:1}
+footer p{color:var(--gray);font-size:.78rem;font-family:var(--heading)}
+footer a{color:var(--gray-light)}
+
+@media(max-width:600px){
+  .card{padding:40px 28px;border-radius:16px}
+  .card h1{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/"><img src="logo.png" alt="LFSA Digital" class="logo-img"></a>
+    <a href="/" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Back to site</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="card" style="position:relative">
+
+    <div id="formState">
+      <div class="card-icon"><i class="fa-solid fa-message"></i></div>
+      <h1>Stay in the Loop</h1>
+      <p class="subtitle">Get AI automation tips, product updates, and exclusive insights — delivered straight to your phone.</p>
+
+      <form class="sms-form" id="smsForm" novalidate>
+        <div class="field">
+          <input type="text" name="name" id="nameInput" placeholder="Your name" required autocomplete="name">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="field">
+          <input type="tel" name="phone" id="phoneInput" placeholder="Phone number" required autocomplete="tel">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="consentCheck" required>
+          <span>I consent to receive SMS messages from LFSA Digital including marketing updates, follow-ups, and notifications. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe. View our <a href="/privacy.html" target="_blank">Privacy Policy</a> &amp; <a href="/terms.html" target="_blank">Terms</a>.</span>
+        </label>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Subscribe</span>
+          <div class="spinner"></div>
+        </button>
+      </form>
+    </div>
+
+    <div class="success-state" id="successState">
+      <i class="fa-solid fa-circle-check"></i>
+      <h2>You're in! 🎉</h2>
+      <p>Check your phone — we just sent you a confirmation text. Welcome aboard.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 <a href="/">LFSA Digital</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+
+<script>
+const form = document.getElementById('smsForm');
+const submitBtn = document.getElementById('submitBtn');
+const errorMsg = document.getElementById('errorMsg');
+const formState = document.getElementById('formState');
+const successState = document.getElementById('successState');
+
+// Basic phone formatting
+const phoneInput = document.getElementById('phoneInput');
+phoneInput.addEventListener('input', () => {
+  let v = phoneInput.value.replace(/\D/g, '');
+  if (v.length > 10) v = v.slice(0, 11);
+  if (v.length >= 7) v = `(${v.slice(0,3)}) ${v.slice(3,6)}-${v.slice(6)}`;
+  else if (v.length >= 4) v = `(${v.slice(0,3)}) ${v.slice(3)}`;
+  phoneInput.value = v;
+});
+
+function showError(msg) {
+  errorMsg.textContent = msg;
+  errorMsg.style.display = 'block';
+}
+function hideError() {
+  errorMsg.style.display = 'none';
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  hideError();
+
+  const name = document.getElementById('nameInput').value.trim();
+  const phone = phoneInput.value.replace(/\D/g, '');
+  const consent = document.getElementById('consentCheck').checked;
+
+  if (!name) return showError('Please enter your name.');
+  if (phone.length < 10) return showError('Please enter a valid phone number.');
+  if (!consent) return showError('Please agree to receive SMS messages.');
+
+  // Loading state
+  submitBtn.disabled = true;
+  submitBtn.querySelector('.btn-text').textContent = 'Subscribing…';
+  submitBtn.querySelector('.spinner').style.display = 'block';
+
+  try {
+    const res = await fetch('https://n8n.lfsadigital.com/webhook/sms-optin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        phone: phone.length === 11 ? phone : '1' + phone,
+        source: 'lfsadigital.com/sms',
+        timestamp: new Date().toISOString()
+      })
+    });
+    if (!res.ok) throw new Error('Server error');
+
+    // Success
+    formState.style.display = 'none';
+    successState.style.display = 'block';
+  } catch (err) {
+    showError('Something went wrong. Please try again or text us at (213) 566-3901.');
+    submitBtn.disabled = false;
+    submitBtn.querySelector('.btn-text').textContent = 'Subscribe';
+    submitBtn.querySelector('.spinner').style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
