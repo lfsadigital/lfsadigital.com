@@ -623,8 +623,8 @@ document.getElementById('exitForm').addEventListener('submit',e=>{e.preventDefau
   // Send to n8n webhook
   fetch('https://n8n.lfsadigital.com/webhook/exit-intent-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,source:'lfsadigital.com',timestamp:new Date().toISOString()})}).catch(()=>{});
   e.target.style.display='none';document.getElementById('exitSuccess').style.display='block'});
-</script>
-  <script>
+<script>
+  window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
   (function(d,t) {
     var BASE_URL="https://chatwoot.lfsadigital.com";
     var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -639,6 +639,5 @@ document.getElementById('exitForm').addEventListener('submit',e=>{e.preventDefau
     }
   })(document,"script");
 </script>
-
 </body>
 </html>
