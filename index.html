@@ -624,5 +624,21 @@ document.getElementById('exitForm').addEventListener('submit',e=>{e.preventDefau
   fetch('https://n8n.lfsadigital.com/webhook/exit-intent-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,source:'lfsadigital.com',timestamp:new Date().toISOString()})}).catch(()=>{});
   e.target.style.display='none';document.getElementById('exitSuccess').style.display='block'});
 </script>
+  <script>
+  (function(d,t) {
+    var BASE_URL="https://chatwoot.lfsadigital.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'uVYwnWGmgmAZoyMoMZ4VpVzR',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script>
+
 </body>
 </html>
