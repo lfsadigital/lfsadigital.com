@@ -198,8 +198,17 @@ h2{font-family:var(--heading);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;l
 
 /* Hero video */
 .hero-video{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--bg-deep);border:1px solid rgba(255,255,255,.06);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.hero-video iframe{width:100%;height:100%;border:none}
-.hero-video::after{content:'';position:absolute;inset:0;border-radius:16px;border:1px solid rgba(245,197,24,.1);pointer-events:none}
+.hero-video iframe{width:100%;height:100%;border:none;display:block}
+.hero-video::after{content:'';position:absolute;inset:0;border-radius:16px;border:1px solid rgba(245,197,24,.1);pointer-events:none;z-index:3}
+.video-poster{position:absolute;inset:0;width:100%;height:100%;border:none;padding:0;margin:0;cursor:pointer;background:var(--bg-deep);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.video-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:opacity .4s ease,transform .6s ease}
+.video-poster::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,22,64,.85) 0%,rgba(10,36,99,.55) 45%,rgba(245,197,24,.18) 100%);z-index:1}
+.video-poster:hover img{opacity:.65;transform:scale(1.03)}
+.play-btn{position:relative;z-index:2;width:84px;height:84px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:var(--bg-deep);font-size:1.6rem;box-shadow:0 8px 32px rgba(245,197,24,.45);transition:transform .25s ease,box-shadow .25s ease;animation:play-pulse 2.2s ease-out infinite}
+.play-btn i{margin-left:5px}
+.video-poster:hover .play-btn{transform:scale(1.1);animation:none;box-shadow:0 12px 40px rgba(245,197,24,.6)}
+@keyframes play-pulse{0%{box-shadow:0 8px 32px rgba(245,197,24,.45),0 0 0 0 rgba(245,197,24,.5)}70%{box-shadow:0 8px 32px rgba(245,197,24,.45),0 0 0 22px rgba(245,197,24,0)}100%{box-shadow:0 8px 32px rgba(245,197,24,.45),0 0 0 0 rgba(245,197,24,0)}}
+.video-caption{position:absolute;z-index:2;bottom:20px;left:50%;transform:translateX(-50%);color:var(--white);font-family:var(--heading);font-size:.85rem;font-weight:500;letter-spacing:.5px;background:rgba(6,22,64,.65);padding:8px 18px;border-radius:24px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);white-space:nowrap}
 
 /* SOCIAL PROOF BAR */
 .social-bar{padding:40px 24px;z-index:1;position:relative;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
@@ -342,7 +351,7 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
   <div class="container">
     <div class="hero-grid">
       <div class="reveal">
-        <h1>We Build It.<br>You <span class="accent">Make Money</span>.<br>Else, You <span class="accent-cyan">Don't Pay</span>.</h1>
+        <h1>We Build It.<br>You <span class="accent">Make Money</span>,<br><span class="accent-cyan">Save Time</span>.</h1>
         <p class="hero-sub">AI automation, custom software, and voice agents that <strong>actually deliver results</strong>. From idea to production — we build fast so you can grow faster.</p>
         <div class="btn-row">
           <a href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" class="btn btn-gold"><i class="fa-solid fa-calendar"></i> Book Your Call</a>
@@ -350,7 +359,11 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
         </div>
       </div>
       <div class="hero-video reveal">
-        <iframe src="https://www.youtube.com/embed/5zH1NVc7edI?rel=0&modestbranding=1" allowfullscreen loading="lazy"></iframe>
+        <button type="button" class="video-poster" aria-label="Play intro video" data-video-id="5zH1NVc7edI">
+          <img src="https://img.youtube.com/vi/5zH1NVc7edI/maxresdefault.jpg" alt="LFSA Digital — AI automation intro" loading="lazy">
+          <span class="play-btn" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+          <span class="video-caption">Watch our 2-min intro</span>
+        </button>
       </div>
     </div>
   </div>
@@ -606,6 +619,8 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLin
 // Reveal
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// Lite YouTube — load iframe only on click
+document.querySelectorAll('.video-poster').forEach(btn=>{btn.addEventListener('click',()=>{const id=btn.dataset.videoId;const iframe=document.createElement('iframe');iframe.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;iframe.title='LFSA Digital intro video';iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';iframe.allowFullscreen=true;btn.parentElement.replaceChild(iframe,btn)})});
 // FAQ
 document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const active=btn.classList.contains('active');document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('active');b.nextElementSibling.classList.remove('open')});if(!active){btn.classList.add('active');btn.nextElementSibling.classList.add('open')}})});
 // Exit intent popup
