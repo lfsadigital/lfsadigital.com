@@ -227,12 +227,20 @@ h2{font-family:var(--heading);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;l
 
 /* YOUTUBE / PROOF */
 .proof-section{border-top:1px solid rgba(255,255,255,.04)}
-.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;align-items:start}
-.yt-card{background:var(--bg-card);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);padding:28px;display:flex;gap:16px;align-items:start;transition:all .3s}
-.yt-card:hover{border-color:rgba(245,197,24,.15);transform:translateY(-2px)}
-.yt-icon{flex-shrink:0;width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(255,0,0,.15),rgba(255,0,0,.05));display:flex;align-items:center;justify-content:center;color:#ff4444;font-size:1.1rem}
-.yt-card h4{font-family:var(--heading);font-size:.95rem;font-weight:600;margin-bottom:4px}
-.yt-card p{color:var(--gray);font-size:.82rem}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;align-items:start}
+.yt-card{background:var(--bg-card);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:all .3s;text-decoration:none;color:inherit}
+.yt-card:hover{border-color:rgba(245,197,24,.2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+.yt-thumb{position:relative;aspect-ratio:16/9;background:var(--bg-deep);overflow:hidden}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.yt-card:hover .yt-thumb img{transform:scale(1.05)}
+.yt-duration{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.85);color:#fff;font-family:var(--heading);font-size:.68rem;font-weight:600;padding:2px 6px;border-radius:3px;letter-spacing:.3px;z-index:2}
+.yt-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;background:rgba(6,22,64,.35);z-index:1}
+.yt-play-overlay i{color:#ff0000;font-size:2.4rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6))}
+.yt-card:hover .yt-play-overlay{opacity:1}
+.yt-meta{padding:12px 14px 14px;flex:1}
+.yt-card h4{font-family:var(--heading);font-size:.82rem;font-weight:600;margin-bottom:0;line-height:1.35;color:var(--white);transition:color .2s;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.yt-card:hover h4{color:var(--gold)}
+@media(max-width:980px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ABOUT */
 .about-section{background:var(--bg-deep)}
@@ -440,46 +448,124 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
       <p class="subtitle">Real projects. Real tutorials. See how we work.</p>
     </div>
     <div class="proof-grid">
-      <a href="https://www.youtube.com/@lfsadigital" target="_blank" class="yt-card reveal">
-        <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
-        <div>
-          <h4>AI Agent for a Med Clinic</h4>
-          <p>WhatsApp + N8N automation for healthcare</p>
+      <a href="https://www.youtube.com/watch?v=4Z5j0qtjcjE" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/4Z5j0qtjcjE/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">14:50</span>
+        </div>
+        <div class="yt-meta">
+          <h4>AI Agent for a Med Clinic using N8N and WhatsApp</h4>
         </div>
       </a>
-      <a href="https://www.youtube.com/@lfsadigital" target="_blank" class="yt-card reveal">
-        <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
-        <div>
-          <h4>AI Data Analysis Agent in N8N</h4>
-          <p>Full tutorial — from zero to production</p>
+      <a href="https://www.youtube.com/watch?v=CE3xBXfnf60" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/CE3xBXfnf60/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">19:50</span>
+        </div>
+        <div class="yt-meta">
+          <h4>Building an AI Agent for Data Analysis in N8N — Full &amp; Simple Tutorial</h4>
         </div>
       </a>
-      <a href="https://www.youtube.com/@lfsadigital" target="_blank" class="yt-card reveal">
-        <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
-        <div>
-          <h4>Self-Hosting N8N + MCP</h4>
-          <p>Community node setup and configuration</p>
+      <a href="https://www.youtube.com/watch?v=iukwioalp_U" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/iukwioalp_U/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">9:13</span>
+        </div>
+        <div class="yt-meta">
+          <h4>Self Hosting N8N and Adding MCP Community Node</h4>
         </div>
       </a>
-      <a href="https://www.youtube.com/@lfsadigital" target="_blank" class="yt-card reveal">
-        <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
-        <div>
-          <h4>OpenClaw Voice Agent System</h4>
-          <p>How to have AI build voice agents for you</p>
+      <a href="https://www.youtube.com/watch?v=CGQeNzMJ3us" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/CGQeNzMJ3us/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">15:14</span>
+        </div>
+        <div class="yt-meta">
+          <h4>OpenClaw Built My Entire Voice Agent System — Here's How</h4>
         </div>
       </a>
-      <a href="https://www.youtube.com/@lfsadigital" target="_blank" class="yt-card reveal">
-        <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
-        <div>
-          <h4>Claude Code Creates Videos</h4>
-          <p>With audio — pushing AI to the edge</p>
+      <a href="https://www.youtube.com/watch?v=ehRxf0Z4-8g" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/ehRxf0Z4-8g/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">8:48</span>
+        </div>
+        <div class="yt-meta">
+          <h4>Claude Code can create videos now (with audio)</h4>
         </div>
       </a>
-      <a href="https://www.youtube.com/@lfsadigital" target="_blank" class="yt-card reveal">
-        <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
-        <div>
-          <h4>N8N Native MCP Server & Tool</h4>
-          <p>+ Integration with Cursor and Claude</p>
+      <a href="https://www.youtube.com/watch?v=cvC7MKRw59E" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/cvC7MKRw59E/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">11:11</span>
+        </div>
+        <div class="yt-meta">
+          <h4>N8N new MCP Native Server and Tool (+ Cursor and Claude)</h4>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=Lgo9a0JqF7A" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/Lgo9a0JqF7A/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">24:05</span>
+        </div>
+        <div class="yt-meta">
+          <h4>WhatsApp AI Agent Without Losing Your Phone: Full N8N + Chatwoot Setup</h4>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=A1CGYX6AjsQ" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/A1CGYX6AjsQ/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">6:19</span>
+        </div>
+        <div class="yt-meta">
+          <h4>Gumroad Won't Let You Send Emails? Here's the n8n Fix</h4>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=GH_Vwp87vcc" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/GH_Vwp87vcc/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">11:59</span>
+        </div>
+        <div class="yt-meta">
+          <h4>Get started with Obsidian &amp; Claude Code — Tutorial and Prompts</h4>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=sCYRZTXOnb0" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/sCYRZTXOnb0/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">7:04</span>
+        </div>
+        <div class="yt-meta">
+          <h4>I Built a Live Dashboard in Minutes — No Code, Just AI (Claude Cowork)</h4>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=kl-7uu96Of4" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/kl-7uu96Of4/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">4:05</span>
+        </div>
+        <div class="yt-meta">
+          <h4>NotebookLM: The AI Tool Everyone is Sleeping On</h4>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=IMZ8OOe4-90" target="_blank" rel="noopener" class="yt-card reveal">
+        <div class="yt-thumb">
+          <img src="https://i.ytimg.com/vi/IMZ8OOe4-90/hqdefault.jpg" alt="" loading="lazy">
+          <span class="yt-play-overlay"><i class="fa-brands fa-youtube"></i></span>
+          <span class="yt-duration">3:35</span>
+        </div>
+        <div class="yt-meta">
+          <h4>OpenClaw: Automating Socials — Updates &amp; Hard Truths</h4>
         </div>
       </a>
     </div>
