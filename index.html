@@ -293,9 +293,10 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
 .exit-box h3 span{color:var(--gold)}
 .exit-box p{color:var(--gray);font-size:.95rem;margin-bottom:24px}
 .exit-form{display:flex;flex-direction:column;gap:12px}
-.exit-form input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 16px;color:var(--white);font-family:var(--body);font-size:.95rem;outline:none;transition:border-color .2s}
-.exit-form input::placeholder{color:var(--gray)}
-.exit-form input:focus{border-color:var(--gold)}
+.exit-form input,.exit-form textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 16px;color:var(--white);font-family:var(--body);font-size:.95rem;outline:none;transition:border-color .2s;width:100%}
+.exit-form textarea{resize:vertical;min-height:80px;line-height:1.5}
+.exit-form input::placeholder,.exit-form textarea::placeholder{color:var(--gray)}
+.exit-form input:focus,.exit-form textarea:focus{border-color:var(--gold)}
 .exit-form button{background:var(--gold);color:#000;border:none;border-radius:8px;padding:14px;font-family:var(--heading);font-weight:700;font-size:1rem;cursor:pointer;transition:all .2s;letter-spacing:.3px}
 .exit-form button:hover{background:var(--gold-dim);transform:translateY(-1px)}
 .exit-success{display:none;color:var(--gold);font-family:var(--heading);font-weight:600;font-size:1.1rem;padding:20px 0}
@@ -676,6 +677,7 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.04);z-index:1;po
     <form class="exit-form" id="exitForm">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your best email" required>
+      <textarea name="business" placeholder="Tell us about your business (name, industry, what you do)" rows="3"></textarea>
       <button type="submit">Send Me Ideas →</button>
     </form>
     <div class="exit-success" id="exitSuccess">✅ Check your inbox. Ideas incoming!</div>
@@ -700,9 +702,9 @@ document.addEventListener('mouseout',e=>{if(!exitShown&&e.clientY<5&&!e.relatedT
 if(sessionStorage.getItem('exitShown'))exitShown=true;
 document.getElementById('exitClose').addEventListener('click',()=>document.getElementById('exitPopup').classList.remove('show'));
 document.getElementById('exitPopup').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.classList.remove('show')});
-document.getElementById('exitForm').addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.target);const name=fd.get('name'),email=fd.get('email');
+document.getElementById('exitForm').addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.target);const name=fd.get('name'),email=fd.get('email'),business=fd.get('business');
   // Send to n8n webhook
-  fetch('https://n8n.lfsadigital.com/webhook/exit-intent-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,source:'lfsadigital.com',timestamp:new Date().toISOString()})}).catch(()=>{});
+  fetch('https://n8n.lfsadigital.com/webhook/exit-intent-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,business,source:'lfsadigital.com',timestamp:new Date().toISOString()})}).catch(()=>{});
   e.target.style.display='none';document.getElementById('exitSuccess').style.display='block'});
 </script>
 <!-- WhatsApp Floating Button -->
