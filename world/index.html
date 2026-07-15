@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Enter the Automation World · LFSA Digital</title>
+<meta name="description" content="Fly through the AI automation world LFSA Digital builds: voice agents, workflow automation, custom software, and the results they deliver.">
+<meta property="og:title" content="Enter the Automation World · LFSA Digital">
+<meta property="og:description" content="Scroll to fly through the AI automation world we build: voice agents, automation engines, custom software, and real results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lfsadigital.com/world/">
+<meta property="og:image" content="https://lfsadigital.com/world/assets/scene0.png">
+<meta property="og:image:width" content="1248">
+<meta property="og:image:height" content="832">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lfsadigital.com/world/assets/scene0.png">
+<link rel="canonical" href="https://lfsadigital.com/world/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A2463;--bg-deep:#061640;--bg-abyss:#03102e;
+  --gold:#F5C518;--gold-dim:#d4a912;--cyan:#2DA0E0;--cyan-bright:#5cbcf2;
+  --white:#f4f4f5;--gray:#94a3b8;--gray-light:#cbd5e1;
+  --heading:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:auto}
+body{
+  font-family:var(--body);color:var(--white);
+  background:radial-gradient(130% 120% at 50% 32%,#15294f 0%,#0c1c3c 46%,#060f28 100%);
+  overflow-x:hidden;
+}
+a{color:var(--gold);text-decoration:none}
+::selection{background:var(--gold);color:var(--bg-deep)}
+
+/* Scroll track: gives the page height that drives the camera */
+#track{position:relative;width:100%}
+
+/* Fixed cinematic stage */
+#stage{position:fixed;inset:0;overflow:hidden;perspective:1100px;perspective-origin:50% 44%;z-index:1}
+#rig{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.scene{
+  position:absolute;left:50%;top:50%;width:820px;height:660px;margin:-330px 0 0 -410px;
+  transform:translateZ(-9999px);transform-style:preserve-3d;will-change:opacity,transform;
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+}
+.scene svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 40px 60px rgba(3,11,34,.55))}
+.scene-img{width:100%;height:100%;object-fit:contain;pointer-events:none;
+  filter:drop-shadow(0 34px 54px rgba(3,11,34,.55));
+  -webkit-mask-image:radial-gradient(ellipse 82% 86% at 50% 49%,#000 58%,transparent 85%);
+  mask-image:radial-gradient(ellipse 82% 86% at 50% 49%,#000 58%,transparent 85%)}
+
+/* Atmosphere */
+#dust{position:fixed;inset:0;z-index:0;pointer-events:none}
+.vignette{position:fixed;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 42%,transparent 52%,rgba(3,11,34,.5) 100%)}
+.grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* HUD copy */
+#hud{position:fixed;inset:0;z-index:5;pointer-events:none;display:flex;align-items:center}
+.hud-wrap{max-width:1180px;width:100%;margin:0 auto;padding:0 clamp(24px,6vw,80px)}
+.copy{position:absolute;max-width:520px;opacity:0;transform:translateY(26px);will-change:opacity,transform}
+.copy .eyebrow{font-family:var(--heading);text-transform:uppercase;letter-spacing:4px;font-size:.72rem;
+  font-weight:600;color:var(--cyan-bright);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.copy .eyebrow::before{content:'';width:30px;height:1px;background:var(--cyan-bright)}
+.copy h1,.copy h2{font-family:var(--heading);font-weight:700;line-height:1.04;letter-spacing:-1.2px;
+  font-size:clamp(2.3rem,5.2vw,4rem);margin-bottom:22px;text-shadow:0 6px 40px rgba(3,11,34,.6)}
+.copy p{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--gray-light);line-height:1.7;max-width:460px}
+.copy .accent{color:var(--gold)}
+.copy .accent-cyan{color:var(--cyan-bright)}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.tag{font-family:var(--heading);font-size:.72rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;
+  color:var(--gray-light);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  padding:7px 13px;border-radius:100px;backdrop-filter:blur(6px)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;pointer-events:auto}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:10px;font-weight:700;
+  font-size:.95rem;font-family:var(--heading);letter-spacing:.3px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--bg-deep)}
+.btn-gold:hover{background:var(--gold-dim);transform:translateY(-2px);box-shadow:0 10px 34px rgba(245,197,24,.34)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--white);border:1px solid rgba(255,255,255,.16)}
+.btn-ghost:hover{border-color:var(--cyan-bright);color:var(--cyan-bright)}
+
+/* Top nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  padding:20px clamp(24px,6vw,80px);pointer-events:none}
+nav .brand{display:flex;align-items:center;gap:12px;pointer-events:auto}
+nav .brand img{height:38px;width:auto}
+nav .home{font-family:var(--heading);font-size:.8rem;font-weight:500;letter-spacing:.4px;color:var(--gray-light);
+  pointer-events:auto;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:100px;
+  border:1px solid rgba(255,255,255,.12);background:rgba(6,22,64,.4);backdrop-filter:blur(8px);transition:all .2s}
+nav .home:hover{color:var(--white);border-color:rgba(245,197,24,.4)}
+
+/* Route rail */
+#rail{position:fixed;right:clamp(16px,3vw,40px);top:50%;transform:translateY(-50%);z-index:20;
+  display:flex;flex-direction:column;gap:18px;align-items:flex-end}
+.rail-item{display:flex;align-items:center;gap:12px;cursor:pointer;pointer-events:auto;
+  opacity:.45;transition:opacity .35s}
+.rail-item .rl{font-family:var(--heading);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;
+  color:var(--gray-light);opacity:0;transform:translateX(8px);transition:opacity .35s,transform .35s;white-space:nowrap}
+.rail-item .rd{width:9px;height:9px;border-radius:50%;background:var(--gray-light);
+  box-shadow:0 0 0 0 rgba(245,197,24,0);transition:all .35s;flex:none}
+.rail-item.active{opacity:1}
+.rail-item.active .rd{background:var(--gold);box-shadow:0 0 0 5px rgba(245,197,24,.16)}
+.rail-item.active .rl{opacity:1;transform:translateX(0);color:var(--white)}
+.rail-item:hover{opacity:.9}
+.rail-item:hover .rl{opacity:1;transform:translateX(0)}
+
+/* Progress + hints */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:25;
+  background:linear-gradient(90deg,var(--cyan),var(--gold));box-shadow:0 0 14px rgba(245,197,24,.5)}
+#hint{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:20;
+  font-family:var(--heading);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);
+  display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity .5s}
+#hint .mouse{width:22px;height:34px;border:1.5px solid var(--gray);border-radius:12px;position:relative}
+#hint .mouse::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:3px;height:6px;border-radius:2px;background:var(--gold);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}70%{opacity:1;transform:translate(-50%,8px)}100%{opacity:0;transform:translate(-50%,10px)}}
+
+/* SVG art animations */
+.float{animation:float 6s ease-in-out infinite}
+.float.d1{animation-delay:-1.5s;animation-duration:7s}
+.float.d2{animation-delay:-3s;animation-duration:8s}
+.float.d3{animation-delay:-2.2s;animation-duration:6.5s}
+@keyframes float{0%,100%{transform:translateY(6px)}50%{transform:translateY(-10px)}}
+.pulse{animation:pulse 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+.spin{animation:spin 16s linear infinite;transform-box:fill-box;transform-origin:center}
+.spin.rev{animation-direction:reverse;animation-duration:12s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dash{stroke-dasharray:4 8;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+[class*="float"],.floatg{transform-box:fill-box;transform-origin:center}
+
+/* Fallback (reduced motion / no-JS) */
+.reduced #stage,.reduced #dust,.reduced #hint,.reduced #rail{display:none}
+.reduced #hud{display:none}
+.fallback{display:none}
+.reduced .fallback{display:block;position:relative;z-index:5}
+.reduced #track{height:auto!important}
+.fb-sec{min-height:100vh;display:flex;align-items:center;padding:80px clamp(24px,6vw,80px);gap:40px;flex-wrap:wrap;
+  border-bottom:1px solid rgba(255,255,255,.05)}
+.fb-sec .fb-art{flex:1 1 320px;max-width:520px}
+.fb-sec .fb-txt{flex:1 1 340px;max-width:520px}
+
+@media (max-width:820px){
+  #stage{perspective:860px}
+  .copy{max-width:88vw}
+  #rail{display:none}
+  nav .brand img{height:32px}
+}
+@media (max-width:560px){
+  .copy h1,.copy h2{font-size:clamp(2rem,8.5vw,2.6rem)}
+}
+</style>
+</head>
+<body>
+<canvas id="dust"></canvas>
+
+<nav>
+  <a class="brand" href="/"><img src="/logo.png" alt="LFSA Digital"></a>
+  <a class="home" href="/">&larr; Back to site</a>
+</nav>
+
+<div id="prog"></div>
+
+<div id="stage" aria-hidden="true">
+  <div id="rig">
+    <section class="scene" data-i="0"><img class="scene-img" src="assets/scene0.png" alt=""></section>
+    <section class="scene" data-i="1"><img class="scene-img" src="assets/scene1.png" alt=""></section>
+    <section class="scene" data-i="2"><img class="scene-img" src="assets/scene2.png" alt=""></section>
+    <section class="scene" data-i="3"><img class="scene-img" src="assets/scene3.png" alt=""></section>
+    <section class="scene" data-i="4"><img class="scene-img" src="assets/scene4.png" alt=""></section>
+  </div>
+</div>
+
+<div class="vignette"></div>
+<div class="grain"></div>
+
+<div id="hud"><div class="hud-wrap" id="hudWrap"></div></div>
+
+<div id="rail"></div>
+
+<div id="hint"><div class="mouse"></div><span>Scroll to fly</span></div>
+
+<div id="track"></div>
+
+<!-- Reduced-motion / no-JS fallback -->
+<div class="fallback" id="fallback"></div>
+
+<script>
+"use strict";
+/* ============================================================
+   LFSA · Automation World — scroll-driven 3D camera through
+   procedurally-built isometric dioramas. No dependencies.
+   ============================================================ */
+
+/* ---------- brand + scene copy ---------- */
+const SCENES = [
+  { id:'signal', label:'The Signal', accent:'#F5C518',
+    eyebrow:'LFSA Digital',
+    title:'We build it.<br><span class="accent">You make money</span>,<br><span class="accent-cyan">save time</span>.',
+    body:'AI automation, custom software, and voice agents that actually deliver results. From idea to production, we build fast so you can grow faster.' },
+  { id:'voice', label:'Voice Agents', accent:'#2DA0E0',
+    eyebrow:'What we build',
+    title:'AI Voice Agents',
+    body:'AI receptionists that answer calls 24/7, book appointments, and handle emergencies. Built for home services, clinics, and any business that can\'t afford to miss a call.',
+    tags:['HVAC','Clinics','Services'] },
+  { id:'engine', label:'Automation', accent:'#F5C518',
+    eyebrow:'What we build',
+    title:'Workflow Automation',
+    body:'N8N, Make, and Zapier workflows that kill manual work. CRM updates, email sequences, lead routing, and data sync, all running on autopilot.',
+    tags:['N8N','Make','Zapier'] },
+  { id:'agents', label:'Agents & Apps', accent:'#2DA0E0',
+    eyebrow:'What we build',
+    title:'AI Agents & Custom Apps',
+    body:'Custom AI assistants for support, lead qualification and ops, plus MVPs and production apps, from a WhatsApp bot to the App Store.',
+    tags:['Support','iOS','Web'] },
+  { id:'profit', label:'You Profit', accent:'#F5C518',
+    eyebrow:'The deal',
+    title:'You Profit',
+    body:'Launch, measure, iterate. If it doesn\'t deliver measurable value, you don\'t pay. That\'s the deal.',
+    cta:true }
+];
+
+
+/* ---------- boot ---------- */
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  || /[?&]flat\b/.test(location.search);
+const N = SCENES.length;
+const STEP = 1200;
+
+
+function buildHUD(){
+  const wrap=document.getElementById('hudWrap');
+  wrap.innerHTML = SCENES.map(sc=>{
+    const tags = sc.tags? `<div class="tags">${sc.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:'';
+    const cta = sc.cta? `<div class="cta-row">
+        <a class="btn btn-gold" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener">Book your free call</a>
+        <a class="btn btn-ghost" href="/">Explore the site</a></div>`:'';
+    return `<div class="copy" data-c="${sc.id}">
+      <div class="eyebrow">${sc.eyebrow}</div>
+      <h2>${sc.title}</h2><p>${sc.body}</p>${tags}${cta}</div>`;
+  }).join('');
+  return [...wrap.querySelectorAll('.copy')];
+}
+
+function buildRail(){
+  const rail=document.getElementById('rail');
+  rail.innerHTML = SCENES.map((sc,i)=>`<div class="rail-item" data-i="${i}"><span class="rl">${sc.label}</span><span class="rd"></span></div>`).join('');
+  [...rail.children].forEach(el=>{
+    el.addEventListener('click',()=>{
+      const i=+el.dataset.i;
+      const y = (i/(N-1))*maxScroll();
+      window.scrollTo({top:y,behavior:'smooth'});
+    });
+  });
+  return [...rail.children];
+}
+
+function buildFallback(){
+  document.getElementById('fallback').innerHTML = SCENES.map((sc,i)=>{
+    const tags = sc.tags? `<div class="tags">${sc.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:'';
+    const cta = sc.cta? `<div class="cta-row"><a class="btn btn-gold" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener">Book your free call</a></div>`:'';
+    return `<section class="fb-sec">
+      <div class="fb-art"><img class="scene-img" src="assets/scene${i}.png" alt=""></div>
+      <div class="fb-txt copy" style="opacity:1;transform:none;position:static">
+        <div class="eyebrow">${sc.eyebrow}</div><h2>${sc.title}</h2><p>${sc.body}</p>${tags}${cta}</div>
+    </section>`;
+  }).join('');
+}
+
+const maxScroll = ()=> Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+let copies=[], railItems=[], sceneEls=[], rig, prog, hint;
+let targetZ=0, dispZ=0, curActive=-1, hintHidden=false, sceneScale=1;
+
+function sizeScenes(){ const w=innerWidth; sceneScale = w<=560?0.62 : w<=820?0.82 : 1; }
+
+function onScroll(){
+  const p = Math.min(1, Math.max(0, window.scrollY / maxScroll()));
+  targetZ = p*(N-1)*STEP;
+  prog.style.width = (p*100)+'%';
+  if(!hintHidden && window.scrollY>40){ hint.style.opacity=0; hintHidden=true; }
+}
+
+function loop(){
+  dispZ += (targetZ - dispZ)*0.09;
+  const sway = Math.sin(dispZ*0.0016)*8;
+  rig.style.transform = `translate3d(${sway.toFixed(2)}px,0,0)`;
+
+  let best=-1, bestC=0;
+  for(let i=0;i<N;i++){
+    const eff = dispZ - i*STEP;
+    let op;
+    if(eff>340) op=0;                          // passed & gone
+    else if(eff>120) op=(340-eff)/220;         // fly-past cross-dissolve
+    else if(eff>-160) op=1;                    // focal band
+    else op = Math.max(0, 1+(eff+160)/2200);   // rise from depth
+    const el=sceneEls[i];
+    el.style.transform = `translateZ(${eff.toFixed(1)}px) scale(${sceneScale})`;
+    el.style.opacity=op.toFixed(3);
+    el.style.visibility = op<=0.01?'hidden':'visible';
+    // copy centerness: peak when scene just ahead of focal (fills screen)
+    const c = Math.max(0, 1 - Math.abs(eff+60)/620);
+    const cp=copies[i];
+    cp.style.opacity = c<0.04?0:c.toFixed(3);
+    cp.style.transform = `translateY(${(1-c)*30}px)`;
+    if(c>bestC){bestC=c;best=i;}
+  }
+  if(best!==curActive){
+    railItems.forEach((r,i)=>r.classList.toggle('active',i===best));
+    curActive=best;
+  }
+  requestAnimationFrame(loop);
+}
+
+function init(){
+  if(reduced){ document.body.classList.add('reduced'); buildFallback(); return; }
+  copies = buildHUD();
+  railItems = buildRail();
+  rig = document.getElementById('rig');
+  prog = document.getElementById('prog');
+  hint = document.getElementById('hint');
+  sceneEls = [...rig.children];
+  sizeScenes();
+  // scroll track height
+  document.getElementById('track').style.height = ((N*1.15+0.5)*100)+'vh';
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',()=>{ sizeScenes(); onScroll(); });
+  initDust();
+  onScroll();
+  requestAnimationFrame(loop);
+}
+
+/* ---------- ambient dust ---------- */
+function initDust(){
+  const cv=document.getElementById('dust'), ctx=cv.getContext('2d');
+  let W,H,parts;
+  function size(){ W=cv.width=innerWidth; H=cv.height=innerHeight;
+    const n = innerWidth<820?26:60;
+    parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random(),
+      r:Math.random()*1.8+0.4,s:Math.random()*0.25+0.05})); }
+  size(); addEventListener('resize',size);
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of parts){ p.y-=p.s; if(p.y< -4){p.y=H+4;p.x=Math.random()*W;}
+      ctx.globalAlpha=0.14+p.z*0.3; ctx.fillStyle = p.z>0.6?'#63c1f4':'#F5C518';
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fill(); }
+    requestAnimationFrame(draw);
+  })();
+}
+
+if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
