@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SMS Updates — LFSA Digital</title>
-<meta name="description" content="Optional opt-in for transactional text messages from LFSA Digital: appointment confirmations and reminders, service inquiry responses, and project status updates. No marketing or promotional texts.">
+<meta name="description" content="Optional SMS opt-in from LFSA Digital, with separate consent for appointment and service texts and for promotional texts. Neither is required to use our services.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +66,10 @@ nav{background:rgba(6,22,64,.92);backdrop-filter:blur(16px);border-bottom:1px so
 .consent a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
 .optional-note{color:var(--gray);font-size:.72rem;line-height:1.5;margin:-4px 0 0;opacity:.85}
 .optional-note a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
+.consent-intro{color:var(--gray-light);font-size:.8rem;line-height:1.5;margin:0 0 -4px}
+.consent em{font-style:normal;opacity:.8}
+.skip-line{margin:-4px 0 0;text-align:center}
+.skip-line a{color:var(--gray);font-size:.75rem;text-decoration:underline;text-underline-offset:2px}
 
 /* Submit */
 .submit-btn{background:var(--gold);color:#000;border:none;border-radius:10px;padding:16px;font-family:var(--heading);font-weight:700;font-size:1rem;cursor:pointer;letter-spacing:.3px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px}
@@ -109,7 +113,7 @@ footer a{color:var(--gray-light)}
     <div id="formState">
       <div class="card-icon"><i class="fa-solid fa-message"></i></div>
       <h1>Get LFSA Digital updates by text</h1>
-      <p class="subtitle">Appointment confirmations and reminders, answers to service inquiries you submit, and project status updates &mdash; sent by text from LFSA Digital. Transactional messages only; we never send promotional or marketing texts.</p>
+      <p class="subtitle">Two separate, optional subscriptions: appointment and service texts, and promotional texts. Choose either, both, or neither &mdash; each has its own consent below.</p>
 
       <form class="sms-form" id="smsForm" novalidate>
         <div class="field">
@@ -121,12 +125,21 @@ footer a{color:var(--gray-light)}
           <i class="fa-solid fa-phone"></i>
         </div>
 
+        <p class="consent-intro">Choose which texts you want. Both are optional and independent &mdash; tick one, both, or neither.</p>
+
         <label class="consent">
           <input type="checkbox" id="consentCheck">
-          <span>I agree to receive SMS messages from LFSA Digital about my appointments and service requests &mdash; confirmations, reminders, replies to inquiries I submit, and project status updates. These are transactional messages only. LFSA Digital does not send promotional or marketing text messages. Message frequency varies (up to 10 msgs/month). Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for assistance.</span>
+          <span><strong>Appointment &amp; service texts.</strong> I agree to receive SMS from LFSA Digital about appointments and service requests I have with them &mdash; confirmations, reminders, replies to inquiries I submit, and project status updates. Up to 10 msgs/month.</span>
         </label>
 
-        <p class="optional-note">Ticking this box is optional and does nothing except start text updates. It is not required to become a client, to buy anything, or to accept our terms &mdash; and you can work with LFSA Digital without it. See our <a href="/privacy.html" target="_blank">Privacy Policy</a> and <a href="/terms.html" target="_blank">Terms of Service</a>, which you are not agreeing to here.</p>
+        <label class="consent">
+          <input type="checkbox" id="promoCheck">
+          <span><strong>Promotional texts.</strong> Separately, I agree to receive occasional promotional and marketing SMS from LFSA Digital about new services and offers. Up to 4 msgs/month. <em>You can leave this unticked and still get the appointment texts above.</em></span>
+        </label>
+
+        <p class="optional-note">Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time, or <strong>HELP</strong> for assistance. Neither box is required to become a client, to buy anything, or to accept our terms &mdash; you can work with LFSA Digital without either. See our <a href="/privacy.html" target="_blank">Privacy Policy</a> and <a href="/terms.html" target="_blank">Terms of Service</a>, which you are not agreeing to by ticking these boxes.</p>
+
+        <p class="skip-line"><a href="/">No thanks &mdash; skip this and go back to the site</a></p>
 
         <div class="error-msg" id="errorMsg"></div>
 
@@ -182,10 +195,11 @@ form.addEventListener('submit', async (e) => {
   const name = document.getElementById('nameInput').value.trim();
   const phone = phoneInput.value.replace(/\D/g, '');
   const consent = document.getElementById('consentCheck').checked;
+  const promoConsent = document.getElementById('promoCheck').checked;
 
   if (!name) return showError('Please enter your name.');
   if (phone.length < 10) return showError('Please enter a valid phone number.');
-  if (!consent) return showError('Tick the box if you want text updates. If you would rather not, just close this page — nothing else on this site needs it.');
+  if (!consent && !promoConsent) return showError('Pick at least one type of text to subscribe to — or use the skip link below. Neither is required to work with us.');
 
   // Loading state
   submitBtn.disabled = true;
@@ -200,6 +214,9 @@ form.addEventListener('submit', async (e) => {
         name,
         phone: phone.length === 11 ? phone : '1' + phone,
         source: 'lfsadigital.com/sms',
+        transactional_consent: consent,
+        promotional_consent: promoConsent,
+        consent_text_version: '2026-07-22-dual-optin',
         timestamp: new Date().toISOString()
       })
     });
