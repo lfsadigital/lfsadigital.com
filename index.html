@@ -94,6 +94,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filt
 .step h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
 .step p{color:#94a3b8;font-size:.92rem;max-width:250px;margin:0 auto 10px}
 .step .tag{font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#2DA0E0}
+/* Explicit column counts, not auto-fit: with 5 steps, auto-fit orphans the
+   last one onto its own row (the 4+1 that shipped on 2026-07-22). Each
+   breakpoint below divides 5 into rows that look deliberate. */
+.steps5{display:grid;gap:clamp(16px,2.2vw,24px);margin-top:52px;grid-template-columns:repeat(5,1fr)}
+@media(max-width:1040px){.steps5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:660px){.steps5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.steps5{grid-template-columns:1fr}}
 .pill{font-size:.86rem;color:#cbd5e1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:7px 14px;border-radius:20px}
 .vid{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;color:inherit}
 .vid:hover{border-color:rgba(245,197,24,.25);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
@@ -153,7 +160,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <div>
       <div class="eyebrow" style="margin-bottom:20px"><span class="line"></span><span class="txt">AI <em style="font-style:italic">in Your Business</em> · Money-back</span></div>
       <h1 style="font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px">Find the 5&ndash;10 hours a week your business is leaking. <span style="color:#F5C518">Guaranteed.</span></h1>
-      <p style="color:#94a3b8;font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute session, a written plan, and <strong style="color:#f4f4f5;font-weight:600">a new website built as your first fix</strong> &mdash; online booking and intake form included. We map where your time actually goes, then show you what you can fix yourself and what&rsquo;s worth handing to an AI employee. <strong style="color:#f4f4f5;font-weight:600">If we can&rsquo;t find you at least 5 hours a week, you don&rsquo;t pay &mdash; and you keep the website.</strong></p>
+      <p style="color:#94a3b8;font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute session, a written plan showing where your time actually goes, and <strong style="color:#f4f4f5;font-weight:600">a new website with online booking built in</strong>.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
         <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
         <a class="btn-o" href="/report.html">Read a sample report <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
@@ -243,7 +250,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <h2 class="big">Five steps. About a week.</h2>
       <p class="lede" style="max-width:540px;margin:0 auto">No 47-slide decks. No 6-month timelines. A structured look at your week, a plan you can act on, and your site rebuilt around it.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(20px,3vw,28px);margin-top:52px">
+    <div class="steps5">
       <div class="step" style="text-align:center"><div class="step-num">1</div><h3>We talk</h3><p>A structured interview about how your days actually run. No pitching.</p><span class="tag">45 min</span></div>
       <div class="step" style="text-align:center"><div class="step-num">2</div><h3>We analyse</h3><p>Your call gets pulled apart against every tool and workflow we know, and your time leaks get costed.</p><span class="tag">Behind the scenes</span></div>
       <div class="step" style="text-align:center"><div class="step-num">3</div><h3>You get the report</h3><p>Where your hours go, what to fix this week, what to fix this quarter, and the dollar value of each.</p><span class="tag">Delivered</span></div>
