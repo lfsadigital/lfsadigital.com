@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SMS Updates — LFSA Digital</title>
-<meta name="description" content="Opt in to receive appointment confirmations and reminders, service inquiry responses, project status updates, follow-ups, and marketing updates by text from LFSA Digital.">
+<meta name="description" content="Optional opt-in for transactional text messages from LFSA Digital: appointment confirmations and reminders, service inquiry responses, and project status updates. No marketing or promotional texts.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +64,8 @@ nav{background:rgba(6,22,64,.92);backdrop-filter:blur(16px);border-bottom:1px so
 .consent input[type="checkbox"]:checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:12px;color:#000;font-weight:700}
 .consent span{color:var(--gray);font-size:.78rem;line-height:1.5}
 .consent a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
+.optional-note{color:var(--gray);font-size:.72rem;line-height:1.5;margin:-4px 0 0;opacity:.85}
+.optional-note a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
 
 /* Submit */
 .submit-btn{background:var(--gold);color:#000;border:none;border-radius:10px;padding:16px;font-family:var(--heading);font-weight:700;font-size:1rem;cursor:pointer;letter-spacing:.3px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px}
@@ -107,7 +109,7 @@ footer a{color:var(--gray-light)}
     <div id="formState">
       <div class="card-icon"><i class="fa-solid fa-message"></i></div>
       <h1>Get LFSA Digital updates by text</h1>
-      <p class="subtitle">Appointment confirmations and reminders, answers to your service inquiries, project status updates, follow-ups, and occasional marketing updates — sent by text from LFSA Digital.</p>
+      <p class="subtitle">Appointment confirmations and reminders, answers to service inquiries you submit, and project status updates &mdash; sent by text from LFSA Digital. Transactional messages only; we never send promotional or marketing texts.</p>
 
       <form class="sms-form" id="smsForm" novalidate>
         <div class="field">
@@ -120,9 +122,11 @@ footer a{color:var(--gray-light)}
         </div>
 
         <label class="consent">
-          <input type="checkbox" id="consentCheck" required>
-          <span>I agree to receive recurring SMS messages from LFSA Digital regarding service inquiries, marketing updates, appointment confirmations, project updates, and related business communications. Message frequency varies (up to 10 msgs/month). Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for assistance. Consent is not a condition of purchase. View our <a href="/privacy.html" target="_blank">Privacy Policy</a> &amp; <a href="/terms.html" target="_blank">Terms of Service</a>.</span>
+          <input type="checkbox" id="consentCheck">
+          <span>I agree to receive SMS messages from LFSA Digital about my appointments and service requests &mdash; confirmations, reminders, replies to inquiries I submit, and project status updates. These are transactional messages only. LFSA Digital does not send promotional or marketing text messages. Message frequency varies (up to 10 msgs/month). Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for assistance.</span>
         </label>
+
+        <p class="optional-note">Ticking this box is optional and does nothing except start text updates. It is not required to become a client, to buy anything, or to accept our terms &mdash; and you can work with LFSA Digital without it. See our <a href="/privacy.html" target="_blank">Privacy Policy</a> and <a href="/terms.html" target="_blank">Terms of Service</a>, which you are not agreeing to here.</p>
 
         <div class="error-msg" id="errorMsg"></div>
 
@@ -136,7 +140,7 @@ footer a{color:var(--gray-light)}
     <div class="success-state" id="successState">
       <i class="fa-solid fa-circle-check"></i>
       <h2>You're in! 🎉</h2>
-      <p>Check your phone — we just sent you a confirmation text. Welcome aboard.</p>
+      <p>You'll get a confirmation text shortly. Reply <strong>STOP</strong> at any time to opt out, or <strong>HELP</strong> for assistance.</p>
     </div>
 
   </div>
@@ -181,7 +185,7 @@ form.addEventListener('submit', async (e) => {
 
   if (!name) return showError('Please enter your name.');
   if (phone.length < 10) return showError('Please enter a valid phone number.');
-  if (!consent) return showError('Please agree to receive SMS messages.');
+  if (!consent) return showError('Tick the box if you want text updates. If you would rather not, just close this page — nothing else on this site needs it.');
 
   // Loading state
   submitBtn.disabled = true;
