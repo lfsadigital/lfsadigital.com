@@ -125,7 +125,7 @@ footer a{color:var(--gray-light)}
           <i class="fa-solid fa-phone"></i>
         </div>
 
-        <p class="consent-intro">Choose which texts you want. Both are optional and independent: tick one, both, or neither.</p>
+        <p class="consent-intro">Choose which texts you want. Both are optional and independent: tick one, both, or neither. <strong>You can submit this form with both boxes unticked</strong> and nothing will be sent to you.</p>
 
         <label class="consent">
           <input type="checkbox" id="consentCheck">
@@ -144,7 +144,7 @@ footer a{color:var(--gray-light)}
         <div class="error-msg" id="errorMsg"></div>
 
         <button type="submit" class="submit-btn" id="submitBtn">
-          <span class="btn-text">Subscribe</span>
+          <span class="btn-text">Continue</span>
           <div class="spinner"></div>
         </button>
       </form>
@@ -199,7 +199,8 @@ form.addEventListener('submit', async (e) => {
 
   if (!name) return showError('Please enter your name.');
   if (phone.length < 10) return showError('Please enter a valid phone number.');
-  if (!consent && !promoConsent) return showError('Pick at least one type of text to subscribe to, or use the skip link below. Neither is required to work with us.');
+  // No consent gate. The form submits with both boxes unticked and simply
+  // subscribes you to nothing — SMS consent is never a condition of submitting.
 
   // Loading state
   submitBtn.disabled = true;
@@ -222,13 +223,26 @@ form.addEventListener('submit', async (e) => {
     });
     if (!res.ok) throw new Error('Server error');
 
-    // Success
+    // The confirmation has to tell the truth about what was actually chosen —
+    // saying "you're in, expect a text" to someone who ticked nothing would be
+    // its own consent problem.
+    const h = successState.querySelector('h2');
+    const p = successState.querySelector('p');
+    if (!consent && !promoConsent) {
+      h.textContent = 'Thanks — nothing subscribed.';
+      p.innerHTML = 'You left both boxes unticked, so we will not text you. Nothing else changes: you can still work with LFSA Digital exactly as before.';
+    } else {
+      const picked = [consent ? 'appointment &amp; service texts' : null,
+                      promoConsent ? 'promotional texts' : null].filter(Boolean).join(' and ');
+      h.textContent = "You're in! 🎉";
+      p.innerHTML = 'You subscribed to ' + picked + '. You will get a confirmation text shortly. Reply <strong>STOP</strong> at any time to opt out, or <strong>HELP</strong> for assistance.';
+    }
     formState.style.display = 'none';
     successState.style.display = 'block';
   } catch (err) {
     showError('Something went wrong. Please try again or text us at (213) 566-3901.');
     submitBtn.disabled = false;
-    submitBtn.querySelector('.btn-text').textContent = 'Subscribe';
+    submitBtn.querySelector('.btn-text').textContent = 'Continue';
     submitBtn.querySelector('.spinner').style.display = 'none';
   }
 });
