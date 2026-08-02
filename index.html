@@ -57,84 +57,81 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="tokens.css">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{background:#0A2463;color:#f4f4f5;font-family:'Inter',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:#F5C518;text-decoration:none;transition:color .2s,border-color .2s,background .2s,transform .2s,box-shadow .2s}
-a:hover{color:#d4a912}
-::selection{background:#F5C518;color:#0A2463}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #F5C518;outline-offset:2px;border-radius:6px}
+/* Page-specific styles only.
+   Tokens, the reset, page shell, focus ring, range thumb and the shared
+   components (.wrap .sec .dark .card .btn-y .btn-outline .eyebrow .lede
+   .pill .step-num .steps5) now come from tokens.css — see that file to
+   change a brand value once instead of here in many places. */
+
+body{overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath d='M0,128h512 M0,384h512 M320,128v256 M192,128V0 M448,128V0 M192,384v128 M448,384v128 M64,128v256' vector-effect='non-scaling-stroke' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1px'/%3E%3C/svg%3E");background-size:8px;background-position:center;background-repeat:repeat}
-h1,h2,h3,h4,.gk{font-family:'Space Grotesk',sans-serif}
-.wrap{max-width:1100px;margin:0 auto}
-.sec{padding:clamp(64px,8vw,104px) clamp(20px,5vw,24px)}
-.dark{background:#061640}
-.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.eyebrow .line{width:24px;height:1px;background:#2DA0E0;flex-shrink:0}
-.eyebrow .txt{font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0}
+.gk{font-family:var(--font-display)}
+
+/* section furniture the system doesn't own */
+.eyebrow{margin-bottom:16px}
+.eyebrow .line{flex-shrink:0}
 .eyebrow.center{justify-content:center}
 h2.big{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px}
-.lede{color:#94a3b8;font-size:1.1rem;max-width:560px}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(22px,3vw,30px)}
-.btn-y{display:inline-flex;align-items:center;gap:11px;background:#F5C518;color:#061640;padding:16px 26px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.2px}
-.btn-y:hover{background:#d4a912;color:#061640;transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,197,24,.28)}
-.btn-o{display:inline-flex;align-items:center;gap:9px;background:transparent;color:#f4f4f5;border:1px solid rgba(255,255,255,.18);padding:16px 24px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.98rem}
-.btn-o:hover{border-color:#2DA0E0;color:#2DA0E0}
+
+/* nav */
 nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.08)}
-.navbar{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,24px);height:72px;display:flex;align-items:center;gap:16px}
+.navbar{max-width:var(--wrap);margin:0 auto;padding:0 clamp(16px,4vw,24px);height:var(--nav-h);display:flex;align-items:center;gap:16px}
 .navstrip{flex:1;display:flex;justify-content:center;align-items:center;gap:clamp(14px,2.4vw,30px);overflow-x:auto;scrollbar-width:none}
 .navstrip::-webkit-scrollbar{display:none}
-.navstrip a{font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap}
-.navstrip a:hover{color:#f4f4f5}
-.nav-cta{flex-shrink:0;background:#F5C518;color:#000;padding:10px 20px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.875rem;letter-spacing:.3px;white-space:nowrap}
-.nav-cta:hover{background:#d4a912;color:#000;transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
-.step-num{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(45,160,224,.06));border:1px solid rgba(245,197,24,.18);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:700;color:#F5C518}
+.navstrip a{font-family:var(--font-display);font-size:.875rem;font-weight:500;letter-spacing:.3px;color:var(--text-2);white-space:nowrap}
+.navstrip a:hover{color:var(--text)}
+.nav-cta{flex-shrink:0;background:var(--gold);color:var(--deep);padding:10px 20px;border-radius:var(--r-btn);font-family:var(--font-display);font-weight:700;font-size:.875rem;letter-spacing:.3px;white-space:nowrap}
+.nav-cta:hover{background:var(--gold-hover);color:var(--deep);transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
+
+/* steps */
+.step-num{margin:0 auto 18px}
 .step h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
-.step p{color:#94a3b8;font-size:.92rem;max-width:250px;margin:0 auto 10px}
-.step .tag{font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#2DA0E0}
-/* Explicit column counts, not auto-fit: with 5 steps, auto-fit orphans the
-   last one onto its own row (the 4+1 that shipped on 2026-07-22). Each
-   breakpoint below divides 5 into rows that look deliberate. */
-.steps5{display:grid;gap:clamp(16px,2.2vw,24px);margin-top:52px;grid-template-columns:repeat(5,1fr)}
-@media(max-width:1040px){.steps5{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:660px){.steps5{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:430px){.steps5{grid-template-columns:1fr}}
-.pill{font-size:.86rem;color:#cbd5e1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:7px 14px;border-radius:20px}
-.vid{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;color:inherit}
+.step p{color:var(--mute);font-size:.92rem;max-width:250px;margin:0 auto 10px}
+.step .tag{font-family:var(--font-display);font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue)}
+.steps5{gap:clamp(16px,2.2vw,24px);margin-top:52px}
+
+/* video cards */
+.vid{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-tile);overflow:hidden;display:flex;flex-direction:column;color:inherit}
 .vid:hover{border-color:rgba(245,197,24,.25);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
-.vid h4{font-size:.82rem;font-weight:600;line-height:1.35;color:#f4f4f5}
-.faq-q{width:100%;background:none;border:none;color:#f4f4f5;font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:600;padding:22px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
-.faq-q:hover{color:#F5C518}
-.faq-a{color:#94a3b8;font-size:.96rem;line-height:1.7;padding:0 0 24px;max-width:660px;display:none}
+.vid h4{font-size:.82rem;font-weight:600;line-height:1.35;color:var(--text)}
+
+/* faq */
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-family:var(--font-display);font-size:1.02rem;font-weight:600;padding:22px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color var(--t)}
+.faq-q:hover{color:var(--gold)}
+.faq-a{color:var(--mute);font-size:.96rem;line-height:1.7;padding:0 0 24px;max-width:660px;display:none}
 .faq-item.open .faq-a{display:block}
 .faq-item .fa-minus{display:none}
 .faq-item.open .fa-minus{display:inline-block}
 .faq-item.open .fa-plus{display:none}
-.socials a{color:#94a3b8}
-.socials a:hover{color:#F5C518}
-footer .fnav a{color:#94a3b8;font-size:.82rem;font-family:'Space Grotesk',sans-serif}
-footer .fnav a:hover{color:#f4f4f5}
-.wa{position:fixed;bottom:24px;right:24px;z-index:9999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+
+/* social + footer */
+.socials a{color:var(--mute)}
+.socials a:hover{color:var(--gold)}
+footer .fnav a{color:var(--mute);font-size:.82rem;font-family:var(--font-display)}
+footer .fnav a:hover{color:var(--text)}
+.wa{position:fixed;bottom:24px;right:24px;z-index:9999;background:var(--whatsapp);width:56px;height:56px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .wa:hover{transform:scale(1.08)}
+
+/* calculator */
 .calcwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,44px);align-items:start}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,.12);outline:none;margin:14px 0 6px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#F5C518;cursor:pointer;border:3px solid #061640;box-shadow:0 2px 8px rgba(0,0,0,.4)}
-input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#F5C518;cursor:pointer;border:3px solid #061640}
-.rate-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#cbd5e1;border-radius:9px;padding:12px 14px;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;transition:all .18s;width:100%}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:var(--r-full);background:var(--gold);cursor:pointer;border:3px solid var(--deep);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r-full);background:var(--gold);cursor:pointer;border:3px solid var(--deep)}
+.rate-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:var(--text-2);border-radius:9px;padding:12px 14px;cursor:pointer;font-family:var(--font-body);text-align:left;transition:all .18s;width:100%}
 .rate-btn:hover{border-color:rgba(245,197,24,.4)}
-.rate-btn.on{background:rgba(245,197,24,.1);border-color:#F5C518;color:#f4f4f5}
-.rate-btn .rr{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;display:block}
+.rate-btn.on{background:var(--gold-tint);border-color:var(--gold);color:var(--text)}
+.rate-btn .rr{font-family:var(--font-display);font-weight:700;font-size:1rem;display:block}
 #rate-custom{cursor:text}
-#c-custom{width:74px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:5px;color:inherit;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;padding:1px 6px;-moz-appearance:textfield}
-#c-custom:focus{outline:none;border-color:#F5C518;background:rgba(245,197,24,.12)}
+#c-custom{width:74px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:5px;color:inherit;font-family:var(--font-display);font-weight:700;font-size:1rem;padding:1px 6px;-moz-appearance:textfield}
+#c-custom:focus{outline:none;border-color:var(--gold);background:rgba(245,197,24,.12)}
 #rate-custom.on #c-custom{border-color:rgba(245,197,24,.5)}
-.rate-btn .rd{font-size:.78rem;color:#94a3b8;display:block;margin-top:2px}
-.rate-btn.on .rd{color:#cbd5e1}
-.outrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.outrow .ol{color:#94a3b8;font-size:.92rem}
-.outrow .ov{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
+.rate-btn .rd{font-size:.78rem;color:var(--mute);display:block;margin-top:2px}
+.rate-btn.on .rd{color:var(--text-2)}
+.outrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--divide)}
+.outrow .ol{color:var(--mute);font-size:.92rem}
+.outrow .ov{font-family:var(--font-display);font-weight:700;font-size:1.15rem}
 </style>
 </head>
 <body>
@@ -159,45 +156,45 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   <div class="wrap" style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(36px,5vw,64px);align-items:center">
     <div>
       <div class="eyebrow" style="margin-bottom:20px"><span class="line"></span><span class="txt">AI <em style="font-style:italic">in Your Business</em> · Money-back</span></div>
-      <h1 style="font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px">Find the 5&ndash;10 hours a week your business is leaking. <span style="color:#F5C518">Guaranteed.</span></h1>
-      <p style="color:#94a3b8;font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute session, a plan with the exact fixes that get those hours back, and <strong style="color:#f4f4f5;font-weight:600">a new website with online booking built in</strong>.</p>
+      <h1 style="font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px">Find the 5&ndash;10 hours a week your business is leaking. <span style="color:var(--gold)">Guaranteed.</span></h1>
+      <p style="color:var(--mute);font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute session, a plan with the exact fixes that get those hours back, and <strong style="color:var(--text);font-weight:600">a new website with online booking built in</strong>.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
         <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
-        <a class="btn-o" href="/report.html">Read a sample report <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+        <a class="btn-outline" href="/report.html">Read a sample report <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:#cbd5e1;font-size:.92rem"><i class="fa-solid fa-shield-halved" style="color:#2DA0E0"></i> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--text-2);font-size:.92rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
     </div>
     <div class="card" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-        <span class="gk" style="font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8">Sample Report</span>
-        <span class="gk" style="font-size:.62rem;font-weight:700;letter-spacing:1px;color:#061640;background:#F5C518;padding:3px 9px;border-radius:5px">SAMPLE</span>
+        <span class="gk" style="font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)">Sample Report</span>
+        <span class="gk" style="font-size:.62rem;font-weight:700;letter-spacing:1px;color:var(--deep);background:var(--gold);padding:3px 9px;border-radius:5px">SAMPLE</span>
       </div>
       <div class="gk" style="font-size:1.3rem;font-weight:700;margin-bottom:22px">Where your week goes</div>
       <div style="display:flex;flex-direction:column;gap:15px">
-        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:#cbd5e1;margin-bottom:6px"><span>Inbox &amp; email</span><span class="gk" style="font-weight:600;color:#F5C518">6.2h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:82%;height:100%;background:#F5C518;border-radius:4px"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:#cbd5e1;margin-bottom:6px"><span>Scheduling &amp; follow-up</span><span class="gk" style="font-weight:600;color:#F5C518">4.1h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:54%;height:100%;background:#F5C518;border-radius:4px"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:#cbd5e1;margin-bottom:6px"><span>Manual data entry</span><span class="gk" style="font-weight:600;color:#F5C518">3.3h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:43%;height:100%;background:#F5C518;border-radius:4px"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:#cbd5e1;margin-bottom:6px"><span>Reporting</span><span class="gk" style="font-weight:600;color:#F5C518">2.2h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:29%;height:100%;background:#F5C518;border-radius:4px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:var(--text-2);margin-bottom:6px"><span>Inbox &amp; email</span><span class="gk" style="font-weight:600;color:var(--gold)">6.2h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:82%;height:100%;background:var(--gold);border-radius:4px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:var(--text-2);margin-bottom:6px"><span>Scheduling &amp; follow-up</span><span class="gk" style="font-weight:600;color:var(--gold)">4.1h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:54%;height:100%;background:var(--gold);border-radius:4px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:var(--text-2);margin-bottom:6px"><span>Manual data entry</span><span class="gk" style="font-weight:600;color:var(--gold)">3.3h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:43%;height:100%;background:var(--gold);border-radius:4px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:var(--text-2);margin-bottom:6px"><span>Reporting</span><span class="gk" style="font-weight:600;color:var(--gold)">2.2h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:29%;height:100%;background:var(--gold);border-radius:4px"></div></div></div>
       </div>
       <div style="height:1px;background:rgba(255,255,255,.09);margin:22px 0 18px"></div>
       <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
-        <div><div class="gk" style="font-size:.68rem;font-weight:600;letter-spacing:1.2px;color:#94a3b8;margin-bottom:5px">NET MONTHLY ROI</div><div class="gk" style="font-size:2rem;font-weight:700">$4,800<span style="font-size:.95rem;font-weight:500;color:#94a3b8">/mo</span></div></div>
-        <div style="font-size:.76rem;color:#94a3b8;text-align:right;line-height:1.5">15.8 hrs/wk found<br>4-day start plan incl.</div>
+        <div><div class="gk" style="font-size:.68rem;font-weight:600;letter-spacing:1.2px;color:var(--mute);margin-bottom:5px">NET MONTHLY ROI</div><div class="gk" style="font-size:2rem;font-weight:700">$4,800<span style="font-size:.95rem;font-weight:500;color:var(--mute)">/mo</span></div></div>
+        <div style="font-size:.76rem;color:var(--mute);text-align:right;line-height:1.5">15.8 hrs/wk found<br>4-day start plan incl.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:#F5C518;color:#061640;padding:clamp(48px,7vw,76px) clamp(20px,5vw,24px)">
+<section style="background:var(--gold);color:var(--deep);padding:clamp(48px,7vw,76px) clamp(20px,5vw,24px)">
   <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(28px,5vw,52px)">
     <div style="flex-shrink:0;width:138px;height:138px;border-radius:50%;border:2px solid rgba(6,22,64,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
       <div class="gk" style="font-size:2.1rem;font-weight:700;line-height:1">100%</div>
       <div class="gk" style="font-size:.66rem;font-weight:700;letter-spacing:2px;margin-top:3px">MONEY BACK</div>
     </div>
     <div style="flex:1;min-width:min(100%,320px)">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:24px;height:1px;background:#061640"></span><span class="gk" style="text-transform:uppercase;font-size:.72rem;font-weight:700;letter-spacing:3px">The guarantee</span></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:24px;height:1px;background:var(--deep)"></span><span class="gk" style="text-transform:uppercase;font-size:.72rem;font-weight:700;letter-spacing:3px">The guarantee</span></div>
       <h2 style="font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:700;line-height:1.08;letter-spacing:-.5px;margin-bottom:14px">The only thing you risk is 45 minutes.</h2>
-      <p style="font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.6;color:#061640;font-weight:500;max-width:660px">If we don&rsquo;t find you at least 5 hours a week, you get 100% of your money back. No argument, no conditions. <strong style="font-weight:700">And the website stays yours either way.</strong></p>
+      <p style="font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.6;color:var(--deep);font-weight:500;max-width:660px">If we don&rsquo;t find you at least 5 hours a week, you get 100% of your money back. No argument, no conditions. <strong style="font-weight:700">And the website stays yours either way.</strong></p>
     </div>
   </div>
 </section>
@@ -212,12 +209,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <label for="c-hours" class="gk" style="font-size:.95rem;font-weight:600;display:block">Hours reclaimed each week</label>
         <input type="range" id="c-hours" min="5" max="10" step="0.5" value="7" aria-describedby="c-hours-out">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <span style="color:#94a3b8;font-size:.8rem">5, our guaranteed minimum</span>
-          <span id="c-hours-out" class="gk" style="color:#F5C518;font-weight:700;font-size:1.3rem">7 hrs</span>
+          <span style="color:var(--mute);font-size:.8rem">5, our guaranteed minimum</span>
+          <span id="c-hours-out" class="gk" style="color:var(--gold);font-weight:700;font-size:1.3rem">7 hrs</span>
         </div>
 
         <div class="gk" style="font-size:.95rem;font-weight:600;margin:30px 0 6px">What&rsquo;s an hour of this work worth?</div>
-        <p style="color:#94a3b8;font-size:.84rem;margin-bottom:12px">Most owners have no idea, so pick the anchor that fits. We default to the cheapest one.</p>
+        <p style="color:var(--mute);font-size:.84rem;margin-bottom:12px">Most owners have no idea, so pick the anchor that fits. We default to the cheapest one.</p>
         <div style="display:flex;flex-direction:column;gap:9px">
           <button type="button" class="rate-btn on" data-rate="45"><span class="rr">$45 / hour</span><span class="rd">What it costs to hire someone for this work</span></button>
           <button type="button" class="rate-btn" data-rate="75"><span class="rr">$75 / hour</span><span class="rd">A skilled employee doing it properly</span></button>
@@ -233,10 +230,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <div class="outrow"><span class="ol">Worth per month</span><span class="ov" id="c-vm">$1,213</span></div>
         <div class="outrow" style="border-bottom:none"><span class="ol">Worth per year</span><span class="ov" id="c-vy">$14,559</span></div>
         <div style="background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.3);border-radius:10px;padding:18px 20px;margin-top:20px;text-align:center">
-          <div class="gk" style="font-size:.68rem;font-weight:600;letter-spacing:1.6px;color:#F5C518;text-transform:uppercase;margin-bottom:6px">The $999 pays for itself in</div>
-          <div class="gk" style="font-size:clamp(2.2rem,5vw,2.8rem);font-weight:700;line-height:1"><span id="c-days">25</span> <span style="font-size:1.1rem;font-weight:500;color:#cbd5e1">days</span></div>
+          <div class="gk" style="font-size:.68rem;font-weight:600;letter-spacing:1.6px;color:var(--gold);text-transform:uppercase;margin-bottom:6px">The $999 pays for itself in</div>
+          <div class="gk" style="font-size:clamp(2.2rem,5vw,2.8rem);font-weight:700;line-height:1"><span id="c-days">25</span> <span style="font-size:1.1rem;font-weight:500;color:var(--text-2)">days</span></div>
         </div>
-        <p style="color:#94a3b8;font-size:.8rem;margin-top:16px;line-height:1.6">Reclaimed hours are capacity, not cash. They pay off when that time goes into work that grows the business. Your report shows exactly which hours, and what to do with them.</p>
+        <p style="color:var(--mute);font-size:.8rem;margin-top:16px;line-height:1.6">Reclaimed hours are capacity, not cash. They pay off when that time goes into work that grows the business. Your report shows exactly which hours, and what to do with them.</p>
         <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:18px"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> &middot; $999</a>
       </div>
     </div>
@@ -268,22 +265,22 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,4vw,44px);align-items:start">
       <div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:20px">
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-star" style="color:#F5C518;margin-top:5px"></i><span style="font-size:1.04rem;color:#e5e7eb"><strong style="color:#fff;font-weight:600">A new 5-page website</strong>, built for you, with online booking and an intake form so enquiries stop living in your phone. Yours to keep, whatever you decide afterwards.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:#2DA0E0;margin-top:5px"></i><span style="font-size:1.04rem;color:#e5e7eb"><strong style="color:#fff;font-weight:600">Your top time leaks</strong>, quantified in hours and dollars.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:#2DA0E0;margin-top:5px"></i><span style="font-size:1.04rem;color:#e5e7eb"><strong style="color:#fff;font-weight:600">Quick wins</strong>: off-the-shelf tools you can set up yourself, with real prices and setup times.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:#2DA0E0;margin-top:5px"></i><span style="font-size:1.04rem;color:#e5e7eb"><strong style="color:#fff;font-weight:600">A 4-day start plan</strong>: one action per day, under 10 minutes each.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:#2DA0E0;margin-top:5px"></i><span style="font-size:1.04rem;color:#e5e7eb"><strong style="color:#fff;font-weight:600">The bigger opportunities</strong>: work worth handing to a dedicated AI employee, priced.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:#2DA0E0;margin-top:5px"></i><span style="font-size:1.04rem;color:#e5e7eb"><strong style="color:#fff;font-weight:600">The net monthly ROI</strong>, in numbers.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-star" style="color:var(--gold);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">A new 5-page website</strong>, built for you, with online booking and an intake form so enquiries stop living in your phone. Yours to keep, whatever you decide afterwards.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">Your top time leaks</strong>, quantified in hours and dollars.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">Quick wins</strong>: off-the-shelf tools you can set up yourself, with real prices and setup times.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">A 4-day start plan</strong>: one action per day, under 10 minutes each.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">The bigger opportunities</strong>: work worth handing to a dedicated AI employee, priced.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">The net monthly ROI</strong>, in numbers.</span></li>
         </ul>
-        <a class="btn-o" href="/report.html" style="margin-top:34px;padding:14px 24px;font-size:.95rem"><i class="fa-solid fa-file-lines"></i> Read a full sample report</a>
+        <a class="btn-outline" href="/report.html" style="margin-top:34px;padding:14px 24px;font-size:.95rem"><i class="fa-solid fa-file-lines"></i> Read a full sample report</a>
       </div>
       <div class="card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><i class="fa-solid fa-calendar-day" style="color:#F5C518"></i><span class="gk" style="font-size:1.05rem;font-weight:700">Your 4-day start plan</span><span class="gk" style="font-size:.6rem;font-weight:700;letter-spacing:1px;color:#061640;background:#F5C518;padding:3px 8px;border-radius:5px;margin-left:auto">SAMPLE</span></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><i class="fa-solid fa-calendar-day" style="color:var(--gold)"></i><span class="gk" style="font-size:1.05rem;font-weight:700">Your 4-day start plan</span><span class="gk" style="font-size:.6rem;font-weight:700;letter-spacing:1px;color:var(--deep);background:var(--gold);padding:3px 8px;border-radius:5px;margin-left:auto">SAMPLE</span></div>
         <div style="display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#2DA0E0">MON</span><div><div style="font-size:.94rem;color:#e5e7eb">Turn on templates for your 3 most-repeated replies.</div><div style="font-size:.74rem;color:#94a3b8;margin-top:2px">&lt; 10 min</div></div></div>
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#2DA0E0">TUE</span><div><div style="font-size:.94rem;color:#e5e7eb">Add a booking link so scheduling stops eating your inbox.</div><div style="font-size:.74rem;color:#94a3b8;margin-top:2px">&lt; 10 min</div></div></div>
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#2DA0E0">WED</span><div><div style="font-size:.94rem;color:#e5e7eb">Auto-file receipts into one folder with a single rule.</div><div style="font-size:.74rem;color:#94a3b8;margin-top:2px">&lt; 10 min</div></div></div>
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#2DA0E0">THU</span><div><div style="font-size:.94rem;color:#e5e7eb">Draft your weekly update from one saved prompt.</div><div style="font-size:.74rem;color:#94a3b8;margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">MON</span><div><div style="font-size:.94rem;color:var(--body)">Turn on templates for your 3 most-repeated replies.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">TUE</span><div><div style="font-size:.94rem;color:var(--body)">Add a booking link so scheduling stops eating your inbox.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">WED</span><div><div style="font-size:.94rem;color:var(--body)">Auto-file receipts into one folder with a single rule.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">THU</span><div><div style="font-size:.94rem;color:var(--body)">Draft your weekly update from one saved prompt.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
         </div>
       </div>
     </div>
@@ -294,35 +291,35 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
     <div>
       <div class="eyebrow"><span class="line"></span><span class="txt">Afterwards</span></div>
-      <h2 class="big" style="margin-bottom:20px">We build it. You <span style="color:#F5C518">make money</span>, <span style="color:#2DA0E0">save time</span>.</h2>
-      <p style="color:#94a3b8;font-size:1.08rem;line-height:1.7;margin-bottom:24px;max-width:540px">About half of clients ask us to run the big items for them. That&rsquo;s an AI employee: a narrow role we build, operate, and stand behind. It works every week, you review the output, and nothing leaves your business without your approval.</p>
+      <h2 class="big" style="margin-bottom:20px">We build it. You <span style="color:var(--gold)">make money</span>, <span style="color:var(--blue)">save time</span>.</h2>
+      <p style="color:var(--mute);font-size:1.08rem;line-height:1.7;margin-bottom:24px;max-width:540px">About half of clients ask us to run the big items for them. That&rsquo;s an AI employee: a narrow role we build, operate, and stand behind. It works every week, you review the output, and nothing leaves your business without your approval.</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px">
         <span class="pill">Inbox triage</span><span class="pill">Research &amp; reporting</span><span class="pill">CRM hygiene</span><span class="pill">Deal materials</span>
       </div>
       <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
         <div class="gk" style="font-size:1.15rem;font-weight:700;line-height:1.4;max-width:300px">Scoped and priced in your plan</div>
-        <a href="/ai-employees.html" class="gk" style="display:inline-flex;align-items:center;gap:9px;color:#F5C518;font-weight:600;font-size:1rem;border-bottom:1px solid rgba(245,197,24,.35);padding-bottom:3px">See AI employees <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+        <a href="/ai-employees.html" class="gk" style="display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:600;font-size:1rem;border-bottom:1px solid rgba(245,197,24,.35);padding-bottom:3px">See AI employees <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
       </div>
     </div>
     <div class="card">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;color:#F5C518"><i class="fa-solid fa-inbox"></i></span><div><div class="gk" style="font-weight:700;font-size:1rem">Inbox Employee</div><div style="font-size:.8rem;color:#94a3b8">Friday report · draft-only first 30 days</div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;color:var(--gold)"><i class="fa-solid fa-inbox"></i></span><div><div class="gk" style="font-weight:700;font-size:1rem">Inbox Employee</div><div style="font-size:.8rem;color:var(--mute)">Friday report · draft-only first 30 days</div></div></div>
       <div style="display:flex;flex-direction:column;gap:11px">
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:#cbd5e1"><i class="fa-solid fa-check" style="color:#2DA0E0;font-size:.85em"></i> Triaged inbox by category, every morning</div>
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:#cbd5e1"><i class="fa-solid fa-check" style="color:#2DA0E0;font-size:.85em"></i> Drafted replies for routine threads</div>
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:#cbd5e1"><i class="fa-solid fa-check" style="color:#2DA0E0;font-size:.85em"></i> Follow-up detection on anything gone quiet</div>
+        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Triaged inbox by category, every morning</div>
+        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Drafted replies for routine threads</div>
+        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Follow-up detection on anything gone quiet</div>
       </div>
       <div style="height:1px;background:rgba(255,255,255,.09);margin:20px 0 16px"></div>
-      <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:.82rem;color:#94a3b8">You review &amp; approve everything</span><i class="fa-solid fa-shield-halved" style="color:#2DA0E0"></i></div>
+      <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:.82rem;color:var(--mute)">You review &amp; approve everything</span><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i></div>
     </div>
   </div>
 </section>
 
 <div style="padding:36px 24px;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)">
   <div class="wrap" style="display:flex;justify-content:center;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:center">
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:#94a3b8;font-size:.9rem"><i class="fa-brands fa-youtube" style="color:#2DA0E0;font-size:1.1rem"></i> YouTube tutorials</div>
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:#94a3b8;font-size:.9rem"><i class="fa-solid fa-microphone" style="color:#2DA0E0;font-size:1.1rem"></i> AI voice agents in production</div>
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:#94a3b8;font-size:.9rem"><i class="fa-solid fa-code" style="color:#2DA0E0;font-size:1.1rem"></i> Apps built with AI assisted dev</div>
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:#94a3b8;font-size:.9rem"><i class="fa-solid fa-gear" style="color:#2DA0E0;font-size:1.1rem"></i> Workflow automations deployed</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-brands fa-youtube" style="color:var(--blue);font-size:1.1rem"></i> YouTube tutorials</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-solid fa-microphone" style="color:var(--blue);font-size:1.1rem"></i> AI voice agents in production</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-solid fa-code" style="color:var(--blue);font-size:1.1rem"></i> Apps built with AI assisted dev</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-solid fa-gear" style="color:var(--blue);font-size:1.1rem"></i> Workflow automations deployed</div>
   </div>
 </div>
 
@@ -341,12 +338,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <div class="eyebrow"><span class="line"></span><span class="txt">About</span></div>
     <h2 class="big" style="margin-bottom:40px">Built by a builder.</h2>
     <div style="display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,40px);align-items:center">
-      <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#F5C518,#2DA0E0);display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:#061640;border:3px solid rgba(255,255,255,.1)"><i class="fa-solid fa-bolt"></i></div>
+      <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--blue));display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:var(--deep);border:3px solid rgba(255,255,255,.1)"><i class="fa-solid fa-bolt"></i></div>
       <div style="min-width:min(100%,280px)">
         <h3 class="gk" style="font-size:1.5rem;font-weight:700;margin-bottom:4px">Luiz Almeida</h3>
-        <p class="gk" style="color:#2DA0E0;font-size:.85rem;font-weight:500;margin-bottom:16px;letter-spacing:.5px">Founder · AI Builder · Software Developer</p>
-        <p style="color:#94a3b8;font-size:.98rem;margin-bottom:12px;max-width:560px">I build AI systems and software that solve real problems. I&rsquo;ve shipped voice agents handling live calls, automation workflows processing thousands of tasks, and apps from zero to the App Store.</p>
-        <p style="color:#94a3b8;font-size:.98rem;margin-bottom:16px;max-width:560px">I don&rsquo;t do PowerPoint. I build, I ship, and this only counts if it finds you real time. If you have a problem that AI or software can solve, let&rsquo;s talk.</p>
+        <p class="gk" style="color:var(--blue);font-size:.85rem;font-weight:500;margin-bottom:16px;letter-spacing:.5px">Founder · AI Builder · Software Developer</p>
+        <p style="color:var(--mute);font-size:.98rem;margin-bottom:12px;max-width:560px">I build AI systems and software that solve real problems. I&rsquo;ve shipped voice agents handling live calls, automation workflows processing thousands of tasks, and apps from zero to the App Store.</p>
+        <p style="color:var(--mute);font-size:.98rem;margin-bottom:16px;max-width:560px">I don&rsquo;t do PowerPoint. I build, I ship, and this only counts if it finds you real time. If you have a problem that AI or software can solve, let&rsquo;s talk.</p>
         <div class="socials" style="display:flex;gap:18px;margin-top:16px;font-size:1.15rem">
           <a href="https://www.youtube.com/@lfsadigital" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           <a href="https://www.instagram.com/lfsadigital/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -369,20 +366,20 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 </section>
 
-<section style="text-align:center;background:linear-gradient(180deg,#0A2463,#061640);padding:clamp(72px,9vw,120px) clamp(20px,5vw,24px)">
+<section style="text-align:center;background:linear-gradient(180deg,var(--navy),var(--deep));padding:clamp(72px,9vw,120px) clamp(20px,5vw,24px)">
   <div style="max-width:640px;margin:0 auto">
     <div class="eyebrow center"><span class="line"></span><span class="txt">Start here</span><span class="line"></span></div>
     <h2 class="gk" style="font-size:clamp(2.1rem,5vw,3.2rem);font-weight:700;line-height:1.06;letter-spacing:-1px;margin-bottom:18px">Find your 5 hours.</h2>
-    <p style="color:#94a3b8;font-size:1.12rem;margin:0 auto 34px;max-width:480px">One 45-minute audit. A costed plan you own. A new website built as the first fix. Money back if we don&rsquo;t find the time, and the site stays yours.</p>
+    <p style="color:var(--mute);font-size:1.12rem;margin:0 auto 34px;max-width:480px">One 45-minute audit. A costed plan you own. A new website built as the first fix. Money back if we don&rsquo;t find the time, and the site stays yours.</p>
     <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="padding:17px 30px;font-size:1.05rem"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
-    <p style="color:#94a3b8;margin-top:18px;font-size:.9rem"><i class="fa-solid fa-shield-halved" style="color:#2DA0E0"></i> 100% money-back guarantee &nbsp;·&nbsp; or email <a href="mailto:luiz@lfsadigital.com">luiz@lfsadigital.com</a></p>
+    <p style="color:var(--mute);margin-top:18px;font-size:.9rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> 100% money-back guarantee &nbsp;·&nbsp; or email <a href="mailto:luiz@lfsadigital.com">luiz@lfsadigital.com</a></p>
   </div>
 </section>
 
 <section id="sample" class="dark" style="padding:clamp(48px,7vw,80px) clamp(20px,5vw,24px);border-top:1px solid rgba(255,255,255,.05)">
   <div style="max-width:720px;margin:0 auto;text-align:center">
     <h3 class="gk" style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:10px">See a full sample report.</h3>
-    <p style="color:#94a3b8;font-size:1.02rem;margin:0 auto 24px;max-width:520px">A complete report, start to finish: the time leaks, the costed quick wins, the 4-day plan, and what&rsquo;s worth staffing. No email required.</p>
+    <p style="color:var(--mute);font-size:1.02rem;margin:0 auto 24px;max-width:520px">A complete report, start to finish: the time leaks, the costed quick wins, the 4-day plan, and what&rsquo;s worth staffing. No email required.</p>
     <a class="btn-y" href="/report.html"><i class="fa-solid fa-file-lines"></i> Read the sample report</a>
   </div>
 </section>
@@ -415,7 +412,7 @@ var vids=[["4Z5j0qtjcjE","AI Agent for a Med Clinic using N8N and WhatsApp","14:
 var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;};
 document.getElementById('vidgrid').innerHTML=vids.map(function(v){
 return '<a class="vid" href="https://www.youtube.com/watch?v='+v[0]+'" target="_blank" rel="noopener">'
-+'<div style="position:relative;aspect-ratio:16/9;background:#061640;overflow:hidden">'
++'<div style="position:relative;aspect-ratio:16/9;background:var(--deep);overflow:hidden">'
 +'<img src="https://i.ytimg.com/vi/'+v[0]+'/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover">'
 +'<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><i class="fa-brands fa-youtube" style="color:#ff0000;font-size:2rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))"></i></span>'
 +'<span class="gk" style="position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.85);color:#fff;font-size:.68rem;font-weight:600;padding:2px 6px;border-radius:3px">'+esc(v[2])+'</span>'
@@ -426,7 +423,7 @@ var faqs=[["What exactly is AI in Your Business?","A 45-minute structured interv
 document.getElementById('faqlist').innerHTML=faqs.map(function(f,i){
 return '<div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,.06)">'
 +'<button class="faq-q" aria-expanded="false" aria-controls="faq-a-'+i+'"><span>'+esc(f[0])+'</span>'
-+'<span style="flex-shrink:0"><i class="fa-solid fa-minus" style="color:#F5C518;font-size:.8rem"></i><i class="fa-solid fa-plus" style="color:#F5C518;font-size:.8rem"></i></span></button>'
++'<span style="flex-shrink:0"><i class="fa-solid fa-minus" style="color:var(--gold);font-size:.8rem"></i><i class="fa-solid fa-plus" style="color:var(--gold);font-size:.8rem"></i></span></button>'
 +'<div class="faq-a" id="faq-a-'+i+'">'+esc(f[1])+'</div></div>';
 }).join('');
 document.querySelectorAll('.faq-q').forEach(function(btn){
