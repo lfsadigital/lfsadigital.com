@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LFSA Digital Design System · v1.0</title>
+<meta name="description" content="Brand and UI system for LFSA Digital: the mark, the palette, the type, the components, and the rules for using them.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../tokens.css">
+</head>
+<body>
+<div style="position:relative;min-height:100vh">
+
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath d='M0,128h512 M0,384h512 M320,128v256 M192,128V0 M448,128V0 M192,384v128 M448,384v128 M64,128v256' vector-effect='non-scaling-stroke' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1px'/%3E%3C/svg%3E&quot;);background-size:8px;background-repeat:repeat"></div>
+
+<div style="position:relative;z-index:1">
+
+<nav style="position:sticky;top:0;z-index:100;background:rgba(6,22,64,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.1)">
+  <div style="max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,28px);height:72px;display:flex;align-items:center;gap:18px">
+    <a href="#top" style="flex-shrink:0;display:flex;align-items:center;gap:11px">
+      <img src="../logo-mark.svg" alt="LFSA Digital" width="38" height="38" style="width:38px;height:38px">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.4px;color:#f4f4f5">Design System</span>
+    </a>
+    <div style="flex:1;display:flex;justify-content:flex-end;align-items:center;gap:clamp(12px,1.8vw,24px);overflow-x:auto">
+      <a href="#logo" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Logo</a>
+      <a href="#color" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Color</a>
+      <a href="#type" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Type</a>
+      <a href="#icons" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Icons</a>
+      <a href="#components" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Components</a>
+      <a href="#surfaces" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Surfaces</a>
+      <a href="#tokens" class="nav-link" style="font-family:'Space Grotesk',sans-serif;font-size:.83rem;font-weight:500;white-space:nowrap">Tokens</a>
+    </div>
+  </div>
+</nav>
+
+<section id="top" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,28px) clamp(48px,6vw,72px);position:relative;overflow:hidden">
+  <div style="position:absolute;top:-14%;right:-6%;width:560px;height:560px;background:radial-gradient(circle,rgba(245,197,24,.08) 0%,transparent 70%);pointer-events:none"></div>
+  <div style="max-width:1180px;margin:0 auto;position:relative">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+      <span style="width:24px;height:1px;background:#2DA0E0"></span>
+      <span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">Brand &amp; UI system · v1.0 · August 2026</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5.6vw,4rem);font-weight:700;line-height:1.03;letter-spacing:-1.6px;margin-bottom:22px;max-width:16ch">The LFSA Digital <span style="color:#F5C518">design system</span>.</h1>
+    <p style="color:#94a3b8;font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;max-width:600px;text-wrap:pretty">Everything that makes something look like LFSA Digital: the mark, the palette, the type, the components, and the rules for using them. Codified from lfsadigital.com, with the drifts cleaned up. Copy the tokens, paste the snippets, ship.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px;margin-top:44px;max-width:900px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;color:#F5C518;line-height:1">4</div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-top:4px">brand colors</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;color:#F5C518;line-height:1">2</div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-top:4px">typefaces</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;color:#F5C518;line-height:1">2</div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-top:4px">surfaces: dark web, light doc</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;color:#F5C518;line-height:1">1</div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-top:4px">token block to paste</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F5C518;color:#061640;padding:clamp(36px,5vw,52px) clamp(20px,5vw,28px)">
+  <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(24px,4vw,44px)">
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.68rem;font-weight:700;letter-spacing:2.4px;margin-bottom:10px">The one-line brief</div>
+      <p style="font-size:clamp(1.1rem,2vw,1.5rem);font-weight:600;line-height:1.35;font-family:'Space Grotesk',sans-serif;letter-spacing:-.3px">Confident, technical, plain-spoken. A builder's brand, not an agency's.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;font-size:.94rem;font-weight:500">
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="margin-top:5px"></i><span>Deep navy ground, gold for the one thing that matters, blue for structure.</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-check" style="margin-top:5px"></i><span>Numbers over adjectives. Every claim is costed.</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><i class="fa-solid fa-xmark" style="margin-top:5px"></i><span>No stock photos, no gradients-as-decoration, no emoji, no exclamation marks.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="logo" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px);background:#061640">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">01 · Logo</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">The mark is a hub, not a sun.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:640px;margin-bottom:48px;text-wrap:pretty">Eight nodes on spokes around a gold core: work routed out, results routed back. Flat, geometric, no shadow, no bevel. It reads at 24px, which is the only test that matters.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;margin-bottom:48px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:24px">Primary mark</div>
+        <div style="display:flex;justify-content:center;padding:20px 0 28px"><img src="../logo-mark.svg" alt="LFSA Digital mark" style="width:150px;height:150px"></div>
+        <div style="font-size:.88rem;color:#cbd5e1;line-height:1.6">Use everywhere. SVG for screen, the 512px PNG where SVG isn't allowed. Never re-colour it.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:24px">Horizontal lockup <span style="color:#F5C518">· new</span></div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:44px 0 52px">
+          <img src="../logo-mark.svg" alt="" style="width:56px;height:56px">
+          <div style="border-left:1px solid rgba(255,255,255,.16);padding-left:16px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.5px;line-height:1;color:#f4f4f5">LFSA</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:4.5px;color:#F5C518;margin-top:4px">DIGITAL</div>
+          </div>
+        </div>
+        <div style="font-size:.88rem;color:#cbd5e1;line-height:1.6">For wide spaces: email signatures, invoice headers, deck footers, video end-cards. Wordmark is Space Grotesk 700 / 600.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:24px">Clear space &amp; sizes</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:26px;padding:22px 0 26px">
+          <div style="padding:14px;border:1px dashed rgba(245,197,24,.35);border-radius:10px"><img src="../logo-mark.svg" alt="" style="width:56px;height:56px"></div>
+          <div style="display:flex;align-items:flex-end;gap:14px">
+            <img src="../logo-mark.svg" alt="" style="width:44px;height:44px">
+            <img src="../logo-mark.svg" alt="" style="width:30px;height:30px">
+            <img src="../logo-mark.svg" alt="" style="width:24px;height:24px">
+          </div>
+        </div>
+        <div style="font-size:.88rem;color:#cbd5e1;line-height:1.6">Clear space = 25% of the mark's diameter on every side. Sizes in use: 44px nav, 30px footer, 24px minimum.</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+      <div style="background:rgba(45,160,224,.06);border:1px solid rgba(45,160,224,.22);border-radius:16px;padding:26px 28px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><i class="fa-solid fa-circle-check" style="color:#2DA0E0"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Do</span></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.92rem;color:#cbd5e1">
+          <li>Place on #0A2463, #061640, #F5C518 or white.</li>
+          <li>Keep the flat SVG — it is the master.</li>
+          <li>Use the lockup when the name isn't otherwise on screen.</li>
+        </ul>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:26px 28px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><i class="fa-solid fa-circle-xmark" style="color:#94a3b8"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Don't</span></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;font-size:.92rem;color:#94a3b8">
+          <li>Add drop shadows, bevels or glow.</li>
+          <li>Rotate, stretch, or crop the circle.</li>
+          <li>Sit it on a photo or a busy gradient.</li>
+        </ul>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px dashed rgba(245,197,24,.3);border-radius:16px;padding:26px 28px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><i class="fa-solid fa-triangle-exclamation" style="color:#F5C518"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Retire</span></div>
+        <p style="font-size:.92rem;color:#cbd5e1;line-height:1.6">Delete <span style="font-family:'JetBrains Mono',monospace;font-size:.85em;color:#F5C518">logo.png</span>. It's a rendered 3D version of the mark with a dirty grey halo and a soft-shadow wordmark — it doesn't match the flat SVG and it can't sit on navy. The lockup above replaces it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="color" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px)">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">02 · Color</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">Navy holds. Gold decides. Blue explains.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:640px;margin-bottom:48px;text-wrap:pretty">Gold is the loudest thing on any screen, so it only ever marks the action you want taken or the number you want read. If two golds compete, one of them is wrong.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px;margin-bottom:20px">
+      <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+        <div style="background:#0A2463;height:130px"></div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04)">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Navy</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#F5C518;margin:4px 0 8px">#0A2463</div>
+          <div style="font-size:.84rem;color:#94a3b8;line-height:1.55">Page ground. The default background of everything.</div>
+        </div>
+      </div>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+        <div style="background:#061640;height:130px"></div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04)">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Deep</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#F5C518;margin:4px 0 8px">#061640</div>
+          <div style="font-size:.84rem;color:#94a3b8;line-height:1.55">Alternating section band, nav, footer. Also the ink on gold.</div>
+        </div>
+      </div>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+        <div style="background:#F5C518;height:130px"></div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04)">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Gold</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#F5C518;margin:4px 0 8px">#F5C518</div>
+          <div style="font-size:.84rem;color:#94a3b8;line-height:1.55">Primary action, key numbers, links. One per view.</div>
+        </div>
+      </div>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+        <div style="background:#2DA0E0;height:130px"></div>
+        <div style="padding:18px 20px;background:rgba(255,255,255,.04)">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Blue</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#F5C518;margin:4px 0 8px">#2DA0E0</div>
+          <div style="font-size:.84rem;color:#94a3b8;line-height:1.55">Eyebrows, checkmarks, labels, trust cues. Never a button fill.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;margin-bottom:44px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:18px">Support &amp; state</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:38px;height:38px;border-radius:9px;background:#d4a912;flex-shrink:0"></span><div><div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f4f4f5">#d4a912</div><div style="font-size:.82rem;color:#94a3b8">Gold hover / pressed</div></div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:38px;height:38px;border-radius:9px;background:#2BBBFF;flex-shrink:0"></span><div><div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f4f4f5">#2BBBFF</div><div style="font-size:.82rem;color:#94a3b8">Logo cyan — logo only, never UI</div></div></div>
+          <div style="display:flex;align-items:center;gap:14px"><span style="width:38px;height:38px;border-radius:9px;background:#25D366;flex-shrink:0"></span><div><div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f4f4f5">#25D366</div><div style="font-size:.82rem;color:#94a3b8">WhatsApp — that button only</div></div></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:18px">Text on dark</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:#f4f4f5;font-weight:600">Primary — headings, emphasis</span><span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8">#f4f4f5</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:#e5e7eb">Body — long-form list copy</span><span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8">#e5e7eb</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:#cbd5e1">Secondary — inline UI text</span><span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8">#cbd5e1</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline"><span style="color:#94a3b8">Muted — ledes, captions, labels</span><span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8">#94a3b8</span></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:18px">Surface recipe</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:.88rem;color:#cbd5e1">
+          <div>Card fill <span style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:#F5C518">rgba(255,255,255,.04)</span></div>
+          <div>Hairline <span style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:#F5C518">rgba(255,255,255,.08)</span></div>
+          <div>Divider <span style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:#F5C518">rgba(255,255,255,.07)</span></div>
+          <div>Gold tint <span style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:#F5C518">rgba(245,197,24,.10)</span></div>
+          <div>Blue tint <span style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:#F5C518">rgba(45,160,224,.10)</span></div>
+          <div style="color:#94a3b8;font-size:.84rem;line-height:1.55;margin-top:4px">Surfaces are translucent white over navy — never a new opaque hex.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:rgba(245,197,24,.07);border:1px solid rgba(245,197,24,.28);border-radius:16px;padding:26px 30px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><i class="fa-solid fa-wrench" style="color:#F5C518"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Cleanups applied</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;font-size:.9rem;color:#cbd5e1;line-height:1.6">
+        <div><strong style="color:#f4f4f5;font-weight:600">Ink on gold is always #061640.</strong> The nav CTA on the live site uses <span style="font-family:'JetBrains Mono',monospace;font-size:.85em">#000</span> while every other gold button uses <span style="font-family:'JetBrains Mono',monospace;font-size:.85em">#061640</span>. Standardise on #061640.</div>
+        <div><strong style="color:#f4f4f5;font-weight:600">One card radius: 16px.</strong> The site mixes 16px cards with 14px role cards and 12px video cards. Cards are 16, tiles are 12, nothing is 14.</div>
+        <div><strong style="color:#f4f4f5;font-weight:600">One step badge: 64px.</strong> Home uses 64px, the AI-employees page 56px. Use 64.</div>
+        <div><strong style="color:#f4f4f5;font-weight:600">One lede width: 600px.</strong> Home caps at 560, AI-employees at 600. Use 600.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="type" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px);background:#061640">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">03 · Typography</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">Space Grotesk speaks. Inter explains.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:640px;margin-bottom:48px;text-wrap:pretty">Grotesk for anything structural — headings, buttons, labels, numbers, nav. Inter for anything you actually read in sentences. Never the reverse.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;margin-bottom:44px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem">Space Grotesk</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#94a3b8">400 · 500 · 600 · 700</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:6px">Aa Bb 0123</div>
+        <p style="font-size:.9rem;color:#94a3b8;line-height:1.6">Headings, buttons, eyebrows, tags, step numbers, prices, stat values, nav links. Tight tracking on display sizes (−1.5px at 3.7rem), wide tracking on small caps labels (+3px).</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px">
+          <span style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.1rem">Inter</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#94a3b8">400 · 500 · 600 · 700</span>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:6px">Aa Bb 0123</div>
+        <p style="font-size:.9rem;color:#94a3b8;line-height:1.6">Body copy, ledes, list items, captions, form input. Line-height 1.65 at body, 1.7 for long-form. Bold to 600 for emphasis inside a paragraph, never 700.</p>
+      </div>
+    </div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(24px,3vw,36px)">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:30px">The scale</div>
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)) ;gap:12px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:24px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;letter-spacing:-1.5px;line-height:1.04;grid-column:span 2">Display / H1</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8;line-height:1.7">Grotesk 700<br>clamp(2.3rem, 5.4vw, 3.7rem)<br>lh 1.04 · ls −1.5px</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:24px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;letter-spacing:-.5px;line-height:1.1;grid-column:span 2">Section heading / H2</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8;line-height:1.7">Grotesk 700<br>clamp(2rem, 4.5vw, 3rem)<br>lh 1.1 · ls −.5px</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:24px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;grid-column:span 2">Card heading / H3</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8;line-height:1.7">Grotesk 700 · 1.1–1.15rem</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:24px">
+          <div style="color:#94a3b8;font-size:1.1rem;grid-column:span 2;max-width:600px">Lede — the sentence under a heading that sets up the section. Muted, never white.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8;line-height:1.7">Inter 400 · 1.1rem<br>#94a3b8 · max-width 600px</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:24px">
+          <div style="font-size:.98rem;color:#e5e7eb;grid-column:span 2;max-width:600px">Body — list items, paragraphs inside cards, the running text of an argument.</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8;line-height:1.7">Inter 400 · .92–1.04rem<br>lh 1.6–1.7</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;align-items:baseline">
+          <div style="grid-column:span 2"><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">EYEBROW LABEL</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#94a3b8;line-height:1.7">Grotesk 600 · .72rem<br>uppercase · ls 3px · #2DA0E0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="icons" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px)">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">04 · Icons</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">Font Awesome 6, solid and brands.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:600px;margin-bottom:44px;text-wrap:pretty">Solid style only — no regular, no light, no duotone. Blue for meaning-carrying icons, gold for the one attached to the action. Icons inline with text sit at .85–1em.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:14px;margin-bottom:24px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-calendar-check" style="color:#F5C518;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-calendar-check</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Book / primary CTA</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-shield-halved" style="color:#2DA0E0;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-shield-halved</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Guarantee / approval</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-check" style="color:#2DA0E0;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-check</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Included items</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-star" style="color:#F5C518;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-star</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Hero item in a list</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-file-lines" style="color:#F5C518;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-file-lines</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Report / document</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-arrow-right" style="color:#F5C518;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-arrow-right</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Secondary / text link</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-inbox" style="color:#F5C518;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-inbox</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Inbox employee</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-microphone" style="color:#2DA0E0;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-microphone</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Voice agents</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-gear" style="color:#2DA0E0;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-gear</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Automations</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-code" style="color:#2DA0E0;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-code</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Apps &amp; dev</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-calendar-day" style="color:#F5C518;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-calendar-day</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Start plan</div></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 18px;text-align:center"><i class="fa-solid fa-envelope" style="color:#94a3b8;font-size:1.5rem"></i><div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#cbd5e1;margin-top:11px">fa-envelope</div><div style="font-size:.76rem;color:#94a3b8;margin-top:3px">Email contact</div></div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 26px">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-right:6px">Brands</span>
+      <i class="fa-brands fa-youtube brand-icon" style="font-size:1.3rem"></i>
+      <i class="fa-brands fa-instagram brand-icon" style="font-size:1.3rem"></i>
+      <i class="fa-brands fa-tiktok brand-icon" style="font-size:1.3rem"></i>
+      <i class="fa-brands fa-x-twitter brand-icon" style="font-size:1.3rem"></i>
+      <i class="fa-brands fa-whatsapp brand-icon" style="font-size:1.3rem"></i>
+      <span style="font-size:.86rem;color:#94a3b8;margin-left:8px">Muted by default, gold on hover. Never coloured to the platform brand.</span>
+    </div>
+  </div>
+</section>
+
+<section id="components" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px);background:#061640">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">05 · Components</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">The parts, and their rules.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:600px;margin-bottom:52px;text-wrap:pretty">Every component below is live — what you see is the spec. Hover them.</p>
+
+    <div style="display:flex;flex-direction:column;gap:52px">
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Buttons</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">One gold button per view. Everything else is outline or a text link. Grotesk 700 for gold, 600 for outline. Radius 8px, and the label always names the thing, never "Learn more".</p>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(24px,3vw,34px)">
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:26px">
+            <a href="#components" class="btn-y"><i class="fa-solid fa-calendar-check"></i> Primary action · $999</a>
+            <a href="#components" class="btn-outline">Secondary <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+            <a href="#components" class="btn-nav">Nav CTA</a>
+            <a href="#components" class="btn-text">Text link <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;font-size:.86rem;color:#94a3b8;line-height:1.6;border-top:1px solid rgba(255,255,255,.07);padding-top:22px">
+            <div><span style="color:#f4f4f5;font-weight:600;display:block;margin-bottom:3px">Gold — 16px / 26px</span>Hover: fill #d4a912, lift 2px, gold shadow.</div>
+            <div><span style="color:#f4f4f5;font-weight:600;display:block;margin-bottom:3px">Outline — 16px / 24px</span>Hover: border and text go blue. No lift.</div>
+            <div><span style="color:#f4f4f5;font-weight:600;display:block;margin-bottom:3px">Nav — 10px / 20px</span>Compact gold. Lift 1px only.</div>
+            <div><span style="color:#f4f4f5;font-weight:600;display:block;margin-bottom:3px">Focus ring</span>2px solid gold, 2px offset, 6px radius.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Cards</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">Translucent white on navy, 1px hairline, 16px radius, clamp(22px,3vw,30px) padding. Three variants only: standard, interactive (hover-lifts), and dashed (a thing that isn't included yet).</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:20px">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(22px,3vw,30px)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8">Standard</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:1px;color:#061640;background:#F5C518;padding:3px 9px;border-radius:5px">SAMPLE</span>
+            </div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:18px">Where your week goes</div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:#cbd5e1;margin-bottom:6px"><span>Inbox &amp; email</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:#F5C518">6.2h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:82%;height:100%;background:#F5C518;border-radius:4px"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:.86rem;color:#cbd5e1;margin-bottom:6px"><span>Scheduling</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:#F5C518">4.1h</span></div><div style="height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden"><div style="width:54%;height:100%;background:#F5C518;border-radius:4px"></div></div></div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,.09);margin:20px 0 16px"></div>
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
+              <div><div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.2px;color:#94a3b8;margin-bottom:5px">NET MONTHLY ROI</div><div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;line-height:1">$4,800<span style="font-size:.95rem;font-weight:500;color:#94a3b8">/mo</span></div></div>
+            </div>
+          </div>
+          <div class="card card-i" style="display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700">Interactive</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.68rem;letter-spacing:1.3px;text-transform:uppercase;color:#94a3b8;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:4px 9px;border-radius:5px">From $1,200/mo</span>
+            </div>
+            <div style="font-size:.85rem;color:#2DA0E0;margin-bottom:14px">Hover me</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:7px">What it does</div>
+            <p style="font-size:.93rem;color:#cbd5e1;line-height:1.6;margin-bottom:14px">Anything clickable — role cards, video tiles, link cards. Border warms to gold, lifts 3px, drops a soft black shadow.</p>
+            <div style="font-size:.85rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08);padding-top:13px;margin-top:auto">Transition: 200ms on colour and transform.</div>
+          </div>
+          <div style="background:transparent;border:1px dashed rgba(255,255,255,.18);border-radius:16px;padding:clamp(22px,3vw,30px);display:flex;flex-direction:column">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:6px">Dashed</div>
+            <div style="font-size:.85rem;color:#2DA0E0;margin-bottom:14px">Not included / custom scope</div>
+            <p style="font-size:.93rem;color:#cbd5e1;line-height:1.6">Transparent fill, dashed hairline. Signals something optional, out of scope, or quoted separately. Never used for a live offer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Navigation &amp; footer</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">72px tall, sticky, translucent deep-navy with 16px blur and a faint gold hairline underneath. Mark on the left, links centred, one gold CTA pinned right. Never more than six links.</p>
+        <div style="border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden">
+          <div style="background:rgba(6,22,64,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.08)">
+            <div style="padding:0 24px;height:72px;display:flex;align-items:center;gap:16px">
+              <img src="../logo-mark.svg" alt="" style="width:44px;height:44px;flex-shrink:0">
+              <div style="flex:1;display:flex;justify-content:center;align-items:center;gap:clamp(14px,2.4vw,30px);overflow:hidden">
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap">How it works</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap">AI employees</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap">Work</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap">About</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap">FAQ</span>
+              </div>
+              <span style="flex-shrink:0;background:#F5C518;color:#061640;padding:10px 20px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.875rem;letter-spacing:.3px;white-space:nowrap">Get started</span>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,.02);padding:28px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
+            <img src="../logo-mark.svg" alt="" style="width:30px;height:30px;opacity:.7">
+            <div style="display:flex;gap:22px;flex-wrap:wrap">
+              <span style="color:#94a3b8;font-size:.82rem;font-family:'Space Grotesk',sans-serif">How it works</span>
+              <span style="color:#94a3b8;font-size:.82rem;font-family:'Space Grotesk',sans-serif">AI employees</span>
+              <span style="color:#94a3b8;font-size:.82rem;font-family:'Space Grotesk',sans-serif">Privacy</span>
+              <span style="color:#94a3b8;font-size:.82rem;font-family:'Space Grotesk',sans-serif">Terms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Form controls</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">Inputs are translucent, not white. Gold appears only on focus and on the selected state — an unfocused field is never gold.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;align-items:start">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(22px,3vw,30px)">
+            <label style="font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;display:block;margin-bottom:12px">Text input</label>
+            <input type="text" placeholder="you@company.com" class="input">
+            <div style="font-size:.8rem;color:#94a3b8;margin-top:8px">Focus: gold border, gold-tinted fill. Radius 9px.</div>
+
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;margin:26px 0 4px">Range slider</div>
+            <input type="range" min="5" max="10" step="0.5" value="7" aria-label="Guaranteed minimum hours" class="range" style="width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,.12);outline:none;margin:14px 0 6px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="color:#94a3b8;font-size:.8rem">Guaranteed minimum</span><span style="font-family:'Space Grotesk',sans-serif;color:#F5C518;font-weight:700;font-size:1.3rem">7 hrs</span></div>
+            <div style="font-size:.8rem;color:#94a3b8;margin-top:8px">Track 6px, gold 22px thumb with a 3px deep-navy ring.</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(22px,3vw,30px)">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:12px">Choice buttons</div>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <div style="background:rgba(245,197,24,.1);border:1px solid #F5C518;color:#f4f4f5;border-radius:9px;padding:12px 14px;cursor:pointer">
+                <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;display:block">$45 / hour</span>
+                <span style="font-size:.78rem;color:#cbd5e1;display:block;margin-top:2px">Selected — gold tint, gold border</span>
+              </div>
+              <div class="choice">
+                <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;display:block">$75 / hour</span>
+                <span style="font-size:.78rem;color:#94a3b8;display:block;margin-top:2px">Rest — hover warms the border only</span>
+              </div>
+            </div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:600;margin:26px 0 12px">Output row</div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="color:#94a3b8;font-size:.92rem">Hours back per month</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem">30 hrs</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0"><span style="color:#94a3b8;font-size:.92rem">Worth per year</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem">$14,559</span></div>
+            <div style="background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.3);border-radius:10px;padding:18px 20px;margin-top:14px;text-align:center">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.6px;color:#F5C518;text-transform:uppercase;margin-bottom:6px">Highlight box</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;line-height:1">25 <span style="font-size:1.1rem;font-weight:500;color:#cbd5e1">days</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Pills, badges &amp; step markers</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">Small labels do a lot of work here. Keep them in Grotesk, keep them uppercase when they're metadata, sentence case when they're content.</p>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(24px,3vw,34px)">
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:28px">
+            <span style="font-size:.86rem;color:#cbd5e1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:7px 14px;border-radius:20px">Inbox triage</span>
+            <span style="font-size:.86rem;color:#cbd5e1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:7px 14px;border-radius:20px">CRM hygiene</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:1px;color:#061640;background:#F5C518;padding:4px 9px;border-radius:5px">SAMPLE</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.68rem;letter-spacing:1.3px;text-transform:uppercase;color:#94a3b8;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:4px 9px;border-radius:5px">From $1,200/mo</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#2DA0E0">45 MIN</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:20px;border-top:1px solid rgba(255,255,255,.07);padding-top:28px">
+            <div style="text-align:center">
+              <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(45,160,224,.06));border:1px solid rgba(245,197,24,.18);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:700;color:#F5C518">1</div>
+              <h4 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px">Step marker</h4>
+              <p style="color:#94a3b8;font-size:.92rem;max-width:250px;margin:0 auto 10px">64px circle, gold-to-blue tint, gold numeral.</p>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#2DA0E0">45 min</span>
+            </div>
+            <div style="text-align:center">
+              <div style="width:64px;height:64px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;color:#2DA0E0">MON</div>
+              <h4 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px">Day chip</h4>
+              <p style="color:#94a3b8;font-size:.92rem;max-width:250px;margin:0 auto">Blue-tinted square, 9px radius. Used in the 4-day plan.</p>
+            </div>
+            <div style="text-align:center">
+              <div style="width:64px;height:64px;border-radius:9px;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:#F5C518;font-size:1.3rem"><i class="fa-solid fa-inbox"></i></div>
+              <h4 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px">Icon tile</h4>
+              <p style="color:#94a3b8;font-size:.92rem;max-width:250px;margin:0 auto">Same gradient as the step marker, squared off.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Section anatomy</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">Every section on the site is the same four moves. Sections alternate navy / deep-navy down the page, and the gold band is used exactly once, for the guarantee.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">Eyebrow</span></div>
+            <p style="font-size:.9rem;color:#94a3b8;line-height:1.6">A 24px blue rule then 3px-tracked caps. Centred variant gets a rule on both sides.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.5px;margin-bottom:12px">Heading.</div>
+            <p style="font-size:.9rem;color:#94a3b8;line-height:1.6">Six words or fewer. Ends in a full stop. Gold on at most one phrase.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+            <div style="color:#94a3b8;font-size:1.05rem;margin-bottom:12px">A lede that sets up what follows, in one or two sentences.</div>
+            <p style="font-size:.9rem;color:#94a3b8;line-height:1.6">Muted, 1.1rem, capped at 600px. Then 44–52px of air before the content.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:12px">Rhythm</div>
+            <p style="font-size:.9rem;color:#94a3b8;line-height:1.6">Section padding <span style="font-family:'JetBrains Mono',monospace;font-size:.85em;color:#F5C518">clamp(64px,8vw,104px)</span>, gutters <span style="font-family:'JetBrains Mono',monospace;font-size:.85em;color:#F5C518">clamp(20px,5vw,24px)</span>, content capped at 1100px.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Grid rule</h3>
+        <p style="color:#94a3b8;font-size:.95rem;margin-bottom:20px;max-width:640px">Use <span style="font-family:'JetBrains Mono',monospace;font-size:.9em;color:#F5C518">auto-fit</span> for card grids where the count can vary. For a fixed odd count — the five steps — declare explicit column counts per breakpoint, or the last item orphans onto its own row.</p>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 26px;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#cbd5e1;line-height:1.9;overflow-x:auto"><span style="color:#94a3b8">/* 5 items: 5 → 3 → 2 → 1, never 4+1 */</span><br>.steps5 { grid-template-columns: repeat(5, 1fr); }<br>@media (max-width:1040px) { .steps5 { grid-template-columns: repeat(3, 1fr); } }<br>@media (max-width:660px)&nbsp; { .steps5 { grid-template-columns: repeat(2, 1fr); } }<br>@media (max-width:430px)&nbsp; { .steps5 { grid-template-columns: 1fr; } }</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="surfaces" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px)">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">06 · Surfaces</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">Dark to sell. Light to deliver.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:640px;margin-bottom:44px;text-wrap:pretty">The marketing site is dark. Anything a client reads, prints or files — reports, proposals, invoices, contracts — is light, because dark PDFs don't print and don't get trusted. Same brand, different job.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;margin-bottom:44px">
+      <div style="border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden">
+        <div style="background:#0A2463;padding:26px 28px 30px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.7rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">Dark surface</span></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:-.5px;margin-bottom:10px">Find your 5 hours.</div>
+          <p style="color:#94a3b8;font-size:.92rem;margin-bottom:18px">Website, landing pages, social, video. Navy ground, gold action.</p>
+          <span style="display:inline-flex;align-items:center;gap:9px;background:#F5C518;color:#061640;padding:12px 20px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem"><i class="fa-solid fa-calendar-check"></i> Get started</span>
+        </div>
+        <div style="padding:18px 28px;background:rgba(255,255,255,.03);font-size:.85rem;color:#94a3b8">Body <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#0A2463</span> · text <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#f4f4f5</span> · muted <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#94a3b8</span></div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden">
+        <div style="background:#fbfbfc;color:#16181d;padding:26px 28px 30px">
+          <div style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:3px;font-size:.7rem;font-weight:600;color:#2DA0E0;margin-bottom:8px">Light surface</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:-.6px;margin-bottom:10px;padding-bottom:16px;border-bottom:3px solid #0A2463">Where your week goes</div>
+          <p style="color:#5b6472;font-size:.92rem;margin-bottom:16px">Reports, proposals, invoices, contracts. White ground, navy rules, gold reserved for the headline number.</p>
+          <div style="background:#F5C518;color:#061640;border-radius:10px;padding:14px 18px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;line-height:1.45">15.8 hours a week, worth $4,800/mo.</div>
+        </div>
+        <div style="padding:18px 28px;background:rgba(255,255,255,.03);font-size:.85rem;color:#94a3b8">Bg <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#fbfbfc</span> · ink <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#16181d</span> · mute <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#5b6472</span> · line <span style="font-family:'JetBrains Mono',monospace;color:#F5C518">#e3e6ec</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px">Off-site formats</h3>
+    <p style="color:#94a3b8;font-size:.95rem;margin-bottom:24px;max-width:640px">Same tokens, different shapes. Every one of these should be identifiable as LFSA from across a room.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:20px">
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px 26px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="fa-brands fa-youtube" style="color:#2DA0E0"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">YouTube thumbnail</span></div>
+        <div style="container-type:inline-size;aspect-ratio:16/9;background:#0A2463;border-radius:10px;border:1px solid rgba(255,255,255,.08);padding:5.5%;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative">
+          <div style="position:absolute;top:-30%;right:-15%;width:220px;height:220px;background:radial-gradient(circle,rgba(245,197,24,.14) 0%,transparent 70%)"></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:8cqw;line-height:1.05;letter-spacing:-.04em;position:relative">I built an AI that <span style="color:#F5C518">answers every call</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;position:relative">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:3cqw;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#2DA0E0">Build with Luiz</span>
+            <img src="../logo-mark.svg" alt="" style="width:11cqw;height:11cqw">
+          </div>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.86rem;color:#94a3b8;margin-top:16px">
+          <li>1280×720. Navy ground, one gold radial in a corner.</li>
+          <li>Max 6 words, Grotesk 700, one gold phrase.</li>
+          <li>Mark bottom-right at 8% of frame width. No face-with-arrow, no red circles.</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px 26px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="fa-brands fa-instagram" style="color:#2DA0E0"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Social post</span></div>
+        <div style="container-type:inline-size;aspect-ratio:4/5;background:#061640;border-radius:10px;border:1px solid rgba(255,255,255,.08);padding:7.5%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:3cqw"><span style="width:8cqw;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;font-size:2.6cqw;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#2DA0E0">Time leak #4</span></div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:9cqw;line-height:1.08;letter-spacing:-.035em;margin-bottom:4cqw">Quoting by hand costs you <span style="color:#F5C518">4 hrs a week</span>.</div>
+            <div style="color:#94a3b8;font-size:3.4cqw;line-height:1.5">That's $780/mo at a $45 hourly value.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:3cqw"><img src="../logo-mark.svg" alt="" style="width:9cqw;height:9cqw"><span style="font-family:'Space Grotesk',sans-serif;font-size:3.2cqw;font-weight:600;color:#cbd5e1">lfsadigital.com</span></div>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.86rem;color:#94a3b8;margin-top:16px">
+          <li>4:5 feed, 9:16 stories/TikTok. Deep navy ground.</li>
+          <li>Eyebrow top, claim middle, mark + domain bottom.</li>
+          <li>One number per post, always in gold.</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px 26px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="fa-solid fa-file-lines" style="color:#2DA0E0"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Client PDF &amp; proposal</span></div>
+        <div style="aspect-ratio:4/5;background:#fbfbfc;color:#16181d;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:#061640;padding:9px 16px;display:flex;justify-content:space-between;align-items:center"><img src="../logo-mark.svg" alt="" style="width:16px;height:16px"><span style="color:#F5C518;font-size:.55rem;font-family:'Space Grotesk',sans-serif">lfsadigital.com</span></div>
+          <div style="padding:16px 18px;flex:1">
+            <div style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:2.4px;font-size:.5rem;font-weight:600;color:#2DA0E0;margin-bottom:5px">AI in Your Business</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-.3px;padding-bottom:10px;border-bottom:3px solid #0A2463;margin-bottom:10px">Findings &amp; plan</div>
+            <div style="height:5px;background:#e3e6ec;border-radius:3px;margin-bottom:6px"></div>
+            <div style="height:5px;background:#e3e6ec;border-radius:3px;width:88%;margin-bottom:6px"></div>
+            <div style="height:5px;background:#e3e6ec;border-radius:3px;width:70%;margin-bottom:12px"></div>
+            <div style="border-left:3px solid #F5C518;background:#fff;padding:8px 10px;font-size:.55rem;color:#5b6472;line-height:1.5">Pull-quote in the client's own words.</div>
+          </div>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.86rem;color:#94a3b8;margin-top:16px">
+          <li>Deep-navy bar, 3px navy rule under the masthead.</li>
+          <li>Body 820px measure, Inter 16px / 1.7.</li>
+          <li>Gold only on the headline number and the CTA.</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px 26px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><i class="fa-solid fa-file-invoice-dollar" style="color:#2DA0E0"></i><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem">Invoice &amp; contract</span></div>
+        <div style="aspect-ratio:4/5;background:#fbfbfc;color:#16181d;border-radius:10px;overflow:hidden;padding:16px 18px;display:flex;flex-direction:column">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid #e3e6ec;margin-bottom:12px">
+            <div style="display:flex;align-items:center;gap:7px"><img src="../logo-mark.svg" alt="" style="width:20px;height:20px"><div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.6rem;line-height:1">LFSA</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.36rem;letter-spacing:2.4px;color:#5b6472">DIGITAL</div></div></div>
+            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.62rem">INVOICE</div><div style="font-size:.46rem;color:#5b6472">#2026-041</div></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.5rem;color:#5b6472;padding:5px 0;border-bottom:1px solid #e3e6ec"><span>AI in Your Business — session &amp; report</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#16181d">$999</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.5rem;color:#5b6472;padding:5px 0;border-bottom:1px solid #e3e6ec"><span>5-page website build</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#16181d">Included</span></div>
+          <div style="margin-top:auto;background:#F5C518;color:#061640;border-radius:7px;padding:8px 10px;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Space Grotesk',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase">Total due</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.85rem">$999</span></div>
+        </div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.86rem;color:#94a3b8;margin-top:16px">
+          <li>Lockup top-left, document type top-right.</li>
+          <li>Line items on #e3e6ec hairlines, figures in Grotesk 700.</li>
+          <li>Total in a gold block. Contracts: same header, no gold.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="tokens" style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px);background:#061640">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">07 · Tokens</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px">Paste this at the top of anything.</h2>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:640px;margin-bottom:44px;text-wrap:pretty">Drop this block into a new page, or hand it to an AI assistant with "build to these tokens". It replaces the scattered hex codes currently inlined across the site.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px">
+      <div style="background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden">
+        <div style="padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.09);display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8">CSS custom properties</span><span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#2DA0E0">:root</span></div>
+        <div style="padding:22px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.95;color:#cbd5e1;overflow-x:auto;white-space:pre">:root {
+  <span style="color:#94a3b8">/* brand */</span>
+  --navy:  #0A2463;
+  --deep:  #061640;
+  --gold:  #F5C518;
+  --gold-hover: #d4a912;
+  --blue:  #2DA0E0;
+
+  <span style="color:#94a3b8">/* text on dark */</span>
+  --text:  #f4f4f5;
+  --body:  #e5e7eb;
+  --text-2:#cbd5e1;
+  --mute:  #94a3b8;
+
+  <span style="color:#94a3b8">/* surfaces on dark */</span>
+  --card:   rgba(255,255,255,.04);
+  --line:   rgba(255,255,255,.08);
+  --divide: rgba(255,255,255,.07);
+  --gold-tint: rgba(245,197,24,.10);
+  --blue-tint: rgba(45,160,224,.10);
+
+  <span style="color:#94a3b8">/* light document surface */</span>
+  --doc-bg:   #fbfbfc;
+  --doc-ink:  #16181d;
+  --doc-mute: #5b6472;
+  --doc-line: #e3e6ec;
+
+  <span style="color:#94a3b8">/* type */</span>
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  <span style="color:#94a3b8">/* shape */</span>
+  --r-btn:  8px;
+  --r-tile: 12px;
+  --r-card: 16px;
+  --r-pill: 20px;
+  --r-full: 50%;
+
+  <span style="color:#94a3b8">/* rhythm */</span>
+  --sec-y:  clamp(64px,8vw,104px);
+  --sec-x:  clamp(20px,5vw,24px);
+  --wrap:   1100px;
+  --nav-h:  72px;
+
+  <span style="color:#94a3b8">/* motion */</span>
+  --t: .2s;
+}</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden">
+          <div style="padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.09)"><span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8">Primary button</span></div>
+          <div style="padding:22px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.9;color:#cbd5e1;overflow-x:auto;white-space:pre">.btn-y {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: var(--gold); color: var(--deep);
+  padding: 16px 26px; border-radius: var(--r-btn);
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 1rem; letter-spacing: .2px;
+}
+.btn-y:hover {
+  background: var(--gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(245,197,24,.28);
+}</div>
+        </div>
+        <div style="background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden">
+          <div style="padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.09)"><span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8">Card + eyebrow</span></div>
+          <div style="padding:22px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.9;color:#cbd5e1;overflow-x:auto;white-space:pre">.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: clamp(22px,3vw,30px);
+}
+.eyebrow { display:flex; align-items:center; gap:10px; }
+.eyebrow .line { width:24px; height:1px; background:var(--blue); }
+.eyebrow .txt {
+  font-family: var(--font-display);
+  text-transform: uppercase; font-size: .72rem;
+  font-weight: 600; letter-spacing: 3px; color: var(--blue);
+}</div>
+        </div>
+        <div style="background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden">
+          <div style="padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.09)"><span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8">Page shell</span></div>
+          <div style="padding:22px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.9;color:#cbd5e1;overflow-x:auto;white-space:pre">body {
+  background: var(--navy); color: var(--text);
+  font-family: var(--font-body); line-height: 1.65;
+}
+h1,h2,h3,h4 { font-family: var(--font-display); }
+a { color: var(--gold); transition: all var(--t); }
+a:hover { color: var(--gold-hover); }
+::selection { background: var(--gold); color: var(--navy); }
+.sec  { padding: var(--sec-y) var(--sec-x); }
+.dark { background: var(--deep); }
+.wrap { max-width: var(--wrap); margin: 0 auto; }</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 30px;margin-top:24px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px">Head boilerplate</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.9;color:#cbd5e1;overflow-x:auto;white-space:pre">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"&gt;</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(64px,8vw,104px) clamp(20px,5vw,28px)">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:#2DA0E0"></span><span style="font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0">08 · Voice</span></div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:44px">Write like you're already building.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:10px">Short sentences. Full stops.</div>
+        <p style="font-size:.92rem;color:#94a3b8;line-height:1.65">Headlines end in a period, not an exclamation mark. "Five steps. About a week." beats "Our proven 5-step methodology!"</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:10px">Every claim is costed.</div>
+        <p style="font-size:.92rem;color:#94a3b8;line-height:1.65">Hours, dollars, days. If a sentence has an adjective where a number could go, replace it.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:10px">Name the risk, then remove it.</div>
+        <p style="font-size:.92rem;color:#94a3b8;line-height:1.65">"The only thing you risk is 45 minutes." Say what the buyer is afraid of before they do.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:10px">Second person, plain words.</div>
+        <p style="font-size:.92rem;color:#94a3b8;line-height:1.65">"Your week", not "the client's operational cadence". No leverage, no synergy, no unlock, no journey.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:10px">Buttons name the thing.</div>
+        <p style="font-size:.92rem;color:#94a3b8;line-height:1.65">"Read a sample report", not "Learn more". Price goes in the button when there is one.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 28px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:10px">Italicise the product name.</div>
+        <p style="font-size:.92rem;color:#94a3b8;line-height:1.65">AI <em style="font-style:italic">in Your Business</em> — the "in Your Business" part is always italic, in body and in buttons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:40px clamp(20px,5vw,28px);border-top:1px solid rgba(255,255,255,.06);background:#061640">
+  <div style="max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="../logo-mark.svg" alt="" style="width:30px;height:30px;opacity:.7">
+      <span style="color:#94a3b8;font-size:.85rem;font-family:'Space Grotesk',sans-serif">LFSA Digital Design System · v1.0</span>
+    </div>
+    <span style="color:#94a3b8;font-size:.82rem">Codified from lfsadigital.com · August 2026</span>
+  </div>
+</footer>
+
+</div>
+</div>
+</body>
+</html>
