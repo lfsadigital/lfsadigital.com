@@ -90,7 +90,7 @@ a{color:var(--gold);text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
   padding:20px clamp(24px,6vw,80px);pointer-events:none}
 nav .brand{display:flex;align-items:center;gap:12px;pointer-events:auto}
-nav .brand img{height:38px;width:auto}
+nav .brand img{height:38px;width:38px}
 nav .home{font-family:var(--heading);font-size:.8rem;font-weight:500;letter-spacing:.4px;color:var(--gray-light);
   pointer-events:auto;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:100px;
   border:1px solid rgba(255,255,255,.12);background:rgba(6,22,64,.4);backdrop-filter:blur(8px);transition:all .2s}
@@ -152,7 +152,7 @@ nav .home:hover{color:var(--white);border-color:rgba(245,197,24,.4)}
   #stage{perspective:860px}
   .copy{max-width:88vw}
   #rail{display:none}
-  nav .brand img{height:32px}
+  nav .brand img{height:32px;width:32px}
 }
 @media (max-width:560px){
   .copy h1,.copy h2{font-size:clamp(2rem,8.5vw,2.6rem)}
@@ -163,7 +163,7 @@ nav .home:hover{color:var(--white);border-color:rgba(245,197,24,.4)}
 <canvas id="dust"></canvas>
 
 <nav>
-  <a class="brand" href="/"><img src="/logo.png" alt="LFSA Digital"></a>
+  <a class="brand" href="/"><img src="/logo-mark.svg" alt="LFSA Digital" width="38" height="38"></a>
   <a class="home" href="/">&larr; Back to site</a>
 </nav>
 

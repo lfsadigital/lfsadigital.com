@@ -8,17 +8,21 @@
 <meta property="og:title" content="AI in Your Business: Find 5–10 Hours a Week + a New Website, Guaranteed">
 <meta property="og:description" content="A 45-minute session, a plan with the exact fixes that get your hours back, and a new website with online booking built in. Money back if we can't find you 5 hours a week, and the site is yours either way.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://lfsadigital.com">
+<meta property="og:url" content="https://lfsadigital.com/">
 <meta property="og:image" content="https://lfsadigital.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI in Your Business: find 5-10 hours a week, guaranteed. LFSA Digital.">
+<meta property="og:site_name" content="LFSA Digital">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI in Your Business: Find 5–10 Hours a Week + a New Website, Guaranteed">
 <meta name="twitter:description" content="A 45-minute session, a plan with the exact fixes that get your hours back, and a new website with online booking built in. Money back if we can't find you 5 hours a week, and the site is yours either way.">
 <meta name="twitter:image" content="https://lfsadigital.com/og-image.png">
-<link rel="canonical" href="https://lfsadigital.com">
+<link rel="canonical" href="https://lfsadigital.com/">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0A2463">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,8 +57,28 @@
   "offers": {"@type": "Offer", "price": "999", "priceCurrency": "USD", "url": "https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business"}
 }
 </script>
+<!-- FAQ structured data. Google only honours these for rich results when the
+     same answer text is visible on the page, so this block and the .faq-item
+     markup in the FAQ section are a pair: edit one, edit the other. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What exactly is AI in Your Business?","acceptedAnswer":{"@type":"Answer","text":"A 45-minute structured interview about how your days actually run, then a written report, a 30-minute walkthrough, and a new 5-page website built as your first fix. You get the fixes: what to change yourself, what to hand off, and what each is worth."}},
+    {"@type":"Question","name":"What's included in the website?","acceptedAnswer":{"@type":"Answer","text":"Five pages: Home, Services, About, Reviews, and a Contact page with online booking and an intake form, so enquiries stop living in your phone. We write the copy from your current site and your Google reviews; you approve it before anything goes live. One round of revisions, inside a 7-day window after you see the draft. It launches on your own domain, and hosting costs you nothing. Not included: online stores, customer logins, custom illustration, or migrating an existing blog. If you need those we'll quote them separately."}},
+    {"@type":"Question","name":"Why is a website part of a time audit?","acceptedAnswer":{"@type":"Answer","text":"Because for most owner-led businesses it's where the hours actually go. Every quote that arrives as a phone call is a callback you owe someone. Every booking made by phone is an interruption. Putting booking and intake on your site is usually the single biggest hour-saver we find, so we build it rather than just recommending it."}},
+    {"@type":"Question","name":"What does the money-back guarantee mean?","acceptedAnswer":{"@type":"Answer","text":"If we don't find you at least 5 hours a week worth reclaiming, you get 100% of your money back. No argument, no conditions. And you keep the website either way."}},
+    {"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"It's $999: session, report, and the website included. Money-back if we don't find you 5+ hours a week. If you then want us to implement the bigger items, we scope and price that in your report, based on what the work actually is, not a menu. You'll see exact numbers before you decide anything."}},
+    {"@type":"Question","name":"Do I have to buy anything afterwards?","acceptedAnswer":{"@type":"Answer","text":"No. Most of the report is tools you set up yourself. That's the point. If you want help with the bigger items, we quote it, and we credit your $999 against it."}},
+    {"@type":"Question","name":"Do I need any technical knowledge?","acceptedAnswer":{"@type":"Answer","text":"None. The report is written in plain language, with step-by-step setup for the quick wins. The website we handle end to end. You just approve the copy."}},
+    {"@type":"Question","name":"Who is this for?","acceptedAnswer":{"@type":"Answer","text":"Owner-led small businesses buried in repetitive work: home services, clinics, brokers, agencies, and solo operators. If your days are full of manual, repeatable tasks, we'll find time."}}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="tokens.css">
@@ -98,8 +122,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filt
 .vid h4{font-size:.82rem;font-weight:600;line-height:1.35;color:var(--text)}
 
 /* faq */
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
 .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:var(--font-display);font-size:1.02rem;font-weight:600;padding:22px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color var(--t)}
 .faq-q:hover{color:var(--gold)}
+.faq-q .ico{flex-shrink:0}
+.faq-q i{color:var(--gold);font-size:.8rem}
 .faq-a{color:var(--mute);font-size:.96rem;line-height:1.7;padding:0 0 24px;max-width:660px;display:none}
 .faq-item.open .faq-a{display:block}
 .faq-item .fa-minus{display:none}
@@ -124,7 +151,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
 .rate-btn.on{background:var(--gold-tint);border-color:var(--gold);color:var(--text)}
 .rate-btn .rr{font-family:var(--font-display);font-weight:700;font-size:1rem;display:block}
 #rate-custom{cursor:text}
-#c-custom{width:74px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:5px;color:inherit;font-family:var(--font-display);font-weight:700;font-size:1rem;padding:1px 6px;-moz-appearance:textfield}
+#c-custom{width:74px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:5px;color:inherit;font-family:var(--font-display);font-weight:700;font-size:1rem;padding:1px 6px;-moz-appearance:textfield;appearance:textfield}
+#c-custom::-webkit-outer-spin-button,#c-custom::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 #c-custom:focus{outline:none;border-color:var(--gold);background:rgba(245,197,24,.12)}
 #rate-custom.on #c-custom{border-color:rgba(245,197,24,.5)}
 .rate-btn .rd{font-size:.78rem;color:var(--mute);display:block;margin-top:2px}
@@ -133,8 +161,16 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
 .outrow .ol{color:var(--mute);font-size:.92rem}
 .outrow .ov{font-family:var(--font-display);font-weight:700;font-size:1.15rem}
 </style>
+<noscript><style>
+/* Without JS the accordion can't open, so show every answer and drop the
+   affordance that implies it toggles. */
+.faq-a{display:block}
+.faq-q{cursor:default}
+.faq-q .ico{display:none}
+</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div id="top" style="position:relative;z-index:1">
 
 <nav>
@@ -150,6 +186,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
     <a class="nav-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener">Get started</a>
   </div>
 </nav>
+
+<main id="main">
 
 <section style="position:relative;padding:clamp(56px,8vw,96px) clamp(20px,5vw,24px) clamp(64px,8vw,96px);overflow:hidden">
   <div style="position:absolute;top:-12%;right:-8%;width:520px;height:520px;background:radial-gradient(circle,rgba(245,197,24,.07) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
@@ -227,11 +265,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
 
       <div class="card">
         <div class="outrow"><span class="ol">Hours back per month</span><span class="ov" id="c-hm">30 hrs</span></div>
-        <div class="outrow"><span class="ol">Worth per month</span><span class="ov" id="c-vm">$1,213</span></div>
-        <div class="outrow" style="border-bottom:none"><span class="ol">Worth per year</span><span class="ov" id="c-vy">$14,559</span></div>
+        <div class="outrow"><span class="ol">Worth per month</span><span class="ov" id="c-vm">$1,364</span></div>
+        <div class="outrow" style="border-bottom:none"><span class="ol">Worth per year</span><span class="ov" id="c-vy">$16,367</span></div>
         <div style="background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.3);border-radius:10px;padding:18px 20px;margin-top:20px;text-align:center">
           <div class="gk" style="font-size:.68rem;font-weight:600;letter-spacing:1.6px;color:var(--gold);text-transform:uppercase;margin-bottom:6px">The $999 pays for itself in</div>
-          <div class="gk" style="font-size:clamp(2.2rem,5vw,2.8rem);font-weight:700;line-height:1"><span id="c-days">25</span> <span style="font-size:1.1rem;font-weight:500;color:var(--text-2)">days</span></div>
+          <div class="gk" style="font-size:clamp(2.2rem,5vw,2.8rem);font-weight:700;line-height:1"><span id="c-days">22</span> <span style="font-size:1.1rem;font-weight:500;color:var(--text-2)">days</span></div>
         </div>
         <p style="color:var(--mute);font-size:.8rem;margin-top:16px;line-height:1.6">Reclaimed hours are capacity, not cash. They pay off when that time goes into work that grows the business. Your report shows exactly which hours, and what to do with them.</p>
         <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:18px"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> &middot; $999</a>
@@ -362,7 +400,42 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
       <div class="eyebrow center"><span class="line"></span><span class="txt">FAQ</span><span class="line"></span></div>
       <h2 class="big" style="margin-bottom:0">Questions, answered.</h2>
     </div>
-    <div id="faqlist" style="margin-top:40px"></div>
+    <!-- Answers live in the markup, not in JS, so they are crawlable and still
+         readable with scripting off. Keep in sync with the FAQPage JSON-LD. -->
+    <div id="faqlist" style="margin-top:40px">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-0"><span>What exactly is AI in Your Business?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-0">A 45-minute structured interview about how your days actually run, then a written report, a 30-minute walkthrough, and a new 5-page website built as your first fix. You get the fixes: what to change yourself, what to hand off, and what each is worth.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What&rsquo;s included in the website?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-1">Five pages: Home, Services, About, Reviews, and a Contact page with online booking and an intake form, so enquiries stop living in your phone. We write the copy from your current site and your Google reviews; you approve it before anything goes live. One round of revisions, inside a 7-day window after you see the draft. It launches on your own domain, and hosting costs you nothing. Not included: online stores, customer logins, custom illustration, or migrating an existing blog. If you need those we&rsquo;ll quote them separately.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Why is a website part of a time audit?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-2">Because for most owner-led businesses it&rsquo;s where the hours actually go. Every quote that arrives as a phone call is a callback you owe someone. Every booking made by phone is an interruption. Putting booking and intake on your site is usually the single biggest hour-saver we find, so we build it rather than just recommending it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What does the money-back guarantee mean?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-3">If we don&rsquo;t find you at least 5 hours a week worth reclaiming, you get 100% of your money back. No argument, no conditions. And you keep the website either way.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How much does it cost?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-4">It&rsquo;s $999: session, report, and the website included. Money-back if we don&rsquo;t find you 5+ hours a week. If you then want us to implement the bigger items, we scope and price that in your report, based on what the work actually is, not a menu. You&rsquo;ll see exact numbers before you decide anything.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Do I have to buy anything afterwards?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-5">No. Most of the report is tools you set up yourself. That&rsquo;s the point. If you want help with the bigger items, we quote it, and we credit your $999 against it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Do I need any technical knowledge?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-6">None. The report is written in plain language, with step-by-step setup for the quick wins. The website we handle end to end. You just approve the copy.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Who is this for?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" id="faq-a-7">Owner-led small businesses buried in repetitive work: home services, clinics, brokers, agencies, and solo operators. If your days are full of manual, repeatable tasks, we&rsquo;ll find time.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -384,6 +457,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
   </div>
 </section>
 
+</main>
+
 <footer style="padding:36px clamp(20px,5vw,24px);border-top:1px solid rgba(255,255,255,.05)">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
     <a href="#top" aria-label="LFSA Digital home"><img src="logo-mark.svg" alt="LFSA Digital" width="30" height="30" style="height:30px;width:30px;opacity:.7"></a>
@@ -397,7 +472,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
     </div>
-    <div class="gk" style="color:rgba(255,255,255,.28);font-size:.78rem;width:100%;text-align:center;padding-top:8px">© 2026 LFSA Digital · Built with AI, obviously.</div>
+    <div class="fineprint" style="width:100%;text-align:center;padding-top:8px">© 2026 LFSA Digital · Built with AI, obviously.</div>
   </div>
 </footer>
 
@@ -419,13 +494,7 @@ return '<a class="vid" href="https://www.youtube.com/watch?v='+v[0]+'" target="_
 +'</div><div style="padding:12px 14px 15px;flex:1"><h4>'+esc(v[1])+'</h4></div></a>';
 }).join('');
 
-var faqs=[["What exactly is AI in Your Business?","A 45-minute structured interview about how your days actually run, then a written report, a 30-minute walkthrough, and a new 5-page website built as your first fix. You get the fixes: what to change yourself, what to hand off, and what each is worth."],["What's included in the website?","Five pages: Home, Services, About, Reviews, and a Contact page with online booking and an intake form, so enquiries stop living in your phone. We write the copy from your current site and your Google reviews; you approve it before anything goes live. One round of revisions, inside a 7-day window after you see the draft. It launches on your own domain, and hosting costs you nothing. Not included: online stores, customer logins, custom illustration, or migrating an existing blog. If you need those we'll quote them separately."],["Why is a website part of a time audit?","Because for most owner-led businesses it's where the hours actually go. Every quote that arrives as a phone call is a callback you owe someone. Every booking made by phone is an interruption. Putting booking and intake on your site is usually the single biggest hour-saver we find, so we build it rather than just recommending it."],["What does the money-back guarantee mean?","If we don't find you at least 5 hours a week worth reclaiming, you get 100% of your money back. No argument, no conditions. And you keep the website either way."],["How much does it cost?","It's $999: session, report, and the website included. Money-back if we don't find you 5+ hours a week. If you then want us to implement the bigger items, we scope and price that in your report, based on what the work actually is, not a menu. You'll see exact numbers before you decide anything."],["Do I have to buy anything afterwards?","No. Most of the report is tools you set up yourself. That's the point. If you want help with the bigger items, we quote it, and we credit your $999 against it."],["Do I need any technical knowledge?","None. The report is written in plain language, with step-by-step setup for the quick wins. The website we handle end to end. You just approve the copy."],["Who is this for?","Owner-led small businesses buried in repetitive work: home services, clinics, brokers, agencies, and solo operators. If your days are full of manual, repeatable tasks, we'll find time."]];
-document.getElementById('faqlist').innerHTML=faqs.map(function(f,i){
-return '<div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,.06)">'
-+'<button class="faq-q" aria-expanded="false" aria-controls="faq-a-'+i+'"><span>'+esc(f[0])+'</span>'
-+'<span style="flex-shrink:0"><i class="fa-solid fa-minus" style="color:var(--gold);font-size:.8rem"></i><i class="fa-solid fa-plus" style="color:var(--gold);font-size:.8rem"></i></span></button>'
-+'<div class="faq-a" id="faq-a-'+i+'">'+esc(f[1])+'</div></div>';
-}).join('');
+/* The FAQ itself is static markup; this only adds the accordion behaviour. */
 document.querySelectorAll('.faq-q').forEach(function(btn){
 btn.addEventListener('click',function(){
 var item=btn.parentElement,wasOpen=item.classList.contains('open');

@@ -10,6 +10,11 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lfsadigital.com/ai-employees.html">
 <meta property="og:image" content="https://lfsadigital.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI employees from LFSA Digital: hire the role, not the software.">
+<meta property="og:site_name" content="LFSA Digital">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Employees: Hire the Role, Not the Software">
 <meta name="twitter:description" content="Narrow roles we build and operate for you. Weekly output, you approve everything. Scoped and priced in your plan.">
@@ -17,67 +22,72 @@
 <link rel="canonical" href="https://lfsadigital.com/ai-employees.html">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0A2463">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="tokens.css">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{background:#0A2463;color:#f4f4f5;font-family:'Inter',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:#F5C518;text-decoration:none;transition:color .2s,border-color .2s,background .2s,transform .2s,box-shadow .2s}
-a:hover{color:#d4a912}
-::selection{background:#F5C518;color:#0A2463}
-a:focus-visible,button:focus-visible{outline:2px solid #F5C518;outline-offset:2px;border-radius:6px}
+/* Page-specific styles only.
+   Tokens, the reset, page shell, focus ring, skip link and the shared
+   components (.wrap .sec .dark .card .btn-y .btn-outline .eyebrow .lede
+   .pill .step-num) now come from tokens.css — see that file to change a
+   brand value once instead of here in many places. */
+
+body{overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath d='M0,128h512 M0,384h512 M320,128v256 M192,128V0 M448,128V0 M192,384v128 M448,384v128 M64,128v256' vector-effect='non-scaling-stroke' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1px'/%3E%3C/svg%3E");background-size:8px;background-position:center;background-repeat:repeat}
-h1,h2,h3,h4,.gk{font-family:'Space Grotesk',sans-serif}
-.wrap{max-width:1100px;margin:0 auto}
-.sec{padding:clamp(64px,8vw,104px) clamp(20px,5vw,24px)}
-.dark{background:#061640}
-.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.eyebrow .line{width:24px;height:1px;background:#2DA0E0;flex-shrink:0}
-.eyebrow .txt{font-family:'Space Grotesk',sans-serif;text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:#2DA0E0}
+.gk{font-family:var(--font-display)}
+
+/* section furniture the system doesn't own */
+.eyebrow{margin-bottom:16px}
+.eyebrow .line{flex-shrink:0}
 .eyebrow.center{justify-content:center}
 h2.big{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:16px}
-.lede{color:#94a3b8;font-size:1.1rem;max-width:600px}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(22px,3vw,30px)}
-.btn-y{display:inline-flex;align-items:center;gap:11px;background:#F5C518;color:#061640;padding:16px 26px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.2px}
-.btn-y:hover{background:#d4a912;color:#061640;transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,197,24,.28)}
-.btn-o{display:inline-flex;align-items:center;gap:9px;background:transparent;color:#f4f4f5;border:1px solid rgba(255,255,255,.18);padding:16px 24px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.98rem}
-.btn-o:hover{border-color:#2DA0E0;color:#2DA0E0}
+
+/* nav */
 nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(245,197,24,.08)}
-.navbar{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,24px);height:72px;display:flex;align-items:center;gap:16px}
+.navbar{max-width:var(--wrap);margin:0 auto;padding:0 clamp(16px,4vw,24px);height:var(--nav-h);display:flex;align-items:center;gap:16px}
 .navstrip{flex:1;display:flex;justify-content:center;align-items:center;gap:clamp(14px,2.4vw,30px);overflow-x:auto;scrollbar-width:none}
 .navstrip::-webkit-scrollbar{display:none}
-.navstrip a{font-family:'Space Grotesk',sans-serif;font-size:.875rem;font-weight:500;letter-spacing:.3px;color:#cbd5e1;white-space:nowrap}
-.navstrip a:hover,.navstrip a.here{color:#f4f4f5}
-.nav-cta{flex-shrink:0;background:#F5C518;color:#000;padding:10px 20px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.875rem;letter-spacing:.3px;white-space:nowrap}
-.nav-cta:hover{background:#d4a912;color:#000;transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
-.step-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(45,160,224,.06));border:1px solid rgba(245,197,24,.18);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;color:#F5C518}
+.navstrip a{font-family:var(--font-display);font-size:.875rem;font-weight:500;letter-spacing:.3px;color:var(--text-2);white-space:nowrap}
+.navstrip a:hover,.navstrip a.here{color:var(--text)}
+.nav-cta{flex-shrink:0;background:var(--gold);color:var(--deep);padding:10px 20px;border-radius:var(--r-btn);font-family:var(--font-display);font-weight:700;font-size:.875rem;letter-spacing:.3px;white-space:nowrap}
+.nav-cta:hover{background:var(--gold-hover);color:var(--deep);transform:translateY(-1px);box-shadow:0 4px 20px rgba(245,197,24,.3)}
+
+/* steps — this page runs the marker one size down from the system default */
+.step-num{width:56px;height:56px;font-size:1.2rem;margin-bottom:16px}
+
+/* role cards */
 .rolegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:20px;margin-top:44px}
-.role{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px;display:flex;flex-direction:column}
+.role{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;transition:border-color var(--t)}
 .role:hover{border-color:rgba(245,197,24,.22)}
 .role .rhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
 .role h3{font-size:1.15rem;font-weight:700}
-.role .price{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.68rem;letter-spacing:1.3px;text-transform:uppercase;color:#94a3b8;white-space:nowrap;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:4px 9px;border-radius:5px}
-.role .who{font-size:.85rem;color:#2DA0E0;margin-bottom:14px}
-.role .wk{font-family:'Space Grotesk',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:7px}
-.role p{font-size:.93rem;color:#cbd5e1;line-height:1.6;margin-bottom:14px}
-.role .repl{font-size:.85rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08);padding-top:13px;margin-top:auto}
+.role .price{font-family:var(--font-display);font-weight:600;font-size:.68rem;letter-spacing:1.3px;text-transform:uppercase;color:var(--mute);white-space:nowrap;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:4px 9px;border-radius:5px}
+.role .who{font-size:.85rem;color:var(--blue);margin-bottom:14px}
+.role .wk{font-family:var(--font-display);font-size:.66rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:7px}
+.role p{font-size:.93rem;color:var(--text-2);line-height:1.6;margin-bottom:14px}
+.role .repl{font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:13px;margin-top:auto}
 .role.proj{background:transparent;border-style:dashed}
+
+/* control grid */
 .ctrl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px;margin-top:40px}
 .ctrl .c{display:flex;gap:13px;align-items:flex-start}
-.ctrl i{color:#2DA0E0;margin-top:4px;flex-shrink:0}
+.ctrl i{color:var(--blue);margin-top:4px;flex-shrink:0}
 .ctrl h4{font-size:.98rem;font-weight:700;margin-bottom:3px}
-.ctrl p{font-size:.88rem;color:#94a3b8;line-height:1.55}
-footer .fnav a{color:#94a3b8;font-size:.82rem;font-family:'Space Grotesk',sans-serif}
-footer .fnav a:hover{color:#f4f4f5}
-.wa{position:fixed;bottom:24px;right:24px;z-index:9999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.ctrl p{font-size:.88rem;color:var(--mute);line-height:1.55}
+
+/* footer + whatsapp */
+footer .fnav a{color:var(--mute);font-size:.82rem;font-family:var(--font-display)}
+footer .fnav a:hover{color:var(--text)}
+.wa{position:fixed;bottom:24px;right:24px;z-index:9999;background:var(--whatsapp);width:56px;height:56px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 .wa:hover{transform:scale(1.08)}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div id="top" style="position:relative;z-index:1">
 
 <nav>
@@ -93,6 +103,8 @@ footer .fnav a:hover{color:#f4f4f5}
     <a class="nav-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener">Start with a plan · $999</a>
   </div>
 </nav>
+
+<main id="main">
 
 <section style="padding:clamp(56px,8vw,90px) clamp(20px,5vw,24px) clamp(48px,6vw,72px);position:relative;overflow:hidden">
   <div style="position:absolute;top:-14%;right:-8%;width:520px;height:520px;background:radial-gradient(circle,rgba(245,197,24,.07) 0%,transparent 70%);pointer-events:none"></div>
@@ -219,6 +231,8 @@ footer .fnav a:hover{color:#f4f4f5}
   </div>
 </section>
 
+</main>
+
 <footer style="padding:36px clamp(20px,5vw,24px);border-top:1px solid rgba(255,255,255,.05)">
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
     <a href="/" aria-label="LFSA Digital home"><img src="logo-mark.svg" alt="LFSA Digital" width="30" height="30" style="height:30px;width:30px;opacity:.7"></a>
@@ -232,7 +246,7 @@ footer .fnav a:hover{color:#f4f4f5}
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
     </div>
-    <div class="gk" style="color:rgba(255,255,255,.28);font-size:.78rem;width:100%;text-align:center;padding-top:8px">© 2026 LFSA Digital · Built with AI, obviously.</div>
+    <div class="fineprint" style="width:100%;text-align:center;padding-top:8px">© 2026 LFSA Digital · Built with AI, obviously.</div>
   </div>
 </footer>
 

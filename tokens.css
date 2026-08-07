@@ -113,6 +113,24 @@ a:hover { color: var(--gold-hover); }
 .dark { background: var(--deep); }
 .wrap { max-width: var(--wrap); margin: 0 auto; }
 
+/* Skip link — off-screen until focused, then pinned top-left over the nav.
+   First tabbable element on every page. */
+.skip-link {
+  position: absolute; left: 8px; top: 8px; z-index: 200;
+  transform: translateY(-150%);
+  background: var(--gold); color: var(--deep);
+  font-family: var(--font-display); font-weight: 700; font-size: .875rem;
+  padding: 10px 18px; border-radius: var(--r-btn);
+}
+.skip-link:focus { transform: translateY(0); color: var(--deep); }
+
+/* Footer fine print. rgba(255,255,255,.28) on navy is 2.4:1 and fails AA;
+   --mute clears it at 5.6:1. */
+.fineprint {
+  font-family: var(--font-display);
+  color: var(--mute); font-size: .78rem;
+}
+
 /* Focus ring — 2px solid gold, 2px offset, 6px radius. */
 a:focus-visible,
 button:focus-visible,
