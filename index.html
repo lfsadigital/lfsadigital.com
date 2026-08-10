@@ -124,6 +124,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filt
 .vid{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-tile);overflow:hidden;display:flex;flex-direction:column;color:inherit}
 .vid:hover{border-color:rgba(245,197,24,.25);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
 .vid h4{font-size:.82rem;font-weight:600;line-height:1.35;color:var(--text)}
+.vid .thumb{position:relative;aspect-ratio:16/9;background:var(--deep);overflow:hidden}
+.vid .thumb img{width:100%;height:100%;object-fit:cover}
+.vid .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ff0000;font-size:2rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
+.vid .dur{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.85);color:#fff;font-family:var(--font-display);font-size:.68rem;font-weight:600;padding:2px 6px;border-radius:3px}
+.vid .cap{padding:12px 14px 15px;flex:1}
 
 /* faq */
 .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
@@ -370,7 +375,59 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
     <div class="eyebrow"><span class="line"></span><span class="txt">Tutorials &amp; builds</span></div>
     <h2 class="big">We&rsquo;ve been building this stuff in public for years.</h2>
     <p class="lede" style="margin-bottom:48px">Real projects, real tutorials. The same tools and workflows your plan is measured against.</p>
-    <div id="vidgrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:20px"></div>
+    <!-- Static markup, not built in JS: the titles are the crawlable part and
+         the grid still renders with scripting off. Thumbnails carry empty alt
+         because the title sits right beneath each one. -->
+    <div id="vidgrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:20px">
+      <a class="vid" href="https://www.youtube.com/watch?v=4Z5j0qtjcjE" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/4Z5j0qtjcjE/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">14:50</span></div>
+        <div class="cap"><h4>AI Agent for a Med Clinic using N8N and WhatsApp</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=CE3xBXfnf60" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/CE3xBXfnf60/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">19:50</span></div>
+        <div class="cap"><h4>Building an AI Agent for Data Analysis in N8N: Full &amp; Simple Tutorial</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=iukwioalp_U" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/iukwioalp_U/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">9:13</span></div>
+        <div class="cap"><h4>Self Hosting N8N and Adding MCP Community Node</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=CGQeNzMJ3us" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/CGQeNzMJ3us/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">15:14</span></div>
+        <div class="cap"><h4>OpenClaw Built My Entire Voice Agent System: Here&rsquo;s How</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=ehRxf0Z4-8g" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/ehRxf0Z4-8g/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">8:48</span></div>
+        <div class="cap"><h4>Claude Code can create videos now (with audio)</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=cvC7MKRw59E" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/cvC7MKRw59E/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">11:11</span></div>
+        <div class="cap"><h4>N8N new MCP Native Server and Tool (+ Cursor and Claude)</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=Lgo9a0JqF7A" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/Lgo9a0JqF7A/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">24:05</span></div>
+        <div class="cap"><h4>WhatsApp AI Agent Without Losing Your Phone: Full N8N + Chatwoot Setup</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=A1CGYX6AjsQ" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/A1CGYX6AjsQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">6:19</span></div>
+        <div class="cap"><h4>Gumroad Won&rsquo;t Let You Send Emails? Here&rsquo;s the n8n Fix</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=GH_Vwp87vcc" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/GH_Vwp87vcc/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">11:59</span></div>
+        <div class="cap"><h4>Get started with Obsidian &amp; Claude Code: Tutorial and Prompts</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=sCYRZTXOnb0" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/sCYRZTXOnb0/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">7:04</span></div>
+        <div class="cap"><h4>I Built a Live Dashboard in Minutes with No Code, Just AI (Claude Cowork)</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=kl-7uu96Of4" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/kl-7uu96Of4/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">4:05</span></div>
+        <div class="cap"><h4>NotebookLM: The AI Tool Everyone is Sleeping On</h4></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=IMZ8OOe4-90" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/IMZ8OOe4-90/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">3:35</span></div>
+        <div class="cap"><h4>OpenClaw: Automating Socials, Updates &amp; Hard Truths</h4></div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -487,17 +544,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
 </div>
 <script>
 (function(){
-var vids=[["4Z5j0qtjcjE","AI Agent for a Med Clinic using N8N and WhatsApp","14:50"],["CE3xBXfnf60","Building an AI Agent for Data Analysis in N8N: Full & Simple Tutorial","19:50"],["iukwioalp_U","Self Hosting N8N and Adding MCP Community Node","9:13"],["CGQeNzMJ3us","OpenClaw Built My Entire Voice Agent System: Here's How","15:14"],["ehRxf0Z4-8g","Claude Code can create videos now (with audio)","8:48"],["cvC7MKRw59E","N8N new MCP Native Server and Tool (+ Cursor and Claude)","11:11"],["Lgo9a0JqF7A","WhatsApp AI Agent Without Losing Your Phone: Full N8N + Chatwoot Setup","24:05"],["A1CGYX6AjsQ","Gumroad Won't Let You Send Emails? Here's the n8n Fix","6:19"],["GH_Vwp87vcc","Get started with Obsidian & Claude Code: Tutorial and Prompts","11:59"],["sCYRZTXOnb0","I Built a Live Dashboard in Minutes with No Code, Just AI (Claude Cowork)","7:04"],["kl-7uu96Of4","NotebookLM: The AI Tool Everyone is Sleeping On","4:05"],["IMZ8OOe4-90","OpenClaw: Automating Socials, Updates & Hard Truths","3:35"]];
-var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;};
-document.getElementById('vidgrid').innerHTML=vids.map(function(v){
-return '<a class="vid" href="https://www.youtube.com/watch?v='+v[0]+'" target="_blank" rel="noopener">'
-+'<div style="position:relative;aspect-ratio:16/9;background:var(--deep);overflow:hidden">'
-+'<img src="https://i.ytimg.com/vi/'+v[0]+'/hqdefault.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover">'
-+'<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><i class="fa-brands fa-youtube" style="color:#ff0000;font-size:2rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))"></i></span>'
-+'<span class="gk" style="position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.85);color:#fff;font-size:.68rem;font-weight:600;padding:2px 6px;border-radius:3px">'+esc(v[2])+'</span>'
-+'</div><div style="padding:12px 14px 15px;flex:1"><h4>'+esc(v[1])+'</h4></div></a>';
-}).join('');
-
 /* The FAQ itself is static markup; this only adds the accordion behaviour. */
 document.querySelectorAll('.faq-q').forEach(function(btn){
 btn.addEventListener('click',function(){
