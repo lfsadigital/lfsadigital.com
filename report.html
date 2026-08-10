@@ -27,7 +27,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--navy:#0A2463;--deep:#061640;--gold:#F5C518;--blue:#2DA0E0;--ink:#16181d;--mute:#5b6472;--line:#e3e6ec;--bg:#fbfbfc}
+/* This page is a light surface and does not load tokens.css, so the palette is
+   mirrored here. --blue-ink is the accent for text on white: plain --blue is
+   2.91:1 there and fails AA. Canonical definition lives in tokens.css. */
+:root{--navy:#0A2463;--deep:#061640;--gold:#F5C518;--blue:#2DA0E0;--blue-ink:#2278a8;--ink:#16181d;--mute:#5b6472;--line:#e3e6ec;--bg:#fbfbfc}
 body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.7;font-size:16px}
 .gk{font-family:'Space Grotesk',sans-serif}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2}
@@ -37,7 +40,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2}
 .bar a{color:var(--gold);text-decoration:none;font-size:.85rem}
 .notice{background:#fff8e1;border:1px solid #f0d98a;border-radius:8px;padding:14px 18px;margin:26px 0 34px;font-size:.88rem;color:#6b5710;line-height:1.6}
 .masthead{border-bottom:3px solid var(--navy);padding-bottom:22px;margin-bottom:34px}
-.kicker{font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:3px;font-size:.7rem;font-weight:600;color:var(--blue);margin-bottom:8px}
+.kicker{font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:3px;font-size:.7rem;font-weight:600;color:var(--blue-ink);margin-bottom:8px}
 h1{font-size:clamp(1.9rem,4.4vw,2.6rem);font-weight:700;letter-spacing:-.6px;margin-bottom:10px}
 .meta{color:var(--mute);font-size:.92rem}
 h2{font-size:clamp(1.3rem,2.6vw,1.6rem);font-weight:700;margin:44px 0 14px;letter-spacing:-.2px}
@@ -73,14 +76,14 @@ td.num,th.num{text-align:right;padding-right:0;white-space:nowrap}
 .headline{background:var(--gold);color:var(--deep);border-radius:10px;padding:20px 24px;margin:22px 0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.05rem,2.2vw,1.25rem);line-height:1.45}
 .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin:18px 0}
 .day{background:#fff;border:1px solid var(--line);border-radius:9px;padding:14px 16px}
-.day .d{font-family:'Space Grotesk',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.4px;color:var(--blue);margin-bottom:6px}
+.day .d{font-family:'Space Grotesk',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.4px;color:var(--blue-ink);margin-bottom:6px}
 .day .t{font-size:.9rem;line-height:1.5}
 .role{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:16px 0}
 .role.lead{border:2px solid var(--navy)}
 .role .top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
 .role .price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;white-space:nowrap}
 .badge{display:inline-block;background:var(--navy);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:5px;margin-bottom:10px}
-.gain{font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:600;color:var(--blue);margin-bottom:8px}
+.gain{font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:600;color:var(--blue-ink);margin-bottom:8px}
 .terms{color:var(--mute);font-size:.8rem;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
 .declined{background:transparent;border:1px dashed var(--line);border-radius:10px;padding:18px 22px;margin:16px 0;color:var(--mute);font-size:.93rem}
 .declined strong{color:var(--ink)}

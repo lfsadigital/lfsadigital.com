@@ -53,6 +53,10 @@
   --doc-ink:  #16181d;
   --doc-mute: #5b6472;
   --doc-line: #e3e6ec;
+  /* --blue on white is 2.91:1 and fails AA. This is the same blue darkened to
+     75%, which clears it at 4.86:1. Use it for any accent text on a light
+     surface; --blue stays the accent on navy, where it passes at 4.99:1. */
+  --blue-ink: #2278a8;
 
   /* type */
   --font-display: 'Space Grotesk', sans-serif;
