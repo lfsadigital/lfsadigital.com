@@ -143,6 +143,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filt
 .faq-item.open .fa-minus{display:inline-block}
 .faq-item.open .fa-plus{display:none}
 
+/* about */
+.about-row{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,40px);align-items:center}
+/* Below this the photo and the copy fight for the same row and the text ends
+   up in a ~200px gutter. Stack instead. */
+@media(max-width:640px){
+  .about-row{grid-template-columns:1fr;justify-items:start;gap:24px}
+}
+
 /* social + footer */
 .socials a{color:var(--mute)}
 .socials a:hover{color:var(--gold)}
@@ -437,8 +445,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
   <div class="wrap" style="position:relative;z-index:1">
     <div class="eyebrow"><span class="line"></span><span class="txt">About</span></div>
     <h2 class="big" style="margin-bottom:40px">Built by a builder.</h2>
-    <div style="display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,40px);align-items:center">
-      <img src="/luiz.jpg" alt="Luiz Almeida" width="120" height="120" loading="lazy" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.1)">
+    <div class="about-row">
+      <!-- Scales with the viewport so it holds its weight against the text
+           column on desktop without crowding it on a phone. Source is 400px,
+           i.e. 2x the 200px ceiling. -->
+      <img src="/luiz.jpg" alt="Luiz Almeida" width="200" height="200" loading="lazy" style="width:clamp(112px,17vw,200px);height:clamp(112px,17vw,200px);border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.1)">
       <div style="min-width:min(100%,280px)">
         <h3 class="gk" style="font-size:1.5rem;font-weight:700;margin-bottom:4px">Luiz Almeida</h3>
         <p class="gk" style="color:var(--blue);font-size:.85rem;font-weight:500;margin-bottom:16px;letter-spacing:.5px">Founder · AI Builder · Software Developer</p>
