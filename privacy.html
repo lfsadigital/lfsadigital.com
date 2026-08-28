@@ -142,9 +142,11 @@
     <h2>6. Storage, Security, and Human Access</h2>
 
     <p>OAuth access and refresh tokens for a client's Google account are stored on a server that LFSA
-    Digital controls, in files readable only by the isolated service account that runs the agent. The
-    credentials are not exposed inside the agent's execution sandbox, so the agent itself cannot read
-    the file that holds them.</p>
+    Digital controls, in files with restrictive permissions. The agent's tooling necessarily uses the
+    Gmail token to do its work, so the safeguard we rely on is not secrecy but scope: the token
+    carries read and draft permissions only, and a send attempt is refused by Google no matter who
+    holds it. Keys for our messaging and AI-model providers are kept outside the agent's execution
+    sandbox entirely.</p>
 
     <p><strong>Human access.</strong> LFSA Digital personnel do not read a client's Google user data
     in the ordinary course of business. A person may access it only when the client asks us to, for
