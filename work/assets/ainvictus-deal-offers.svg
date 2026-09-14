@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AInvictus Deal Desk structured offer history</title>
+  <desc id="desc">A product structure diagram showing a buyer offer, version history, status changes and a broker comparison view.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <rect x="42" y="42" width="1516" height="816" rx="18" fill="#fff" stroke="#c7d0dc" stroke-width="2"/>
+  <text x="82" y="105" fill="#0a286b" font-family="Arial, sans-serif" font-size="24" font-weight="700">AINVICTUS DEAL DESK</text>
+  <text x="1518" y="103" fill="#59677c" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="end">BUILT PRODUCT STRUCTURE · SAMPLE DATA ONLY</text>
+  <text x="82" y="213" fill="#10192e" font-family="Arial, sans-serif" font-size="57" font-weight="700">Offers become structured history.</text>
+  <text x="82" y="273" fill="#59677c" font-family="Arial, sans-serif" font-size="21">The advisor can compare terms without losing previous versions or status changes.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(82 370)"><rect width="330" height="234" rx="10" fill="#e9edf2"/><text x="28" y="46" fill="#68778d" font-size="13" letter-spacing="1.5">01 · SUBMIT</text><text x="28" y="101" fill="#0a286b" font-size="24" font-weight="700">Structured offer</text><text x="28" y="148" fill="#526079" font-size="16">Price, timing, conditions</text><text x="28" y="177" fill="#526079" font-size="16">and financing context.</text></g>
+    <path d="M434 487h56" stroke="#b88400" stroke-width="3"/><circle cx="490" cy="487" r="7" fill="#b88400"/>
+    <g transform="translate(512 370)"><rect width="330" height="234" rx="10" fill="#e9edf2"/><text x="28" y="46" fill="#68778d" font-size="13" letter-spacing="1.5">02 · REVISE</text><text x="28" y="101" fill="#0a286b" font-size="24" font-weight="700">Version history</text><text x="28" y="148" fill="#526079" font-size="16">Each revision remains visible</text><text x="28" y="177" fill="#526079" font-size="16">instead of replacing the past.</text></g>
+    <path d="M864 487h56" stroke="#b88400" stroke-width="3"/><circle cx="920" cy="487" r="7" fill="#b88400"/>
+    <g transform="translate(942 370)"><rect width="260" height="234" rx="10" fill="#e9edf2"/><text x="28" y="46" fill="#68778d" font-size="13" letter-spacing="1.5">03 · TRACK</text><text x="28" y="101" fill="#0a286b" font-size="24" font-weight="700">Offer status</text><text x="28" y="148" fill="#526079" font-size="16">Current state stays</text><text x="28" y="177" fill="#526079" font-size="16">explicit and reviewable.</text></g>
+    <path d="M1224 487h56" stroke="#b88400" stroke-width="3"/><circle cx="1280" cy="487" r="7" fill="#b88400"/>
+    <g transform="translate(1302 370)"><rect width="216" height="234" rx="10" fill="#071c4d"/><text x="24" y="46" fill="#94add6" font-size="13" letter-spacing="1.5">04 · COMPARE</text><text x="24" y="101" fill="#fff" font-size="23" font-weight="700">Broker view</text><text x="24" y="148" fill="#c7d2e4" font-size="15">Compare buyers</text><text x="24" y="175" fill="#c7d2e4" font-size="15">and their terms.</text></g>
+  </g>
+  <rect x="82" y="687" width="1436" height="106" rx="10" fill="#fff4ca"/>
+  <text x="112" y="730" fill="#5c4300" font-family="Arial, sans-serif" font-size="17" font-weight="700">OBSERVED PRODUCT SCOPE</text>
+  <text x="112" y="763" fill="#5c4300" font-family="Arial, sans-serif" font-size="17">Offer versions, status and broker comparison are built into the product</text>
+</svg>

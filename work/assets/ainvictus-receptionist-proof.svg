@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AInvictus AI Receptionist verified end to end test path</title>
+  <desc id="desc">A real phone test checked Jobber availability, created a real Jobber request, stored one dashboard record and triggered internal notifications.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <rect x="42" y="42" width="1516" height="816" rx="18" fill="#fff" stroke="#c7d0dc" stroke-width="2"/>
+  <text x="82" y="105" fill="#0a286b" font-family="Arial, sans-serif" font-size="24" font-weight="700">AINVICTUS AI RECEPTIONIST</text>
+  <text x="1518" y="103" fill="#59677c" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="end">VERIFIED END-TO-END TEST</text>
+  <text x="82" y="213" fill="#10192e" font-family="Arial, sans-serif" font-size="57" font-weight="700">One real call crossed the whole path.</text>
+  <text x="82" y="273" fill="#59677c" font-family="Arial, sans-serif" font-size="21">This confirms the phone-to-Jobber integration and its operating record.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(82 370)"><circle cx="44" cy="44" r="44" fill="#0a286b"/><text x="44" y="52" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">1</text><text x="0" y="132" fill="#10192e" font-size="22" font-weight="700">Real phone test</text><text x="0" y="166" fill="#59677c" font-size="16">A real call entered</text><text x="0" y="192" fill="#59677c" font-size="16">the product.</text></g>
+    <path d="M300 414h118" stroke="#b88400" stroke-width="4"/><circle cx="418" cy="414" r="7" fill="#b88400"/>
+    <g transform="translate(436 370)"><circle cx="44" cy="44" r="44" fill="#0a286b"/><text x="44" y="52" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">2</text><text x="0" y="132" fill="#10192e" font-size="22" font-weight="700">Jobber checked</text><text x="0" y="166" fill="#59677c" font-size="16">Availability came from</text><text x="0" y="192" fill="#59677c" font-size="16">the selected connector.</text></g>
+    <path d="M654 414h118" stroke="#b88400" stroke-width="4"/><circle cx="772" cy="414" r="7" fill="#b88400"/>
+    <g transform="translate(790 370)"><circle cx="44" cy="44" r="44" fill="#0a286b"/><text x="44" y="52" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">3</text><text x="0" y="132" fill="#10192e" font-size="22" font-weight="700">Request created</text><text x="0" y="166" fill="#59677c" font-size="16">A real Jobber request</text><text x="0" y="192" fill="#59677c" font-size="16">was created.</text></g>
+    <path d="M1008 414h118" stroke="#b88400" stroke-width="4"/><circle cx="1126" cy="414" r="7" fill="#b88400"/>
+    <g transform="translate(1144 370)"><circle cx="44" cy="44" r="44" fill="#f4c53d"/><text x="44" y="52" text-anchor="middle" fill="#071c4d" font-size="24" font-weight="700">4</text><text x="0" y="132" fill="#10192e" font-size="22" font-weight="700">Recorded once</text><text x="0" y="166" fill="#59677c" font-size="16">Dashboard record and</text><text x="0" y="192" fill="#59677c" font-size="16">notifications completed.</text></g>
+  </g>
+  <rect x="82" y="681" width="1436" height="112" rx="10" fill="#e9edf2"/>
+  <text x="112" y="725" fill="#0a286b" font-family="Arial, sans-serif" font-size="18" font-weight="700">OBSERVED</text>
+  <text x="112" y="761" fill="#526079" font-family="Arial, sans-serif" font-size="18">Phone-to-Jobber test completed · request, dashboard record and notifications verified</text>
+</svg>

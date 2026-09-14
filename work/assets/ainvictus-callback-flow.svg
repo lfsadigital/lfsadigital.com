@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AInvictus 60-Second Callback pilot-ready flow</title>
+  <desc id="desc">A consented lead enters a fail-closed safety gate before an outbound call, warm transfer or booking fallback, and attempt log.</desc>
+  <rect width="1600" height="900" fill="#e9edf2"/>
+  <text x="76" y="91" fill="#0a286b" font-family="Arial, sans-serif" font-weight="700" font-size="25">AINVICTUS 60-SECOND CALLBACK</text>
+  <text x="1524" y="87" fill="#52627a" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" text-anchor="end">PILOT-READY WORKFLOW</text>
+  <text x="76" y="198" fill="#111a2e" font-family="Arial, sans-serif" font-weight="700" font-size="59">Call while the lead still</text>
+  <text x="76" y="259" fill="#b88400" font-family="Arial, sans-serif" font-weight="700" font-size="59">remembers the form.</text>
+  <text x="76" y="314" fill="#526079" font-family="Arial, sans-serif" font-size="21">Guarded workflow built for a controlled rollout.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(76 385)"><rect width="272" height="218" rx="10" fill="#fff" stroke="#c4ceda"/><text x="24" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.4">01 · LEAD</text><text x="24" y="94" fill="#0a286b" font-size="22" font-weight="700">Consented form</text><text x="24" y="138" fill="#53637b" font-size="16">A submitted lead includes</text><text x="24" y="166" fill="#53637b" font-size="16">explicit call consent.</text></g>
+    <path d="M365 494h40m-9-9 9 9-9 9" fill="none" stroke="#b88400" stroke-width="3"/>
+    <g transform="translate(422 385)"><rect width="272" height="218" rx="10" fill="#fff" stroke="#c4ceda"/><text x="24" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.4">02 · SAFETY GATE</text><text x="24" y="94" fill="#0a286b" font-size="22" font-weight="700">Refuse or proceed</text><text x="24" y="138" fill="#53637b" font-size="16">Validation, suppression,</text><text x="24" y="166" fill="#53637b" font-size="16">window and dedupe checks.</text></g>
+    <path d="M711 494h40m-9-9 9 9-9 9" fill="none" stroke="#b88400" stroke-width="3"/>
+    <g transform="translate(768 385)"><rect width="272" height="218" rx="10" fill="#fff" stroke="#c4ceda"/><text x="24" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.4">03 · CALL</text><text x="24" y="94" fill="#0a286b" font-size="22" font-weight="700">Outbound attempt</text><text x="24" y="138" fill="#53637b" font-size="16">Lead context is passed to</text><text x="24" y="166" fill="#53637b" font-size="16">the voice agent.</text></g>
+    <path d="M1057 494h40m-9-9 9 9-9 9" fill="none" stroke="#b88400" stroke-width="3"/>
+    <g transform="translate(1114 385)"><rect width="410" height="218" rx="10" fill="#071c4d"/><text x="24" y="42" fill="#94add6" font-size="13" letter-spacing="1.4">04 · OUTCOME</text><text x="24" y="94" fill="#fff" font-size="22" font-weight="700">Transfer, book or log</text><text x="24" y="138" fill="#c7d2e4" font-size="16">Warm transfer when available.</text><text x="24" y="166" fill="#c7d2e4" font-size="16">Booking fallback and attempt record.</text></g>
+  </g>
+  <rect x="76" y="697" width="1448" height="103" rx="10" fill="#fff4ca" stroke="#ead184"/>
+  <text x="108" y="738" fill="#5c4300" font-family="Arial, sans-serif" font-size="17" font-weight="700">CONTROLLED ROLLOUT CHECKS</text>
+  <text x="108" y="770" fill="#5c4300" font-family="Arial, sans-serif" font-size="17">Confirm delivery, pickup, transfer and CRM writeback before broader use.</text>
+</svg>

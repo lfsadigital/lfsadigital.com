@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AInvictus callback readiness snapshot</title>
+  <desc id="desc">A two-column pilot checklist showing the callback controls already built and the phone-path checks used during controlled rollout.</desc>
+  <rect width="1600" height="900" fill="#0a0e1a"/>
+  <text x="76" y="91" fill="#c9a24e" font-family="Arial, sans-serif" font-weight="700" font-size="25">AINVICTUS 60-SECOND CALLBACK</text>
+  <text x="1524" y="87" fill="#c9a24e" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" text-anchor="end">PILOT READINESS</text>
+  <text x="76" y="198" fill="#e9eaee" font-family="Arial, sans-serif" font-weight="700" font-size="59">Built controls. Clear validation plan.</text>
+  <text x="76" y="259" fill="#aab1bf" font-family="Arial, sans-serif" font-size="21">The pilot plan confirms the phone path before broader rollout.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(76 344)"><rect width="690" height="384" rx="14" fill="#12172a" stroke="#c9a24e"/><text x="34" y="58" fill="#c9a24e" font-size="16" font-weight="700" letter-spacing="1.5">BUILT</text><text x="34" y="111" fill="#e9eaee" font-size="28" font-weight="700">Code and operating controls</text><g fill="#c9cdd6" font-size="19"><text x="34" y="166">✓  Consent-required API gate</text><text x="34" y="208">✓  Number validation and suppression table</text><text x="34" y="250">✓  Calling window and 30-minute dedupe</text><text x="34" y="292">✓  Attempt record written before dial</text><text x="34" y="334">✓  Transfer and booking fallback tools</text></g></g>
+    <g transform="translate(804 344)"><rect width="720" height="384" rx="14" fill="#161b2e" stroke="#c9a24e"/><text x="34" y="58" fill="#c9a24e" font-size="16" font-weight="700" letter-spacing="1.5">CONTROLLED ROLLOUT</text><text x="34" y="111" fill="#e9eaee" font-size="28" font-weight="700">Phone-path checks</text><g fill="#c9cdd6" font-size="19"><text x="34" y="166">○  Carrier delivery and human pickup</text><text x="34" y="208">○  Warm-transfer behavior</text><text x="34" y="250">○  Time from form submission to call</text><text x="34" y="292">○  Called-party timezone handling</text><text x="34" y="334">○  Result and attempt-log review</text></g></g>
+  </g>
+  <text x="76" y="801" fill="#c9a24e" font-family="Arial, sans-serif" font-size="18" font-weight="700">PILOT-READY WITH HUMAN OVERSIGHT</text>
+</svg>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Hire | Completed run</title>
+  <link rel="stylesheet" href="record.css">
+  <script src="evidence/source-data.js" defer></script>
+  <script src="record.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to saved run</a>
+  <div class="app-shell">
+    <header class="app-header">
+      <a class="app-brand" href="index.html">LFSA <span>Admin Hire</span></a>
+      <div class="run-disclosure"><span aria-hidden="true"></span><strong>Completed demo run</strong><small>Fictional sample data</small></div>
+      <div class="header-actions"><a href="index.html">Selected work</a><button id="open-guide" type="button">Recording guide</button></div>
+    </header>
+    <div class="app-body">
+      <aside class="app-sidebar">
+        <nav aria-label="Saved run sections">
+          <button type="button" data-view="review" aria-pressed="true"><span>01</span>Document review</button>
+          <button type="button" data-view="followups" aria-pressed="false"><span>02</span>Follow-ups</button>
+          <button type="button" data-view="activity" aria-pressed="false"><span>03</span>Run history</button>
+        </nav>
+        <div class="safety-note"><strong>External actions</strong><span>Not available in this viewer</span><small>No client message was sent.</small></div>
+      </aside>
+      <main id="workspace" class="workspace">
+        <header class="workspace-header">
+          <div>
+            <p>August 2026 document collection</p>
+            <h1 id="workspace-title">First review</h1>
+          </div>
+          <div class="run-meta"><span>Review period</span><strong>Aug 1–31, 2026</strong></div>
+        </header>
+        <section class="view-switcher" aria-label="Three saved-run views">
+          <p>Walkthrough</p>
+          <div role="group" aria-label="Choose a saved-run view">
+            <button type="button" data-snapshot="first" aria-pressed="true"><span>1</span>First review</button>
+            <button type="button" data-snapshot="draft" aria-pressed="false"><span>2</span>Follow-up</button>
+            <button type="button" data-snapshot="updated" aria-pressed="false"><span>3</span>Updated review</button>
+          </div>
+        </section>
+        <div id="workspace-content" class="workspace-grid" aria-live="polite">
+          <section class="panel queue-panel" aria-labelledby="queue-title">
+            <div class="panel-heading"><h2 id="queue-title">Client review queue</h2><b id="queue-count"></b></div>
+            <div id="client-list" class="client-list"></div>
+          </section>
+          <section class="panel inspection-panel" id="inspection" aria-label="Selected client evidence"></section>
+          <aside class="panel history-panel" id="history" aria-label="What changed"></aside>
+        </div>
+        <footer class="workspace-footer"><strong>Coverage check only.</strong> This run does not establish accounting accuracy, document authenticity, human review or a completed financial close.<span>No external messages sent</span></footer>
+      </main>
+    </div>
+  </div>
+  <dialog id="recording-guide" aria-labelledby="guide-title">
+    <form method="dialog"><button class="dialog-close" aria-label="Close recording guide">Close</button></form>
+    <h2 id="guide-title">Record two screens. That’s it.</h2>
+    <ol>
+      <li><strong>Slack, about 10 seconds.</strong><span>Show the request you already sent and the assistant’s reply. Do not rerun it.</span></li>
+      <li><strong>This dashboard, about 50 seconds.</strong><span>Click 1, 2 and 3. Explain the gap, the unsent draft and the withdrawal.</span></li>
+    </ol>
+    <div class="guide-script">
+      <p><b>Slack:</b> “I asked the assistant to review three client folders and prepare only the follow-ups we need.”</p>
+      <p><b>1. First review:</b> “The email says everything is there. The files show a half-month bank statement and no sales export.”</p>
+      <p><b>2. Follow-up:</b> “It prepares one draft asking only for those gaps. A person decides whether anything is sent.”</p>
+      <p><b>3. Updated review:</b> “The complete files arrive, the status updates and the stale draft is withdrawn. The first pass stays preserved.”</p>
+      <p><b>Finish:</b> “The bookkeeper still reviews the accounts. This handles the document coordination, adapted to your files, rules and approvals.”</p>
+    </div>
+    <form method="dialog"><button class="primary-action">Got it</button></form>
+  </dialog>
+</body>
+</html>

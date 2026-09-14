@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sanitized medical-clinic message intake map</title>
+  <desc id="desc">A four-stage diagram showing social inquiries grouped into one conversation, interpreted with context, and recorded for staff review.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#8a99ad"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <rect x="42" y="42" width="1516" height="816" rx="18" fill="#ffffff" stroke="#c7d0dc" stroke-width="2"/>
+  <text x="82" y="105" fill="#0a286b" font-family="Arial, sans-serif" font-size="24" font-weight="700">MEDICAL CLINIC × LFSA</text>
+  <text x="1518" y="103" fill="#59677c" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="end">SANITIZED WORKFLOW MAP</text>
+  <text x="82" y="213" fill="#10192e" font-family="Arial, sans-serif" font-size="57" font-weight="700">One conversation reaches the queue</text>
+  <text x="82" y="273" fill="#b17d00" font-family="Arial, sans-serif" font-size="57" font-weight="700">with its context intact.</text>
+  <text x="82" y="326" fill="#59677c" font-family="Arial, sans-serif" font-size="21">A readable map of the implemented intake path, with patient records kept private.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(82 410)">
+      <rect width="295" height="246" rx="12" fill="#e9edf2"/>
+      <circle cx="38" cy="40" r="19" fill="#0a286b"/><text x="38" y="47" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">1</text>
+      <text x="30" y="103" fill="#10192e" font-size="25" font-weight="700">Social inquiries</text>
+      <text x="30" y="145" fill="#59677c" font-size="18">Instagram and Facebook</text>
+      <text x="30" y="174" fill="#59677c" font-size="18">messages enter one path.</text>
+    </g>
+    <path d="M390 533h70" fill="none" stroke="#8a99ad" stroke-width="3" marker-end="url(#arrow)"/>
+    <g transform="translate(475 410)">
+      <rect width="295" height="246" rx="12" fill="#e9edf2"/>
+      <circle cx="38" cy="40" r="19" fill="#0a286b"/><text x="38" y="47" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">2</text>
+      <text x="30" y="103" fill="#10192e" font-size="25" font-weight="700">Group messages</text>
+      <text x="30" y="145" fill="#59677c" font-size="18">Messages sent together stay</text>
+      <text x="30" y="174" fill="#59677c" font-size="18">inside one conversation.</text>
+    </g>
+    <path d="M783 533h70" fill="none" stroke="#8a99ad" stroke-width="3" marker-end="url(#arrow)"/>
+    <g transform="translate(868 410)">
+      <rect width="295" height="246" rx="12" fill="#e9edf2"/>
+      <circle cx="38" cy="40" r="19" fill="#0a286b"/><text x="38" y="47" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">3</text>
+      <text x="30" y="103" fill="#10192e" font-size="25" font-weight="700">Keep context</text>
+      <text x="30" y="145" fill="#59677c" font-size="18">Language and prior context</text>
+      <text x="30" y="174" fill="#59677c" font-size="18">inform the next step.</text>
+    </g>
+    <path d="M1176 533h70" fill="none" stroke="#8a99ad" stroke-width="3" marker-end="url(#arrow)"/>
+    <g transform="translate(1261 410)">
+      <rect width="257" height="246" rx="12" fill="#071c4d"/>
+      <circle cx="38" cy="40" r="19" fill="#f4c53d"/><text x="38" y="47" text-anchor="middle" fill="#071c4d" font-size="18" font-weight="700">4</text>
+      <text x="30" y="103" fill="#fff" font-size="25" font-weight="700">Reviewable lead</text>
+      <text x="30" y="145" fill="#c7d2e4" font-size="18">The CRM queue receives</text>
+      <text x="30" y="174" fill="#c7d2e4" font-size="18">a structured record.</text>
+    </g>
+  </g>
+  <rect x="82" y="733" width="1436" height="72" rx="10" fill="#fff4ca"/>
+  <text x="112" y="778" fill="#5c4300" font-family="Arial, sans-serif" font-size="18"><tspan font-weight="700">Boundary:</tspan> routing support only · no patient records shown · clinical decisions remain with qualified people</text>
+</svg>

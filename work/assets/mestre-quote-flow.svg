@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Current Mestre Gráfica quote-intake workflow</title>
+  <desc id="desc">Website or WhatsApp inquiry flows to specification collection, workflow handoff and human review. Staff retain pricing and delivery control.</desc>
+  <rect width="1600" height="900" fill="#e9edf2"/>
+  <text x="76" y="91" fill="#0a286b" font-family="Arial, sans-serif" font-weight="700" font-size="25">MESTRE GRÁFICA × LFSA</text>
+  <text x="1524" y="87" fill="#52627a" font-family="Arial, sans-serif" font-size="14" letter-spacing="2" text-anchor="end">CURRENT QUOTE-INTAKE WORKFLOW</text>
+  <text x="76" y="198" fill="#111a2e" font-family="Arial, sans-serif" font-weight="700" font-size="59">A usable request reaches a person</text>
+  <text x="76" y="259" fill="#b88400" font-family="Arial, sans-serif" font-weight="700" font-size="59">before <tspan fill="#111a2e">pricing begins.</tspan></text>
+  <text x="76" y="314" fill="#526079" font-family="Arial, sans-serif" font-size="21">The workflow structures the request and alerts staff. A person still decides price, exceptions and delivery commitments.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(76 390)"><rect width="310" height="190" rx="10" fill="#fff" stroke="#c4ceda"/><text x="26" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.5">01 · INQUIRY</text><text x="26" y="98" fill="#0a286b" font-size="22" font-weight="700">Website or WhatsApp</text><text x="26" y="151" fill="#53637b" font-size="16">A visitor starts a quote request.</text></g>
+    <path d="M410 484h28m-9-9 9 9-9 9" fill="none" stroke="#b88400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(456 390)"><rect width="310" height="190" rx="10" fill="#fff" stroke="#c4ceda"/><text x="26" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.5">02 · COLLECT</text><text x="26" y="98" fill="#0a286b" font-size="22" font-weight="700">Specifications</text><text x="26" y="143" fill="#53637b" font-size="16">Product, quantity, size, deadline</text><text x="26" y="169" fill="#53637b" font-size="16">and artwork.</text></g>
+    <path d="M790 484h28m-9-9 9 9-9 9" fill="none" stroke="#b88400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(836 390)"><rect width="310" height="190" rx="10" fill="#fff" stroke="#c4ceda"/><text x="26" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.5">03 · ORGANISE</text><text x="26" y="98" fill="#0a286b" font-size="22" font-weight="700">Workflow handoff</text><text x="26" y="143" fill="#53637b" font-size="16">The request is summarized</text><text x="26" y="169" fill="#53637b" font-size="16">and the team is notified.</text></g>
+    <path d="M1170 484h28m-9-9 9 9-9 9" fill="none" stroke="#b88400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(1216 390)"><rect width="308" height="190" rx="10" fill="#fff" stroke="#c4ceda"/><text x="26" y="42" fill="#6c7c93" font-size="13" letter-spacing="1.5">04 · DECIDE</text><text x="26" y="98" fill="#0a286b" font-size="22" font-weight="700">Human review</text><text x="26" y="143" fill="#53637b" font-size="16">Staff price, clarify and commit.</text></g>
+  </g>
+  <line x1="76" y1="789" x2="1524" y2="789" stroke="#c4ceda"/>
+  <text x="76" y="830" fill="#56667d" font-family="Arial, sans-serif" font-size="16">Diagram of the implemented request path · no customer conversation or price table shown</text>
+</svg>

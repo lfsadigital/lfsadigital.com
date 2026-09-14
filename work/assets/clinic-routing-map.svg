@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sanitized medical-clinic routing map</title>
+  <desc id="desc">A diagram separating routine administrative inquiries from clinical or urgent questions that require human handoff.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#8796aa"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <rect x="42" y="42" width="1516" height="816" rx="18" fill="#fff" stroke="#c7d0dc" stroke-width="2"/>
+  <text x="82" y="105" fill="#0a286b" font-family="Arial, sans-serif" font-size="24" font-weight="700">MEDICAL CLINIC × LFSA</text>
+  <text x="1518" y="103" fill="#59677c" font-family="Arial, sans-serif" font-size="15" letter-spacing="2" text-anchor="end">ROUTING BOUNDARIES</text>
+  <text x="82" y="215" fill="#10192e" font-family="Arial, sans-serif" font-size="57" font-weight="700">Automation handles the path.</text>
+  <text x="82" y="275" fill="#b17d00" font-family="Arial, sans-serif" font-size="57" font-weight="700">People handle the judgment.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="82" y="379" width="300" height="180" rx="12" fill="#071c4d"/>
+    <text x="112" y="438" fill="#f4c53d" font-size="16" font-weight="700" letter-spacing="1">MESSAGE WITH CONTEXT</text>
+    <text x="112" y="486" fill="#fff" font-size="28" font-weight="700">What kind of help</text>
+    <text x="112" y="521" fill="#fff" font-size="28" font-weight="700">is being requested?</text>
+    <path d="M397 469h122" fill="none" stroke="#8796aa" stroke-width="3" marker-end="url(#arrow)"/>
+    <circle cx="590" cy="469" r="70" fill="#e9edf2" stroke="#c7d0dc" stroke-width="2"/>
+    <text x="590" y="459" text-anchor="middle" fill="#0a286b" font-size="18" font-weight="700">ROUTING</text>
+    <text x="590" y="487" text-anchor="middle" fill="#59677c" font-size="16">defined rules</text>
+    <path d="M658 443C755 350 805 338 902 338" fill="none" stroke="#8796aa" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M658 495C755 588 805 600 902 600" fill="none" stroke="#8796aa" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="922" y="258" width="596" height="196" rx="12" fill="#e5f3ed"/>
+    <text x="958" y="309" fill="#197054" font-size="15" font-weight="700" letter-spacing="1">ROUTINE ADMINISTRATIVE QUESTION</text>
+    <text x="958" y="358" fill="#10192e" font-size="29" font-weight="700">Use approved knowledge</text>
+    <text x="958" y="397" fill="#59677c" font-size="19">Answer or collect details, then log the outcome.</text>
+    <rect x="922" y="514" width="596" height="196" rx="12" fill="#fae7e3"/>
+    <text x="958" y="565" fill="#9f3e32" font-size="15" font-weight="700" letter-spacing="1">CLINICAL, URGENT OR UNCERTAIN</text>
+    <text x="958" y="614" fill="#10192e" font-size="29" font-weight="700">Hand off to a person</text>
+    <text x="958" y="653" fill="#59677c" font-size="19">Do not answer beyond the approved operating boundary.</text>
+  </g>
+  <text x="82" y="794" fill="#59677c" font-family="Arial, sans-serif" font-size="18">Sanitized implementation map · no messages, patient details, recordings or medical guidance</text>
+</svg>

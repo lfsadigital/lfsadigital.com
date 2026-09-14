@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AInvictus callback implemented safety gates</title>
+  <desc id="desc">The outbound route refuses requests with missing consent, invalid numbers, suppressed numbers, requests outside the calling window and duplicate attempts.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <rect x="42" y="42" width="1516" height="816" rx="18" fill="#fff" stroke="#c7d0dc" stroke-width="2"/>
+  <text x="82" y="105" fill="#0a286b" font-family="Arial, sans-serif" font-size="24" font-weight="700">CALLBACK SAFETY GATE</text>
+  <text x="1518" y="103" fill="#59677c" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2" text-anchor="end">IMPLEMENTED SAFETY GATES</text>
+  <text x="82" y="213" fill="#10192e" font-family="Arial, sans-serif" font-size="57" font-weight="700">The route refuses unsafe requests.</text>
+  <text x="82" y="273" fill="#59677c" font-family="Arial, sans-serif" font-size="21">Each check fails closed before the external call request is created.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(82 370)"><rect width="270" height="200" rx="10" fill="#fbe5de" stroke="#e2b8aa"/><circle cx="34" cy="38" r="17" fill="#9b4a38"/><path d="M26 38h16" stroke="#fff" stroke-width="3"/><text x="26" y="92" fill="#6f2d1d" font-size="21" font-weight="700">Missing consent</text><text x="26" y="132" fill="#7d5147" font-size="16">No explicit consent means</text><text x="26" y="158" fill="#7d5147" font-size="16">no dial request.</text></g>
+    <g transform="translate(374 370)"><rect width="270" height="200" rx="10" fill="#fbe5de" stroke="#e2b8aa"/><circle cx="34" cy="38" r="17" fill="#9b4a38"/><path d="M26 38h16" stroke="#fff" stroke-width="3"/><text x="26" y="92" fill="#6f2d1d" font-size="21" font-weight="700">Invalid number</text><text x="26" y="132" fill="#7d5147" font-size="16">The number must pass</text><text x="26" y="158" fill="#7d5147" font-size="16">E.164 validation.</text></g>
+    <g transform="translate(666 370)"><rect width="270" height="200" rx="10" fill="#fbe5de" stroke="#e2b8aa"/><circle cx="34" cy="38" r="17" fill="#9b4a38"/><path d="M26 38h16" stroke="#fff" stroke-width="3"/><text x="26" y="92" fill="#6f2d1d" font-size="21" font-weight="700">Suppressed number</text><text x="26" y="132" fill="#7d5147" font-size="16">Do-not-call and suppression</text><text x="26" y="158" fill="#7d5147" font-size="16">records stop the route.</text></g>
+    <g transform="translate(958 370)"><rect width="270" height="200" rx="10" fill="#fbe5de" stroke="#e2b8aa"/><circle cx="34" cy="38" r="17" fill="#9b4a38"/><path d="M26 38h16" stroke="#fff" stroke-width="3"/><text x="26" y="92" fill="#6f2d1d" font-size="21" font-weight="700">Outside window</text><text x="26" y="132" fill="#7d5147" font-size="16">Configured calling hours</text><text x="26" y="158" fill="#7d5147" font-size="16">are enforced.</text></g>
+    <g transform="translate(1250 370)"><rect width="268" height="200" rx="10" fill="#fbe5de" stroke="#e2b8aa"/><circle cx="34" cy="38" r="17" fill="#9b4a38"/><path d="M26 38h16" stroke="#fff" stroke-width="3"/><text x="26" y="92" fill="#6f2d1d" font-size="21" font-weight="700">Duplicate attempt</text><text x="26" y="132" fill="#7d5147" font-size="16">A 30-minute dedupe</text><text x="26" y="158" fill="#7d5147" font-size="16">window blocks repeats.</text></g>
+  </g>
+  <rect x="82" y="671" width="1436" height="122" rx="10" fill="#e9edf2"/>
+  <text x="112" y="714" fill="#0a286b" font-family="Arial, sans-serif" font-size="17" font-weight="700">PRE-ROLLOUT CHECK</text>
+  <text x="112" y="750" fill="#526079" font-family="Arial, sans-serif" font-size="17">Expand called-party timezone handling before national campaigns.</text>
+</svg>

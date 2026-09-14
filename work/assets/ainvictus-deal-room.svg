@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AInvictus Deal Desk controlled review room</title>
+  <desc id="desc">A product structure diagram showing controlled documents, cited questions and answers, and escalation to the broker when the system lacks support.</desc>
+  <rect width="1600" height="900" fill="#0a0e1a"/>
+  <text x="76" y="91" fill="#c9a24e" font-family="Arial, sans-serif" font-weight="700" font-size="25">AINVICTUS DEAL DESK</text>
+  <text x="1524" y="87" fill="#8d97aa" font-family="Arial, sans-serif" font-size="14" letter-spacing="2" text-anchor="end">CONTROLLED DEAL ROOM · SAMPLE DATA</text>
+  <text x="76" y="198" fill="#e9eaee" font-family="Arial, sans-serif" font-weight="700" font-size="59">Documents and answers stay</text>
+  <text x="76" y="259" fill="#c9a24e" font-family="Arial, sans-serif" font-weight="700" font-size="59">inside a controlled path.</text>
+  <text x="76" y="314" fill="#aab1bf" font-family="Arial, sans-serif" font-size="21">The portfolio view uses fixed sample content so confidential deal data stays private.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(76 390)"><rect width="436" height="252" rx="12" fill="#12172a" stroke="#30384d"/><text x="30" y="48" fill="#c9a24e" font-size="14" letter-spacing="1.5">DOCUMENTS</text><text x="30" y="101" fill="#e9eaee" font-size="25" font-weight="700">Controlled files</text><text x="30" y="146" fill="#c9cdd6" font-size="17">Approved buyers inspect only</text><text x="30" y="177" fill="#c9cdd6" font-size="17">the documents released to them.</text><text x="30" y="218" fill="#8d97aa" font-size="15">Access remains tied to the deal room.</text></g>
+    <path d="M535 516h58m-10-10 10 10-10 10" fill="none" stroke="#c9a24e" stroke-width="3"/>
+    <g transform="translate(616 390)"><rect width="436" height="252" rx="12" fill="#12172a" stroke="#30384d"/><text x="30" y="48" fill="#c9a24e" font-size="14" letter-spacing="1.5">QUESTION AND ANSWER</text><text x="30" y="101" fill="#e9eaee" font-size="25" font-weight="700">Cited responses</text><text x="30" y="146" fill="#c9cdd6" font-size="17">Supported answers point back</text><text x="30" y="177" fill="#c9cdd6" font-size="17">to their document source.</text><text x="30" y="218" fill="#8d97aa" font-size="15">The record keeps the question visible.</text></g>
+    <path d="M1075 516h58m-10-10 10 10-10 10" fill="none" stroke="#c9a24e" stroke-width="3"/>
+    <g transform="translate(1156 390)"><rect width="368" height="252" rx="12" fill="#161b2e" stroke="#c9a24e"/><text x="30" y="48" fill="#c9a24e" font-size="14" letter-spacing="1.5">BROKER BOUNDARY</text><text x="30" y="101" fill="#e9eaee" font-size="25" font-weight="700">Escalate uncertainty</text><text x="30" y="146" fill="#c9cdd6" font-size="17">Unsupported or sensitive</text><text x="30" y="177" fill="#c9cdd6" font-size="17">questions return to a person.</text><text x="30" y="218" fill="#8d97aa" font-size="15">No invented answer is required.</text></g>
+  </g>
+  <line x1="76" y1="742" x2="1524" y2="742" stroke="#30384d"/>
+  <text x="76" y="792" fill="#aab1bf" font-family="Arial, sans-serif" font-size="17">Built and tested product path · confidential source files stay private</text>
+</svg>

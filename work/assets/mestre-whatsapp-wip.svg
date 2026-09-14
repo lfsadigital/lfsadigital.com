@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Mestre Gráfica WhatsApp intake agent prototype</title>
+  <desc id="desc">A prototype workflow diagram: incoming WhatsApp inquiry, gather missing details, prepare a staff handoff, then a human sets the price and commitments.</desc>
+  <rect width="1600" height="900" fill="#e9edf2"/>
+  <text x="76" y="91" fill="#0a286b" font-family="Arial, sans-serif" font-weight="700" font-size="25">MESTRE GRÁFICA × LFSA</text>
+  <rect x="1150" y="57" width="374" height="48" rx="6" fill="#fff0b9"/>
+  <circle cx="1177" cy="81" r="6" fill="#d6a000"/>
+  <text x="1194" y="87" fill="#6b5000" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="1">PROTOTYPE · CONTROLLED REVIEW</text>
+  <text x="76" y="206" fill="#111a2e" font-family="Arial, sans-serif" font-weight="700" font-size="62">Gather missing quote details.</text>
+  <text x="76" y="270" fill="#111a2e" font-family="Arial, sans-serif" font-weight="700" font-size="62">Then hand off to staff.</text>
+  <text x="76" y="326" fill="#526079" font-family="Arial, sans-serif" font-size="21">The agent gathers quote context and prepares the handoff; people keep pricing and commitments.</text>
+  <line x1="92" y1="492" x2="1508" y2="492" stroke="#8090a7" stroke-width="3" stroke-dasharray="12 12"/>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(76 405)"><circle cx="86" cy="87" r="86" fill="#fff" stroke="#bcc7d5" stroke-width="2"/><text x="86" y="78" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">Incoming</text><text x="86" y="104" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">WhatsApp inquiry</text></g>
+    <g transform="translate(448 405)"><circle cx="86" cy="87" r="86" fill="#fff" stroke="#bcc7d5" stroke-width="2"/><text x="86" y="67" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">Gather product,</text><text x="86" y="93" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">quantity, specs,</text><text x="86" y="119" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">deadline, artwork</text></g>
+    <g transform="translate(820 405)"><circle cx="86" cy="87" r="86" fill="#fff" stroke="#bcc7d5" stroke-width="2"/><text x="86" y="78" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">Prepare concise</text><text x="86" y="104" fill="#0a286b" font-size="18" font-weight="700" text-anchor="middle">staff handoff</text></g>
+    <g transform="translate(1192 405)"><circle cx="86" cy="87" r="86" fill="#0a286b"/><text x="86" y="67" fill="#f4c53d" font-size="18" font-weight="700" text-anchor="middle">Human sets</text><text x="86" y="93" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">price, exceptions</text><text x="86" y="119" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">and commitments</text></g>
+    <text x="162" y="632" fill="#708096" font-size="13" text-anchor="middle">INPUT</text><text x="534" y="632" fill="#708096" font-size="13" text-anchor="middle">ASSIST</text><text x="906" y="632" fill="#708096" font-size="13" text-anchor="middle">PREPARE</text><text x="1278" y="632" fill="#708096" font-size="13" text-anchor="middle">DECIDE</text>
+  </g>
+  <rect x="76" y="700" width="1448" height="73" rx="8" fill="#fff" stroke="#c4ceda"/>
+  <text x="105" y="744" fill="#53637b" font-family="Arial, sans-serif" font-size="17"><tspan fill="#0a286b" font-weight="700">Scope boundary:</tspan> conversation intake and summary only · pricing, negotiation and delivery remain human decisions</text>
+  <text x="76" y="833" fill="#56667d" font-family="Arial, sans-serif" font-size="16">Prototype workflow diagram · no customer data · pricing and commitments remain human decisions</text>
+</svg>
