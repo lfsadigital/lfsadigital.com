@@ -14,14 +14,32 @@
    and 28px throughout, so those are canonical. Do not "restore" the
    07 values on a re-import.
 
-   Head boilerplate that must accompany this file:
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-   Add &family=JetBrains+Mono:wght@400;500 when the page shows code or
-   hex values in monospace.
+   The two brand fonts are self-hosted below. Pages whose LCP is display
+   text should preload space-grotesk-latin-wght-normal.woff2 in <head>.
+   Icons are served from /icons.svg instead of an icon font.
    ============================================================ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
+                 U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,
+                 U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  src: url('/fonts/space-grotesk-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
+                 U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,
+                 U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
 
 :root {
   /* brand */
@@ -30,6 +48,7 @@
   --gold:  #F5C518;
   --gold-hover: #d4a912;
   --blue:  #2DA0E0;
+  --blue-on-tint: #73C8F2; /* small blue text on blue-tinted dark surfaces */
 
   /* support — each has exactly one sanctioned use */
   --logo-cyan: #2BBBFF;   /* the logo mark only, never UI */
@@ -100,6 +119,15 @@ body {
 }
 
 img { display: block; max-width: 100%; }
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  fill: currentColor;
+  vertical-align: -.125em;
+}
 
 h1, h2, h3, h4 { font-family: var(--font-display); }
 

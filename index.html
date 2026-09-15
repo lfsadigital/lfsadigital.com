@@ -81,18 +81,36 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="tokens.css">
+<link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style id="critical-css">
+@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url('/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-display:swap;font-weight:300 700;src:url('/fonts/space-grotesk-latin-wght-normal.woff2') format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--navy:#0A2463;--deep:#061640;--gold:#F5C518;--gold-hover:#d4a912;--blue:#2DA0E0;--blue-on-tint:#73C8F2;--logo-cyan:#2BBBFF;--whatsapp:#25D366;--text:#f4f4f5;--body:#e5e7eb;--text-2:#cbd5e1;--mute:#94a3b8;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.08);--divide:rgba(255,255,255,.07);--gold-tint:rgba(245,197,24,.10);--blue-tint:rgba(45,160,224,.10);--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',system-ui,sans-serif;--r-btn:8px;--r-tile:12px;--r-card:16px;--r-full:50%;--sec-y:clamp(64px,8vw,104px);--sec-x:clamp(20px,5vw,28px);--wrap:1180px;--nav-h:72px;--t:.2s}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 24px)}
+body{background:var(--navy);color:var(--text);font-family:var(--font-body);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{font-family:var(--font-display)}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto}
+.eyebrow{display:flex;align-items:center;gap:10px}
+.eyebrow .line{width:24px;height:1px;background:var(--blue)}
+.eyebrow .txt{font-family:var(--font-display);text-transform:uppercase;font-size:.72rem;font-weight:600;letter-spacing:3px;color:var(--blue)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(22px,3vw,30px)}
+.btn-y,.btn-outline{display:inline-flex;align-items:center;font-family:var(--font-display);border-radius:var(--r-btn)}
+.btn-y{gap:11px;background:var(--gold);color:var(--deep);padding:16px 26px;font-weight:700;font-size:1rem;letter-spacing:.2px}
+.btn-outline{gap:9px;background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.18);padding:16px 24px;font-weight:600;font-size:.98rem}
+.skip-link{position:absolute;left:8px;top:8px;z-index:200;transform:translateY(-150%);background:var(--gold);color:var(--deep);font-family:var(--font-display);font-weight:700;font-size:.875rem;padding:10px 18px;border-radius:var(--r-btn)}
+.skip-link:focus{transform:translateY(0);color:var(--deep)}
+.icon{display:inline-block;width:1em;height:1em;flex:0 0 auto;fill:currentColor;vertical-align:-.125em}
+</style>
+<link rel="preload" href="tokens.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="tokens.css"></noscript>
 <style>
 /* Page-specific styles only.
-   Tokens, the reset, page shell, focus ring, range thumb and the shared
-   components (.wrap .sec .dark .card .btn-y .btn-outline .eyebrow .lede
-   .pill .step-num .steps5) now come from tokens.css — see that file to
-   change a brand value once instead of here in many places. */
+   Critical above-the-fold rules are inlined above; the complete tokens.css
+   loads without blocking the first render. Change shared values there and
+   mirror any critical value above when it affects the first viewport. */
 
 body{overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath d='M0,128h512 M0,384h512 M320,128v256 M192,128V0 M448,128V0 M192,384v128 M448,384v128 M64,128v256' vector-effect='non-scaling-stroke' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1px'/%3E%3C/svg%3E");background-size:8px;background-position:center;background-repeat:repeat}
@@ -136,12 +154,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,22,64,.82);backdrop-filt
 .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:var(--font-display);font-size:1.02rem;font-weight:600;padding:22px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color var(--t)}
 .faq-q:hover{color:var(--gold)}
 .faq-q .ico{flex-shrink:0}
-.faq-q i{color:var(--gold);font-size:.8rem}
+.faq-q .icon{color:var(--gold);font-size:.8rem}
 .faq-a{color:var(--mute);font-size:.96rem;line-height:1.7;padding:0 0 24px;max-width:660px;display:none}
 .faq-item.open .faq-a{display:block}
-.faq-item .fa-minus{display:none}
-.faq-item.open .fa-minus{display:inline-block}
-.faq-item.open .fa-plus{display:none}
+.faq-item .icon-minus{display:none}
+.faq-item.open .icon-minus{display:inline-block}
+.faq-item.open .icon-plus{display:none}
 
 /* about */
 .about-row{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,40px);align-items:center}
@@ -215,10 +233,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
       <h1 style="font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px">Find the 5&ndash;10 hours a week your business is leaking. <span style="color:var(--gold)">Guaranteed.</span></h1>
       <p style="color:var(--mute);font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute session, a plan with the exact fixes that get those hours back, and <strong style="color:var(--text);font-weight:600">a new website with online booking built in</strong>.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-        <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
-        <a class="btn-outline" href="/report.html">Read a sample report <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+        <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar-check"></use></svg> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
+        <a class="btn-outline" href="/report.html">Read a sample report <svg class="icon" style="font-size:.85em" aria-hidden="true"><use href="/icons.svg#arrow-right"></use></svg></a>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--text-2);font-size:.92rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--text-2);font-size:.92rem"><svg class="icon" style="color:var(--blue)" aria-hidden="true"><use href="/icons.svg#shield-halved"></use></svg> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
     </div>
     <div class="card" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
@@ -290,7 +308,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
           <div class="gk" style="font-size:clamp(2.2rem,5vw,2.8rem);font-weight:700;line-height:1"><span id="c-days">22</span> <span style="font-size:1.1rem;font-weight:500;color:var(--text-2)">days</span></div>
         </div>
         <p style="color:var(--mute);font-size:.8rem;margin-top:16px;line-height:1.6">Reclaimed hours are capacity, not cash. They pay off when that time goes into work that grows the business. Your report shows exactly which hours, and what to do with them.</p>
-        <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:18px"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> &middot; $999</a>
+        <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:18px"><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar-check"></use></svg> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> &middot; $999</a>
       </div>
     </div>
   </div>
@@ -321,22 +339,22 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,4vw,44px);align-items:start">
       <div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:20px">
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-star" style="color:var(--gold);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">A new 5-page website</strong>, built for you, with online booking and an intake form so enquiries stop living in your phone. Yours to keep, whatever you decide afterwards.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">Your top time leaks</strong>, quantified in hours and dollars.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">Quick wins</strong>: off-the-shelf tools you can set up yourself, with real prices and setup times.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">A 4-day start plan</strong>: one action per day, under 10 minutes each.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">The bigger opportunities</strong>: work worth handing to a dedicated AI employee, priced.</span></li>
-          <li style="display:flex;gap:14px;align-items:flex-start"><i class="fa-solid fa-check" style="color:var(--blue);margin-top:5px"></i><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">The net monthly ROI</strong>, in numbers.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><svg class="icon" style="color:var(--gold);margin-top:5px" aria-hidden="true"><use href="/icons.svg#star"></use></svg><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">A new 5-page website</strong>, built for you, with online booking and an intake form so enquiries stop living in your phone. Yours to keep, whatever you decide afterwards.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><svg class="icon" style="color:var(--blue);margin-top:5px" aria-hidden="true"><use href="/icons.svg#check"></use></svg><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">Your top time leaks</strong>, quantified in hours and dollars.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><svg class="icon" style="color:var(--blue);margin-top:5px" aria-hidden="true"><use href="/icons.svg#check"></use></svg><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">Quick wins</strong>: off-the-shelf tools you can set up yourself, with real prices and setup times.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><svg class="icon" style="color:var(--blue);margin-top:5px" aria-hidden="true"><use href="/icons.svg#check"></use></svg><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">A 4-day start plan</strong>: one action per day, under 10 minutes each.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><svg class="icon" style="color:var(--blue);margin-top:5px" aria-hidden="true"><use href="/icons.svg#check"></use></svg><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">The bigger opportunities</strong>: work worth handing to a dedicated AI employee, priced.</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><svg class="icon" style="color:var(--blue);margin-top:5px" aria-hidden="true"><use href="/icons.svg#check"></use></svg><span style="font-size:1.04rem;color:var(--body)"><strong style="color:#fff;font-weight:600">The net monthly ROI</strong>, in numbers.</span></li>
         </ul>
-        <a class="btn-outline" href="/report.html" style="margin-top:34px;padding:14px 24px;font-size:.95rem"><i class="fa-solid fa-file-lines"></i> Read a full sample report</a>
+        <a class="btn-outline" href="/report.html" style="margin-top:34px;padding:14px 24px;font-size:.95rem"><svg class="icon" aria-hidden="true"><use href="/icons.svg#file-lines"></use></svg> Read a full sample report</a>
       </div>
       <div class="card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><i class="fa-solid fa-calendar-day" style="color:var(--gold)"></i><span class="gk" style="font-size:1.05rem;font-weight:700">Your 4-day start plan</span><span class="gk" style="font-size:.6rem;font-weight:700;letter-spacing:1px;color:var(--deep);background:var(--gold);padding:3px 8px;border-radius:5px;margin-left:auto">SAMPLE</span></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><svg class="icon" style="color:var(--gold)" aria-hidden="true"><use href="/icons.svg#calendar-day"></use></svg><span class="gk" style="font-size:1.05rem;font-weight:700">Your 4-day start plan</span><span class="gk" style="font-size:.6rem;font-weight:700;letter-spacing:1px;color:var(--deep);background:var(--gold);padding:3px 8px;border-radius:5px;margin-left:auto">SAMPLE</span></div>
         <div style="display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">MON</span><div><div style="font-size:.94rem;color:var(--body)">Turn on templates for your 3 most-repeated replies.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">TUE</span><div><div style="font-size:.94rem;color:var(--body)">Add a booking link so scheduling stops eating your inbox.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">WED</span><div><div style="font-size:.94rem;color:var(--body)">Auto-file receipts into one folder with a single rule.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
-          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">THU</span><div><div style="font-size:.94rem;color:var(--body)">Draft your weekly update from one saved prompt.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue-on-tint)">MON</span><div><div style="font-size:.94rem;color:var(--body)">Turn on templates for your 3 most-repeated replies.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue-on-tint)">TUE</span><div><div style="font-size:.94rem;color:var(--body)">Add a booking link so scheduling stops eating your inbox.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue-on-tint)">WED</span><div><div style="font-size:.94rem;color:var(--body)">Auto-file receipts into one folder with a single rule.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
+          <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue-on-tint)">THU</span><div><div style="font-size:.94rem;color:var(--body)">Draft your weekly update from one saved prompt.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
         </div>
       </div>
     </div>
@@ -354,28 +372,28 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
       </div>
       <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
         <div class="gk" style="font-size:1.15rem;font-weight:700;line-height:1.4;max-width:300px">Scoped and priced in your plan</div>
-        <a href="/ai-employees.html" class="gk" style="display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:600;font-size:1rem;border-bottom:1px solid rgba(245,197,24,.35);padding-bottom:3px">See AI employees <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+        <a href="/ai-employees.html" class="gk" style="display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:600;font-size:1rem;border-bottom:1px solid rgba(245,197,24,.35);padding-bottom:3px">See AI employees <svg class="icon" style="font-size:.85em" aria-hidden="true"><use href="/icons.svg#arrow-right"></use></svg></a>
       </div>
     </div>
     <div class="card">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;color:var(--gold)"><i class="fa-solid fa-inbox"></i></span><div><div class="gk" style="font-weight:700;font-size:1rem">Inbox Employee</div><div style="font-size:.8rem;color:var(--mute)">Friday report · draft-only first 30 days</div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;color:var(--gold)"><svg class="icon" aria-hidden="true"><use href="/icons.svg#inbox"></use></svg></span><div><div class="gk" style="font-weight:700;font-size:1rem">Inbox Employee</div><div style="font-size:.8rem;color:var(--mute)">Friday report · draft-only first 30 days</div></div></div>
       <div style="display:flex;flex-direction:column;gap:11px">
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Triaged inbox by category, every morning</div>
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Drafted replies for routine threads</div>
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Follow-up detection on anything gone quiet</div>
+        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><svg class="icon" style="color:var(--blue);font-size:.85em" aria-hidden="true"><use href="/icons.svg#check"></use></svg> Triaged inbox by category, every morning</div>
+        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><svg class="icon" style="color:var(--blue);font-size:.85em" aria-hidden="true"><use href="/icons.svg#check"></use></svg> Drafted replies for routine threads</div>
+        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><svg class="icon" style="color:var(--blue);font-size:.85em" aria-hidden="true"><use href="/icons.svg#check"></use></svg> Follow-up detection on anything gone quiet</div>
       </div>
       <div style="height:1px;background:rgba(255,255,255,.09);margin:20px 0 16px"></div>
-      <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:.82rem;color:var(--mute)">You review &amp; approve everything</span><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i></div>
+      <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:.82rem;color:var(--mute)">You review &amp; approve everything</span><svg class="icon" style="color:var(--blue)" aria-hidden="true"><use href="/icons.svg#shield-halved"></use></svg></div>
     </div>
   </div>
 </section>
 
 <div style="padding:36px 24px;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)">
   <div class="wrap" style="display:flex;justify-content:center;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:center">
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-brands fa-youtube" style="color:var(--blue);font-size:1.1rem"></i> YouTube tutorials</div>
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-solid fa-microphone" style="color:var(--blue);font-size:1.1rem"></i> AI voice agents in production</div>
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-solid fa-code" style="color:var(--blue);font-size:1.1rem"></i> Apps built with AI assisted dev</div>
-    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><i class="fa-solid fa-gear" style="color:var(--blue);font-size:1.1rem"></i> Workflow automations deployed</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><svg class="icon" style="color:var(--blue);font-size:1.1rem" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg> YouTube tutorials</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><svg class="icon" style="color:var(--blue);font-size:1.1rem" aria-hidden="true"><use href="/icons.svg#microphone"></use></svg> AI voice agents in production</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><svg class="icon" style="color:var(--blue);font-size:1.1rem" aria-hidden="true"><use href="/icons.svg#code"></use></svg> Apps built with AI assisted dev</div>
+    <div class="gk" style="display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem"><svg class="icon" style="color:var(--blue);font-size:1.1rem" aria-hidden="true"><use href="/icons.svg#gear"></use></svg> Workflow automations deployed</div>
   </div>
 </div>
 
@@ -389,51 +407,51 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
          because the title sits right beneath each one. -->
     <div id="vidgrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:20px">
       <a class="vid" href="https://www.youtube.com/watch?v=4Z5j0qtjcjE" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/4Z5j0qtjcjE/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">14:50</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/4Z5j0qtjcjE/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">14:50</span></div>
         <div class="cap"><h3>AI Agent for a Med Clinic using N8N and WhatsApp</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=CE3xBXfnf60" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/CE3xBXfnf60/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">19:50</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/CE3xBXfnf60/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">19:50</span></div>
         <div class="cap"><h3>Building an AI Agent for Data Analysis in N8N: Full &amp; Simple Tutorial</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=iukwioalp_U" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/iukwioalp_U/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">9:13</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/iukwioalp_U/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">9:13</span></div>
         <div class="cap"><h3>Self Hosting N8N and Adding MCP Community Node</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=CGQeNzMJ3us" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/CGQeNzMJ3us/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">15:14</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/CGQeNzMJ3us/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">15:14</span></div>
         <div class="cap"><h3>OpenClaw Built My Entire Voice Agent System: Here&rsquo;s How</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=ehRxf0Z4-8g" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/ehRxf0Z4-8g/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">8:48</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/ehRxf0Z4-8g/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">8:48</span></div>
         <div class="cap"><h3>Claude Code can create videos now (with audio)</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=cvC7MKRw59E" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/cvC7MKRw59E/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">11:11</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/cvC7MKRw59E/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">11:11</span></div>
         <div class="cap"><h3>N8N new MCP Native Server and Tool (+ Cursor and Claude)</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=Lgo9a0JqF7A" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/Lgo9a0JqF7A/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">24:05</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/Lgo9a0JqF7A/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">24:05</span></div>
         <div class="cap"><h3>WhatsApp AI Agent Without Losing Your Phone: Full N8N + Chatwoot Setup</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=A1CGYX6AjsQ" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/A1CGYX6AjsQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">6:19</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/A1CGYX6AjsQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">6:19</span></div>
         <div class="cap"><h3>Gumroad Won&rsquo;t Let You Send Emails? Here&rsquo;s the n8n Fix</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=GH_Vwp87vcc" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/GH_Vwp87vcc/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">11:59</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/GH_Vwp87vcc/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">11:59</span></div>
         <div class="cap"><h3>Get started with Obsidian &amp; Claude Code: Tutorial and Prompts</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=sCYRZTXOnb0" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/sCYRZTXOnb0/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">7:04</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/sCYRZTXOnb0/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">7:04</span></div>
         <div class="cap"><h3>I Built a Live Dashboard in Minutes with No Code, Just AI (Claude Cowork)</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=kl-7uu96Of4" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/kl-7uu96Of4/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">4:05</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/kl-7uu96Of4/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">4:05</span></div>
         <div class="cap"><h3>NotebookLM: The AI Tool Everyone is Sleeping On</h3></div>
       </a>
       <a class="vid" href="https://www.youtube.com/watch?v=IMZ8OOe4-90" target="_blank" rel="noopener">
-        <div class="thumb"><img src="https://i.ytimg.com/vi/IMZ8OOe4-90/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span class="dur">3:35</span></div>
+        <div class="thumb"><img src="https://i.ytimg.com/vi/IMZ8OOe4-90/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><span class="play"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></span><span class="dur">3:35</span></div>
         <div class="cap"><h3>OpenClaw: Automating Socials, Updates &amp; Hard Truths</h3></div>
       </a>
     </div>
@@ -456,11 +474,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
         <p style="color:var(--mute);font-size:.98rem;margin-bottom:12px;max-width:560px">I build AI systems and software that solve real problems. I&rsquo;ve shipped voice agents handling live calls, automation workflows processing thousands of tasks, and apps from zero to the App Store.</p>
         <p style="color:var(--mute);font-size:.98rem;margin-bottom:16px;max-width:560px">I don&rsquo;t do PowerPoint. I build, I ship, and this only counts if it finds you real time. If you have a problem that AI or software can solve, let&rsquo;s talk.</p>
         <div class="socials" style="display:flex;gap:18px;margin-top:16px;font-size:1.15rem">
-          <a href="https://www.youtube.com/@lfsadigital" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.instagram.com/lfsadigital/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@lfsadigital" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://x.com/BuildWithLuiz" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="mailto:luiz@lfsadigital.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.youtube.com/@lfsadigital" target="_blank" rel="noopener" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg></a>
+          <a href="https://www.instagram.com/lfsadigital/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#instagram"></use></svg></a>
+          <a href="https://www.tiktok.com/@lfsadigital" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/icons.svg#tiktok"></use></svg></a>
+          <a href="https://x.com/BuildWithLuiz" target="_blank" rel="noopener" aria-label="X"><svg class="icon" aria-hidden="true"><use href="/icons.svg#x-twitter"></use></svg></a>
+          <a href="mailto:luiz@lfsadigital.com" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="/icons.svg#envelope"></use></svg></a>
         </div>
       </div>
     </div>
@@ -477,35 +495,35 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
          readable with scripting off. Keep in sync with the FAQPage JSON-LD. -->
     <div id="faqlist" style="margin-top:40px">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-0"><span>What exactly is AI in Your Business?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-0"><span>What exactly is AI in Your Business?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-0">A 45-minute structured interview about how your days actually run, then a written report, a 30-minute walkthrough, and a new 5-page website built as your first fix. You get the fixes: what to change yourself, what to hand off, and what each is worth.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What&rsquo;s included in the website?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>What&rsquo;s included in the website?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-1">Five pages: Home, Services, About, Reviews, and a Contact page with online booking and an intake form, so enquiries stop living in your phone. We write the copy from your current site and your Google reviews; you approve it before anything goes live. One round of revisions, inside a 7-day window after you see the draft. It launches on your own domain, and hosting costs you nothing. Not included: online stores, customer logins, custom illustration, or migrating an existing blog. If you need those we&rsquo;ll quote them separately.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Why is a website part of a time audit?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Why is a website part of a time audit?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-2">Because for most owner-led businesses it&rsquo;s where the hours actually go. Every quote that arrives as a phone call is a callback you owe someone. Every booking made by phone is an interruption. Putting booking and intake on your site is usually the single biggest hour-saver we find, so we build it rather than just recommending it.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What does the money-back guarantee mean?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>What does the money-back guarantee mean?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-3">If we don&rsquo;t find you at least 5 hours a week worth reclaiming, you get 100% of your money back. No argument, no conditions. And you keep the website either way.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How much does it cost?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>How much does it cost?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-4">It&rsquo;s $999: session, report, and the website included. Money-back if we don&rsquo;t find you 5+ hours a week. If you then want us to implement the bigger items, we scope and price that in your report, based on what the work actually is, not a menu. You&rsquo;ll see exact numbers before you decide anything.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Do I have to buy anything afterwards?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Do I have to buy anything afterwards?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-5">No. Most of the report is tools you set up yourself. That&rsquo;s the point. If you want help with the bigger items, we quote it, and we credit your $999 against it.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Do I need any technical knowledge?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Do I need any technical knowledge?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-6">None. The report is written in plain language, with step-by-step setup for the quick wins. The website we handle end to end. You just approve the copy.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Who is this for?</span><span class="ico"><i class="fa-solid fa-minus"></i><i class="fa-solid fa-plus"></i></span></button>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Who is this for?</span><span class="ico"><svg class="icon icon-minus" aria-hidden="true"><use href="/icons.svg#minus"></use></svg><svg class="icon icon-plus" aria-hidden="true"><use href="/icons.svg#plus"></use></svg></span></button>
         <div class="faq-a" id="faq-a-7">Owner-led small businesses buried in repetitive work: home services, clinics, brokers, agencies, and solo operators. If your days are full of manual, repeatable tasks, we&rsquo;ll find time.</div>
       </div>
     </div>
@@ -517,8 +535,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
     <div class="eyebrow center"><span class="line"></span><span class="txt">Start here</span><span class="line"></span></div>
     <h2 class="gk" style="font-size:clamp(2.1rem,5vw,3.2rem);font-weight:700;line-height:1.06;letter-spacing:-1px;margin-bottom:18px">Find your 5 hours.</h2>
     <p style="color:var(--mute);font-size:1.12rem;margin:0 auto 34px;max-width:480px">One 45-minute audit. A costed plan you own. A new website built as the first fix. Money back if we don&rsquo;t find the time, and the site stays yours.</p>
-    <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="padding:17px 30px;font-size:1.05rem"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
-    <p style="color:var(--mute);margin-top:18px;font-size:.9rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> 100% money-back guarantee &nbsp;·&nbsp; or email <a href="mailto:luiz@lfsadigital.com">luiz@lfsadigital.com</a></p>
+    <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="padding:17px 30px;font-size:1.05rem"><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar-check"></use></svg> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
+    <p style="color:var(--mute);margin-top:18px;font-size:.9rem"><svg class="icon" style="color:var(--blue)" aria-hidden="true"><use href="/icons.svg#shield-halved"></use></svg> 100% money-back guarantee &nbsp;·&nbsp; or email <a href="mailto:luiz@lfsadigital.com">luiz@lfsadigital.com</a></p>
   </div>
 </section>
 
@@ -526,7 +544,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
   <div style="max-width:720px;margin:0 auto;text-align:center">
     <h3 class="gk" style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:10px">See a full sample report.</h3>
     <p style="color:var(--mute);font-size:1.02rem;margin:0 auto 24px;max-width:520px">A complete report, start to finish: the time leaks, the costed quick wins, the 4-day plan, and what&rsquo;s worth staffing. No email required.</p>
-    <a class="btn-y" href="/report.html"><i class="fa-solid fa-file-lines"></i> Read the sample report</a>
+    <a class="btn-y" href="/report.html"><svg class="icon" aria-hidden="true"><use href="/icons.svg#file-lines"></use></svg> Read the sample report</a>
   </div>
 </section>
 
