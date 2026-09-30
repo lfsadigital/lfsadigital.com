@@ -150,6 +150,16 @@ footer .fnav a:hover{color:var(--text)}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+.proof-viewport{aspect-ratio:1.65;overflow:hidden;background:#071630;position:relative}
+.proof-viewport img{display:block;width:100%;height:auto;position:absolute;left:0;top:0;transform:translateY(var(--proof-offset,0%));transition:transform 450ms cubic-bezier(.16,1,.3,1)}
+.proof-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px;background:var(--deep)}
+.proof-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.proof-controls button{border:0;background:transparent;color:var(--text-2);font:500 .72rem var(--font-display);padding:10px 8px;min-height:44px;cursor:pointer;border-radius:4px}
+.proof-controls button[aria-pressed="true"]{color:var(--gold);background:rgba(245,197,24,.1)}
+.proof-controls button:hover{color:var(--gold)}
+.proof-controls button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
 </style>
 </head>
 <body>
@@ -177,12 +187,12 @@ footer .fnav a:hover{color:var(--text)}
   <div class="wrap hero-inner">
     <div class="eyebrow"><span class="line"></span><span class="txt">AI employees · Implementation</span></div>
     <h1>Hire the role, <span style="color:var(--gold)">not the software</span>.</h1>
-    <p class="hero-copy">Choose one repetitive job your team wants off its plate. We scope it, build it around your existing tools, and operate it with visible output and human approval. Inbox triage, document coordination, lead screening, research, CRM hygiene, or deal materials.</p>
+    <p class="hero-copy">Give an AI employee one recurring job. We build it into your tools and keep it running. You review the work.</p>
     <div class="hero-actions">
       <a class="btn-y" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Discuss one role</a>
-      <a class="btn-outline" href="https://www.youtube.com/shorts/WjNoG0403ds" target="_blank" rel="noopener"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Watch Admin Hire</a>
+      <a class="btn-outline" href="https://www.tella.tv/video/ai-admin-agent-for-accounting-firms-3xck" target="_blank" rel="noopener"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Watch Admin Hire</a>
     </div>
-    <p class="hero-note">The first call is 30 minutes. You receive a written scope before anything is built. The $999 business audit is a separate option, not a requirement.</p>
+    <p class="hero-note">30-minute role call. Written scope before we build. No assessment required.</p>
   </div>
 </section>
 
@@ -191,22 +201,24 @@ footer .fnav a:hover{color:var(--text)}
     <div class="proof-layout">
       <div class="proof-copy">
         <div class="eyebrow"><span class="line"></span><span class="txt">Working demo · Sample data</span></div>
-        <h2 class="big">The email says complete. The files do not.</h2>
-        <p>Admin Hire is a working demo of one AI Employee. In Slack, it receives a document-checking job and then produces a reviewable tracker and manager brief.</p>
+        <h2 class="big">An AI admin employee that keeps work moving.</h2>
+        <p>Available 24/7. Assign work in Slack. It checks files, updates records and prepares your next step.</p>
         <ul class="proof-points">
-          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>It catches one half-month bank statement and one missing sales export.</span></li>
-          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>It prepares only the necessary follow-up as a local draft.</span></li>
-          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>When the files arrive, it updates the tracker and withdraws the stale draft. Nothing is sent.</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Checks emailed files. Flags missing or wrong-period documents.</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Updates the dashboard. Drafts follow-ups for approval.</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Rechecks new files. Withdraws outdated follow-ups.</span></li>
         </ul>
         <div class="proof-actions">
-          <a class="btn-y" href="https://www.youtube.com/shorts/WjNoG0403ds" target="_blank" rel="noopener"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Watch the demo</a>
-          <a class="btn-outline" href="/work/record"><i class="fa-solid fa-table-list" aria-hidden="true"></i> Inspect the saved run</a>
+          <a class="btn-y" href="https://www.tella.tv/video/ai-admin-agent-for-accounting-firms-3xck" target="_blank" rel="noopener"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Watch the demo</a>
         </div>
       </div>
       <div class="proof-frame">
-        <div class="proof-bar"><span class="proof-dots" aria-hidden="true"><span></span><span></span><span></span></span><span>Admin Hire · First review</span><span>Sample data</span></div>
-        <img src="work/assets/admin-first-review.png" alt="Admin Hire saved first review showing two complete sample clients and Cedar blocked by two document gaps" width="1600" height="900">
-        <p class="proof-caption">Completed run evidence. Cedar is blocked because the bank statement ends on August 15 and the sales export is missing.</p>
+        <div class="proof-bar"><span class="proof-dots" aria-hidden="true"><span></span><span></span><span></span></span><span>Admin Hire · Client queue</span><span>Sample data</span></div>
+        <div class="proof-gallery" aria-label="Admin Hire dashboard views">
+          <div class="proof-viewport"><img id="proof-image" src="work/assets/admin-hire-current-queue.png" alt="Admin Hire client queue and document status" width="1440" height="1753"></div>
+          <div class="proof-controls"><div class="proof-tabs" aria-label="Choose dashboard view"><button type="button" data-view="0" aria-pressed="true">Client queue</button><button type="button" data-view="1" aria-pressed="false">Document checks</button><button type="button" data-view="2" aria-pressed="false">Follow-up draft</button></div><button type="button" id="proof-pause" aria-label="Pause dashboard rotation">Pause</button></div>
+        </div>
+        <p class="proof-caption">Working demo. Fictional clients. Real agent execution.</p>
       </div>
     </div>
   </div>
@@ -216,15 +228,15 @@ footer .fnav a:hover{color:var(--text)}
   <div class="wrap">
     <div class="eyebrow"><span class="line"></span><span class="txt">How buying works</span></div>
     <h2 class="big">One job. One scope. Then prove it works.</h2>
-    <p class="lede">You do not buy a vague transformation project. We define one role, agree on its access and approval rules, and validate its output before expanding anything.</p>
+    <p class="lede">Agree on the job, price and permissions. Then test it on your workflow.</p>
     <div class="journey">
-      <div class="journey-step"><div class="step-num">1</div><h3>Pick one job</h3><p>A 30-minute call defines the narrow task, the current process, and what useful output looks like.</p></div>
-      <div class="journey-step"><div class="step-num">2</div><h3>Approve the scope</h3><p>Within three working days, you get the build scope, access requirements, setup price, and monthly operating price.</p></div>
-      <div class="journey-step"><div class="step-num">3</div><h3>Build and validate</h3><p>The first 30 days run draft-only. You review the work while we measure output, failures, and time saved.</p></div>
-      <div class="journey-step"><div class="step-num">4</div><h3>Keep what earns its place</h3><p>Continue the managed role monthly if the evidence is useful. Expand permissions or scope only with your approval.</p></div>
+      <div class="journey-step"><div class="step-num">1</div><h3>Pick one job</h3><p>30-minute call: your task, tools and expected result.</p></div>
+      <div class="journey-step"><div class="step-num">2</div><h3>Approve the scope</h3><p>Scope, permissions and setup + monthly price within three working days.</p></div>
+      <div class="journey-step"><div class="step-num">3</div><h3>Build and validate</h3><p>First 30 days: drafts only. Review quality and time saved.</p></div>
+      <div class="journey-step"><div class="step-num">4</div><h3>Keep what earns its place</h3><p>Keep it monthly if it earns its place. You approve any expansion.</p></div>
     </div>
     <div class="alternate-path">
-      <p><strong style="color:var(--text)">Not sure which job to choose?</strong> The $999 AI <em>in Your Business</em> audit is the other route. It finds 5 to 10 hours of opportunities and includes a five-page website. It is useful for diagnosis, but it is not required to discuss a specific AI Employee.</p>
+      <p><strong style="color:var(--text)">Not sure which job to choose?</strong> The $999 assessment finds opportunities to reclaim 5–10 hours a week. Five-page website included.</p>
       <a href="/">See the $999 audit</a>
     </div>
   </div>
@@ -234,7 +246,7 @@ footer .fnav a:hover{color:var(--text)}
   <div class="wrap">
     <div class="eyebrow"><span class="line"></span><span class="txt">Common starting roles</span></div>
     <h2 class="big">Start where work is already getting stuck.</h2>
-    <p class="lede">These are starting patterns, not fixed software packages. Each role is scoped around your process, output, tools, volume, and approval rules.</p>
+    <p class="lede">Choose a starting role. We adapt it to your tools and process.</p>
 
     <div class="rolegrid">
 
@@ -242,24 +254,24 @@ footer .fnav a:hover{color:var(--text)}
         <div class="rhead"><h3>Client Intake Employee</h3><span class="price">Shown in Admin Hire</span></div>
         <div class="who">For work that stalls while documents are missing</div>
         <div class="wk">Every week</div>
-        <p>Checks what arrived against the requirements, verifies dates and coverage, maintains a queue, and drafts only the specific follow-up that is still needed.</p>
-        <div class="repl">Measured during validation: complete cases, verified gaps, stale follow-ups avoided, and coordinator time saved.</div>
+        <p>Checks documents, flags gaps and drafts follow-ups.</p>
+        <div class="repl">Measure: complete cases, accurate checks, time saved.</div>
       </div>
 
       <div class="role">
         <div class="rhead"><h3>Inbox Employee</h3><span class="price">Scoped after the call</span></div>
         <div class="who">For an owner or team drowning in email</div>
         <div class="wk">Every week</div>
-        <p>Triages messages by category, prepares routine replies, detects conversations waiting on your response, and produces a short digest of what needs you.</p>
-        <div class="repl">Measured during validation: messages classified, drafts accepted, missed follow-ups, and review time.</div>
+        <p>Sorts email, drafts replies and flags conversations that need you.</p>
+        <div class="repl">Measure: accepted drafts, missed replies, review time.</div>
       </div>
 
       <div class="role">
         <div class="rhead"><h3>Screening Employee</h3><span class="price">Scoped after the call</span></div>
         <div class="who">For high-volume inbound that&rsquo;s mostly unqualified</div>
         <div class="wk">Every week</div>
-        <p>Reads each enquiry against your criteria, explains its score, prepares the next step, and sends the uncertain cases to a person.</p>
-        <div class="repl">Measured during validation: review accuracy, qualified cases surfaced, corrections, and response time.</div>
+        <p>Scores enquiries, prepares next steps and flags uncertain cases.</p>
+        <div class="repl">Measure: accuracy, qualified leads, response time.</div>
       </div>
     </div>
 
@@ -270,36 +282,36 @@ footer .fnav a:hover{color:var(--text)}
           <div class="rhead"><h3>Research &amp; Reporting Employee</h3><span class="price">Scoped after the call</span></div>
           <div class="who">For the recurring brief that never gets done</div>
           <div class="wk">Every week</div>
-          <p>Pulls from agreed sources, prepares one scheduled brief, and cites the source behind each material claim.</p>
-          <div class="repl">Measured during validation: coverage, corrections, turnaround, and analyst time.</div>
+          <p>Researches agreed sources and delivers a scheduled, cited brief.</p>
+          <div class="repl">Measure: accuracy, turnaround, time saved.</div>
         </div>
         <div class="role">
           <div class="rhead"><h3>CRM Hygiene Employee</h3><span class="price">Scoped after the call</span></div>
           <div class="who">For a CRM that has become unreliable</div>
           <div class="wk">Every week</div>
-          <p>Flags duplicates, missing fields, and stage inconsistencies, then prepares or applies approved corrections with a change log.</p>
-          <div class="repl">Measured during validation: records reviewed, corrections accepted, exceptions, and admin time.</div>
+          <p>Finds duplicates and missing fields. Logs approved corrections.</p>
+          <div class="repl">Measure: corrections accepted, exceptions, admin time.</div>
         </div>
         <div class="role">
           <div class="rhead"><h3>Deal Materials Employee</h3><span class="price">Scoped after the call</span></div>
           <div class="who">For brokers and sell-side advisors</div>
           <div class="wk">Per deal</div>
-          <p>Prepares first drafts of teasers, CIM sections, buyer one-pagers, or pitch materials from approved deal sources and your template.</p>
-          <div class="repl">The advisor remains the author. Deliverables, review points, and turnaround are set in the scope.</div>
+          <p>Drafts teasers, CIM sections and buyer briefs from your sources.</p>
+          <div class="repl">Your templates. Your review. Agreed turnaround.</div>
         </div>
         <div class="role">
           <div class="rhead"><h3>Deal Sourcing Employee</h3><span class="price">Scoped after the call</span></div>
           <div class="who">For search funds and independent sponsors</div>
           <div class="wk">Every week</div>
-          <p>Builds thesis-matched target lists, prepares outreach drafts, logs approved activity, and produces a reviewable pipeline digest.</p>
-          <div class="repl">Nothing sends until the agreed approval rule allows it.</div>
+          <p>Finds matching targets, drafts outreach and updates your pipeline.</p>
+          <div class="repl">Outreach follows your approval rules.</div>
         </div>
       </div>
     </details>
 
     <div class="project-path">
       <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
-      <div><h3>Need a one-time workflow instead?</h3><p>A workflow automation build has a clear input, output, handover, and documentation. It is priced as a project, not presented as an ongoing employee.</p></div>
+      <div><h3>Need a one-time workflow instead?</h3><p>A fixed-scope build with documentation and handover.</p></div>
       <a class="btn-outline" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener">Discuss the workflow</a>
     </div>
   </div>
@@ -309,14 +321,14 @@ footer .fnav a:hover{color:var(--text)}
   <div class="wrap">
     <div class="eyebrow"><span class="line"></span><span class="txt">In control</span></div>
     <h2 class="big">How we keep you in control.</h2>
-    <p class="lede">The exact controls depend on the systems involved. The scope documents the access, approval points, data handling, and limits before the build starts.</p>
+    <p class="lede">Permissions and approval rules agreed before the build.</p>
     <div class="ctrl">
-      <div class="c"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><div><h3>Draft-only validation</h3><p>New roles run draft-only for the first 30 days. A category becomes automatic only after you approve that specific change.</p></div></div>
-      <div class="c"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i><div><h3>Visible history</h3><p>Actions and outputs are logged. Where a connected system supports reversal, the rollback path is documented and tested.</p></div></div>
-      <div class="c"><i class="fa-solid fa-lock" aria-hidden="true"></i><div><h3>Defined data handling</h3><p>The role gets the minimum access it needs. Providers and retention rules are named in the scope, including any limits.</p></div></div>
-      <div class="c"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><div><h3>A weekly operating report</h3><p>You see what ran, what failed, what needs attention, and the output used to measure whether the role is earning its place.</p></div></div>
-      <div class="c"><i class="fa-solid fa-sliders" aria-hidden="true"></i><div><h3>Expansion by approval</h3><p>More permissions, new destinations, and external actions are added only when you approve the changed scope.</p></div></div>
-      <div class="c"><i class="fa-solid fa-user" aria-hidden="true"></i><div><h3>A person behind it</h3><p>You are buying an operated role, not an unattended software seat. When it fails, you have a person responsible for fixing it.</p></div></div>
+      <div class="c"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><div><h3>Draft-only validation</h3><p>Drafts only for 30 days. Automation expands with your approval.</p></div></div>
+      <div class="c"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i><div><h3>Visible history</h3><p>Logged actions. Tested rollback where your tools support it.</p></div></div>
+      <div class="c"><i class="fa-solid fa-lock" aria-hidden="true"></i><div><h3>Defined data handling</h3><p>Minimum access. Named providers and retention rules.</p></div></div>
+      <div class="c"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><div><h3>A weekly operating report</h3><p>Work completed, failures and items needing attention.</p></div></div>
+      <div class="c"><i class="fa-solid fa-sliders" aria-hidden="true"></i><div><h3>Expansion by approval</h3><p>New actions and permissions need your approval.</p></div></div>
+      <div class="c"><i class="fa-solid fa-user" aria-hidden="true"></i><div><h3>A person behind it</h3><p>We operate it and fix what breaks.</p></div></div>
     </div>
   </div>
 </section>
@@ -325,7 +337,7 @@ footer .fnav a:hover{color:var(--text)}
   <div style="max-width:640px;margin:0 auto">
     <div class="eyebrow center"><span class="line"></span><span class="txt">Start here</span><span class="line"></span></div>
     <h2 class="gk" style="font-size:clamp(2rem,4.8vw,3rem);font-weight:700;line-height:1.06;letter-spacing:-1px;margin-bottom:18px">Start with one job you want off your plate.</h2>
-    <p style="color:var(--text-2);font-size:1.08rem;margin:0 auto 32px;max-width:540px">In 30 minutes, we define the job and whether it is a sensible fit. Within three working days, you receive a written scope with the setup price, monthly operating price, access, and approval rules.</p>
+    <p style="color:var(--text-2);font-size:1.08rem;margin:0 auto 32px;max-width:540px">30-minute call. Written scope and pricing within three working days.</p>
     <a class="btn-y" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener" style="padding:17px 30px;font-size:1.05rem"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Discuss one role</a>
     <p style="color:var(--mute);margin-top:18px;font-size:.9rem">Nothing is built before you approve the scope. Prefer email? <a href="mailto:luiz@lfsadigital.com">luiz@lfsadigital.com</a></p>
   </div>
@@ -355,5 +367,25 @@ footer .fnav a:hover{color:var(--text)}
 </a>
 
 </div>
+
+<script>
+(() => {
+ const gallery=document.querySelector('.proof-gallery');
+ const image=document.getElementById('proof-image');
+ const tabs=[...gallery.querySelectorAll('[data-view]')];
+ const pause=document.getElementById('proof-pause');
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const offsets=['0%','-37%','-51%'];
+ const labels=['Admin Hire client queue and document status','Cedar document checks showing wrong-period and missing statements','Cedar follow-up draft awaiting approval'];
+ let current=0, paused=reduced.matches, timer;
+ const show=(index)=>{current=index;image.style.setProperty('--proof-offset',offsets[index]);image.alt=labels[index];tabs.forEach((tab,i)=>tab.setAttribute('aria-pressed',String(i===index)));};
+ const sync=()=>{clearInterval(timer);pause.textContent=paused?'Play':'Pause';pause.setAttribute('aria-label',paused?'Play dashboard rotation':'Pause dashboard rotation');if(!paused&&!document.hidden)timer=setInterval(()=>show((current+1)%tabs.length),2000);};
+ tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{show(i);sync();}));
+ pause.addEventListener('click',()=>{paused=!paused;sync();});
+ document.addEventListener('visibilitychange',sync);
+ reduced.addEventListener('change',()=>{if(reduced.matches){paused=true;sync();}});
+ sync();
+})();
+</script>
 </body>
 </html>
