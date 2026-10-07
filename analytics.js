@@ -1,15 +1,12 @@
-/* Optional production analytics. Review enhanced measurement before deployment. */
+/* Production analytics; no website consent UI. */
 (() => {
   'use strict';
   const ID = 'G-K9PDC74QVJ';
-  const KEY = 'lfsa.analytics.preference.v1';
   const production = location.protocol === 'https:' && location.hostname === 'lfsadigital.com';
   const pages = new Set(['/', '/index.html', '/ai-employees', '/ai-employees.html',
     '/work/', '/world/', '/report.html', '/privacy.html', '/terms.html', '/sms.html']);
   let active = false;
   let loaded = false;
-  let preference = 'unset';
-  try { preference = localStorage.getItem(KEY) || 'unset'; } catch (_) {}
 
   const ga = function () {
     window.dataLayer = window.dataLayer || [];
@@ -19,10 +16,6 @@
     (pages.has(location.pathname) ? location.pathname : '/');
   const safeReferrer = () => {
     try { return new URL(document.referrer).origin + '/'; } catch (_) { return ''; }
-  };
-  const remember = value => {
-    preference = value;
-    try { localStorage.setItem(KEY, value); } catch (_) {}
   };
   const start = () => {
     if (!production || active) return;
@@ -47,25 +40,6 @@
       ga('consent', 'update', {analytics_storage: 'granted'});
     }
   };
-  const stop = () => {
-    active = false;
-    window['ga-disable-' + ID] = true;
-    if (loaded) ga('consent', 'update', {analytics_storage: 'denied'});
-    // Clear GA cookies visible to this origin; browser validation still required.
-    for (const part of document.cookie.split(';')) {
-      const name = part.split('=')[0].trim();
-      if (name !== '_ga' && !name.startsWith('_ga_')) continue;
-      for (const domain of ['', '; domain=lfsadigital.com', '; domain=.lfsadigital.com']) {
-        document.cookie = name + '=; Max-Age=0; path=/' + domain + '; Secure; SameSite=Lax';
-      }
-    }
-  };
-  window.lfsaAnalytics = Object.freeze({
-    preference: () => preference,
-    accept: () => { remember('accepted'); start(); },
-    reject: () => { remember('rejected'); stop(); },
-    withdraw: () => { remember('rejected'); stop(); }
-  });
   document.addEventListener('click', event => {
     if (!active) return;
     const link = event.target.closest && event.target.closest('a[href]');
@@ -80,15 +54,5 @@
     ga('event', 'contact_intent', {contact_method: method,
       page_location: safeLocation(), page_referrer: safeReferrer(), page_title: 'LFSA Digital'});
   });
-  window.addEventListener('storage', event => {
-    if (event.key !== KEY && event.key !== null) return;
-    preference = event.newValue === 'accepted' ? 'accepted' : 'rejected';
-    if (preference === 'accepted') start();
-    else {
-      stop();
-      // End the already loaded runtime in other tabs after withdrawal.
-      if (loaded) location.reload();
-    }
-  });
-  if (preference === 'accepted') start();
+  start();
 })();
