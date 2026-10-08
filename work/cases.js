@@ -59,17 +59,19 @@ window.CASES = [
     ], links: []
   },
   {
-    id: 'ainvictus-deal-desk', client: 'AInvictus Deal Desk', type: 'Own product · built and tested',
-    title: 'Control who sees the deal, what they ask, and what they offer.',
-    problem: 'M&A advisors need buyer screening, NDA gating, controlled documents, question handling and offer comparison without losing information control.',
-    build: 'I built a gated buyer journey from screening and NDA acceptance into a tokenized deal room, with controlled documents, cited question answering, broker escalation, structured offer versions and comparison.',
-    output: 'The product is built and verified end to end. These portfolio views use fixed sample data so buyer identities, deal documents and offers remain confidential.',
-    result: 'A gated buyer journey with traceable access, answers and offer history.',
+    id: 'ainvictus-deal-desk', client: 'AInvictus Deal Desk', type: 'Own product · working demo',
+    title: 'Screen buyers. Share the right documents. Answer with evidence.',
+    problem: 'M&A advisors and business brokers need a clear buyer journey without screening, confidential documents and repeated questions scattered across inboxes.',
+    build: 'I built a buyer workflow combining screening, NDA-gated deal-room access and AI document answers with source citations. Questions requiring judgment are escalated to the advisor.',
+    output: 'Watch the 2:33 walkthrough: buyer screening, an existing signed NDA and released room, and a document answer with page-level citations. The demo uses a fictional HVAC business and existing test records.',
+    result: 'One buyer workflow, grounded document answers and a clear handoff to the advisor.',
     media: [
-      {src:'assets/ainvictus-deal-access.svg',alt:'Diagram of AInvictus Deal Desk buyer screening, NDA gating, tokenized access and access history.',caption:'Built product flow · controlled buyer access'},
-      {src:'assets/ainvictus-deal-room.svg',alt:'Diagram of the AInvictus Deal Desk review room with controlled documents, cited answers and broker escalation.',caption:'Controlled deal room · sample data'},
-      {src:'assets/ainvictus-deal-offers.svg',alt:'Diagram of AInvictus Deal Desk structured offers, version history, status and broker comparison.',caption:'Structured offer history · sample data'}
-    ], links: []
+      {src:'assets/ainvictus-deal-access.svg',alt:'Diagram of AInvictus Deal Desk buyer screening, NDA gating, tokenized access and access history.',caption:'Buyer screening and access · fictional demo'},
+      {src:'assets/ainvictus-deal-room.svg',alt:'Diagram of the AInvictus Deal Desk room with documents, cited answers and advisor escalation.',caption:'Deal room and cited answers · fictional demo'}
+    ], links: [
+      {href:'https://www.tella.tv/video/streamlining-business-sales-with-dealdesk-0k6u',label:'Watch the 2:33 walkthrough',primary:true},
+      {href:'https://www.ainvictus.org/products/deal-desk/',label:'Explore Deal Desk'}
+    ]
   },
   {
     id: 'clinic', client: 'Medical clinic', type: 'Historical client work',
