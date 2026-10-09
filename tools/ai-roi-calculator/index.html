@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Free AI ROI Calculator: Time, Costs &amp; Payback | LFSA Digital</title>
+  <meta name="description" content="Estimate AI automation ROI, time value, potential extra revenue, costs and payback. Free calculator for small businesses. No signup. Instant results from your inputs.">
+  <link rel="canonical" href="https://lfsadigital.com/tools/ai-roi-calculator/">
+  <meta name="theme-color" content="#0A2463">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free AI ROI Calculator | LFSA Digital">
+  <meta property="og:description" content="Is one repetitive task worth automating? Compare time saved, costs and modeled payback. No signup.">
+  <meta property="og:url" content="https://lfsadigital.com/tools/ai-roi-calculator/">
+  <meta property="og:image" content="https://lfsadigital.com/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/tokens.css">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="calculator.js" defer></script>
+  <script src="/analytics.js" defer></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebPage","@id":"https://lfsadigital.com/tools/ai-roi-calculator/#page","url":"https://lfsadigital.com/tools/ai-roi-calculator/","name":"Free AI ROI Calculator: Time, Costs & Payback","description":"Estimate the time value, costs and modeled ROI of one small-business workflow.","inLanguage":"en","mainEntity":{"@id":"https://lfsadigital.com/tools/ai-roi-calculator/#app"},"breadcrumb":{"@id":"https://lfsadigital.com/tools/ai-roi-calculator/#breadcrumbs"}},
+    {"@type":"WebApplication","@id":"https://lfsadigital.com/tools/ai-roi-calculator/#app","name":"LFSA Digital AI ROI Calculator","url":"https://lfsadigital.com/tools/ai-roi-calculator/","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and a modern web browser.","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"LFSA Digital","url":"https://lfsadigital.com/"},"featureList":["Weekly time savings","Annual time value","Potential additional revenue","First-year ROI model","Modeled payback"]},
+    {"@type":"BreadcrumbList","@id":"https://lfsadigital.com/tools/ai-roi-calculator/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lfsadigital.com/"},{"@type":"ListItem","position":2,"name":"AI ROI calculator","item":"https://lfsadigital.com/tools/ai-roi-calculator/"}]},
+    {"@type":"FAQPage","@id":"https://lfsadigital.com/tools/ai-roi-calculator/#faq","mainEntity":[
+      {"@type":"Question","name":"How do I calculate AI automation ROI?","acceptedAnswer":{"@type":"Answer","text":"Estimate the value of net hours saved over a year. Subtract setup and annual running costs. Divide that net value by the total first-year cost and multiply by 100. This calculator uses time value, not verified cash savings."}},
+      {"@type":"Question","name":"Does saved time mean cash savings?","acceptedAnswer":{"@type":"Answer","text":"No. Saved time creates capacity. Cash savings require an actual reduction in spending, such as paid overtime or contractor hours. Potential extra revenue is shown separately. It is not profit and is not added to time value, ROI or payback."}},
+      {"@type":"Question","name":"What costs should I include?","acceptedAnswer":{"@type":"Answer","text":"Include setup, testing, training and integration in the one-time cost. Include software, AI usage, hosting, monitoring and maintenance in the monthly cost. Include the value of your own implementation time where relevant."}},
+      {"@type":"Question","name":"What if the result is negative or there is no payback?","acceptedAnswer":{"@type":"Answer","text":"A negative result means the modeled time value is below the first-year cost. No payback means ongoing running costs equal or exceed the modeled monthly time value. Review the workflow and assumptions before investing."}},
+      {"@type":"Question","name":"Is this calculator free, and do I need to sign up?","acceptedAnswer":{"@type":"Answer","text":"It is free and requires no signup. Calculations run in your browser. Calculator inputs are not sent by this tool. The page loads the site's Google Analytics tracking for visits and contact clicks."}}
+    ]}
+  ]}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to calculator</a>
+  <header class="tool-nav wrap">
+    <a class="brand" href="/" aria-label="LFSA Digital home"><img src="/logo-mark.svg" width="32" height="32" alt=""><span>LFSA Digital</span></a>
+    <span class="tool-label">THE SMALL BUSINESS TOOLKIT <span aria-hidden="true">/</span> 01</span>
+  </header>
+  <main id="main" class="wrap tool-main">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>AI ROI calculator</span></nav>
+    <div class="intro">
+      <p class="eyebrow">FREE TOOL · NO SIGNUP</p>
+      <h1>AI ROI calculator<span>More time. Room to grow.</span></h1>
+      <p class="intro-copy">See the value of recovered time and explore extra revenue from faster follow-ups, more bookings or added capacity. No signup. Use your own estimates.</p>
+    </div>
+    <div class="calculator-layout">
+      <section class="inputs-panel" aria-labelledby="inputs-title">
+        <div class="panel-heading"><h2 id="inputs-title">Your workflow</h2><span>All money in USD</span></div>
+        <p class="input-intro">Start with one repeatable task. The values below are an example, not a forecast or quote.</p>
+        <fieldset id="calculator-inputs">
+          <legend class="sr-only">Workflow time and automation costs</legend>
+          <div class="input-grid">
+            <div class="field"><label for="hours">Manual work each week <span>hours</span></label><input id="hours" type="number" min="0" max="10000" step="any" value="8" inputmode="decimal" aria-describedby="hours-help"><small id="hours-help">Total team hours. Do not multiply by team size again.</small></div>
+            <div class="field"><label for="hourly">Value of one work hour <span>USD</span></label><input id="hourly" type="number" min="0" max="100000" step="any" value="40" inputmode="decimal" aria-describedby="hourly-help"><small id="hourly-help">Use a realistic labor cost or opportunity value.</small></div>
+            <div class="field"><label for="share">Work removed by automation <span>%</span></label><input id="share" type="number" min="0" max="100" step="any" value="60" inputmode="decimal" aria-describedby="share-help"><small id="share-help">Your estimate of the manual work the system removes.</small></div>
+            <div class="field"><label for="revenue">Additional revenue each month <span>USD · your estimate</span></label><input id="revenue" type="number" min="0" max="100000000" step="any" value="0" inputmode="decimal" aria-describedby="revenue-help"><small id="revenue-help">Extra sales enabled by automation, above your current revenue. Leave 0 if unknown.</small></div>
+          </div>
+          <details class="advanced"><summary>Adjust costs &amp; review time</summary><div class="input-grid">
+            <div class="field"><label for="review">Review &amp; exceptions each week <span>hours</span></label><input id="review" type="number" min="0" max="10000" step="any" value="1" inputmode="decimal" aria-describedby="review-help"><small id="review-help">Time still needed to check and correct its output.</small></div>
+            <div class="field"><label for="setup">One-time setup cost <span>USD</span></label><input id="setup" type="number" min="0" max="100000000" step="any" value="1500" inputmode="decimal" aria-describedby="setup-help"><small id="setup-help">Include implementation, testing and training.</small></div>
+            <div class="field"><label for="monthly">Monthly running cost <span>USD</span></label><input id="monthly" type="number" min="0" max="10000000" step="any" value="150" inputmode="decimal" aria-describedby="monthly-help"><small id="monthly-help">Software, AI usage, monitoring and maintenance.</small></div>
+            <div class="field field-weeks"><label for="weeks">Working weeks per year <span>weeks</span></label><input id="weeks" type="number" min="1" max="52" step="1" value="48" inputmode="numeric" aria-describedby="weeks-help"><small id="weeks-help">Allow for holidays and quieter periods. Running costs apply for all 12 months.</small></div>
+          </div>
+          </details>
+        </fieldset>
+        <p class="input-error" id="input-error" role="status" hidden></p>
+        <button class="reset-button" type="button" id="reset">Reset example</button>
+        <noscript><p class="input-error">Enable JavaScript for instant results. The formulas and worked example below are available without it.</p></noscript>
+      </section>
+      <section class="results-panel" aria-labelledby="result-title">
+        <p class="eyebrow">YOUR ESTIMATE</p>
+        <h2 id="result-title">Your time. Your growth potential.</h2>
+        <dl class="headline-results">
+          <div><dt>Annual value of recovered time</dt><dd><output aria-live="off" id="annual-value">—</output></dd></div>
+          <div><dt>Potential additional revenue / year</dt><dd><output aria-live="off" id="annual-revenue">—</output></dd></div>
+          <div><dt>Net hours recovered / week</dt><dd><output aria-live="off" id="saved-hours">—</output></dd></div>
+        </dl>
+        <p id="result-note">Change any value to update the estimate.</p>
+        <dl class="results-grid">
+          <div><dt>First-year cost</dt><dd><output aria-live="off" id="annual-cost">—</output></dd></div>
+          <div><dt>First-year net time value</dt><dd><output aria-live="off" id="net-value">—</output></dd></div>
+          <div><dt>Time-value ROI · first year</dt><dd><output aria-live="off" id="roi">—</output></dd></div>
+          <div class="payback"><dt>Time-value payback</dt><dd><output aria-live="off" id="payback">—</output></dd></div>
+        </dl>
+        <p class="result-caveat">Revenue is <strong>not profit</strong>; time value is <strong>not cash saved</strong>. These figures stay separate to avoid counting the same benefit twice. ROI and payback use time value only. All results depend on your assumptions.</p>
+        <p id="result-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      </section>
+    </div>
+    <section class="method content-section" aria-labelledby="method-title">
+      <div><p class="eyebrow">CHECK THE MATH</p><h2 id="method-title">How this automation ROI calculator works</h2><p>Measure a normal week before you decide. Count review time, failed runs and exceptions. Use the same hourly value for the manual work and its review.</p></div>
+      <ol class="formulas">
+        <li><strong>Net weekly hours</strong><span>Manual hours × work removed % − review hours</span></li>
+        <li><strong>Annual time value</strong><span>Net weekly hours × working weeks × hourly value</span></li>
+        <li><strong>Potential additional annual revenue</strong><span>Your additional monthly revenue estimate × 12. Shown separately from time value, ROI and payback.</span></li>
+        <li><strong>First-year cost</strong><span>Setup cost + monthly cost × 12</span></li>
+        <li><strong>Modeled ROI</strong><span>(Annual time value − first-year cost) ÷ first-year cost × 100</span></li>
+        <li><strong>Modeled payback in months</strong><span>Setup cost ÷ (annual time value ÷ 12 − monthly cost)</span></li>
+      </ol>
+    </section>
+    <section class="example content-section" aria-labelledby="example-title">
+      <p class="eyebrow">A WORKED EXAMPLE</p><h2 id="example-title">Eight hours of admin each week</h2>
+      <p>Suppose a task takes 8 hours a week at $40 per hour. Automation removes 60% of that work, but checking the results still takes 1 hour. That recovers <strong>3.8 hours a week</strong>. Over 48 working weeks, its modeled time value is <strong>$7,296</strong>.</p>
+      <p>A $1,500 setup and $150 monthly running cost total $3,300 in year one. The model gives $3,996 in net time value, 121.1% ROI and about 3.3 months to pay back. These are example assumptions. If payroll and other spending stay the same, the cash saving can still be zero.</p>
+      <p>If you estimate $500 in additional monthly sales, potential additional annual revenue is $6,000. This is separate from the $7,296 time value: using recovered hours to make those sales can overlap with the time benefit. Delivery costs and profit margin are not modeled.</p>
+      <p>If review takes more time than automation removes, net time value can be negative. If monthly benefit cannot cover running costs, the model reports no payback. With zero first-year cost, ROI is undefined rather than an infinite return.</p>
+    </section>
+    <section class="next-step" aria-labelledby="next-title">
+      <div><p class="eyebrow">FROM AN ESTIMATE TO A PLAN</p><h2 id="next-title">Find the work worth fixing.</h2><p>AI in Your Business includes a 45-minute session, a written action plan and a new 5-page website. $999. See the scope and guarantee on the <a href="/">offer page</a>.</p></div>
+      <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener noreferrer">Book AI in Your Business · $999 <span aria-hidden="true">↗</span></a>
+    </section>
+    <section class="faq content-section" id="faq" aria-labelledby="faq-title">
+      <p class="eyebrow">BEFORE YOU INVEST</p><h2 id="faq-title">AI ROI calculator FAQ</h2>
+      <details><summary>How do I calculate AI automation ROI?</summary><p>Estimate the value of net hours saved over a year. Subtract setup and annual running costs. Divide that net value by the total first-year cost and multiply by 100. This calculator uses time value, not verified cash savings.</p></details>
+      <details><summary>Does saved time mean cash savings?</summary><p>No. Saved time creates capacity. Cash savings require an actual reduction in spending, such as paid overtime or contractor hours. Potential extra revenue is shown separately. It is not profit and is not added to time value, ROI or payback.</p></details>
+      <details><summary>What costs should I include?</summary><p>Include setup, testing, training and integration in the one-time cost. Include software, AI usage, hosting, monitoring and maintenance in the monthly cost. Include the value of your own implementation time where relevant.</p></details>
+      <details><summary>What if the result is negative or there is no payback?</summary><p>A negative result means the modeled time value is below the first-year cost. No payback means ongoing running costs equal or exceed the modeled monthly time value. Review the workflow and assumptions before investing.</p></details>
+      <details><summary>Is this calculator free, and do I need to sign up?</summary><p>It is free and requires no signup. Calculations run in your browser. Calculator inputs are not sent by this tool. The page loads the site's Google Analytics tracking for visits and contact clicks.</p></details>
+    </section>
+    <aside class="related"><h2>More from LFSA Digital</h2><a href="/ai-employees">AI employees for repeatable work</a><a href="/report.html">Read a sample time audit</a><a href="/work/">See work examples</a></aside>
+  </main>
+  <footer class="tool-footer wrap"><span>© 2026 LFSA Digital</span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></footer>
+</body>
+</html>

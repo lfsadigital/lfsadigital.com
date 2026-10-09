@@ -4,7 +4,8 @@
   const ID = 'G-K9PDC74QVJ';
   const production = location.protocol === 'https:' && location.hostname === 'lfsadigital.com';
   const pages = new Set(['/', '/index.html', '/ai-employees', '/ai-employees.html',
-    '/work/', '/world/', '/report.html', '/privacy.html', '/terms.html', '/sms.html']);
+    '/work/', '/world/', '/report.html', '/privacy.html', '/terms.html', '/sms.html',
+    '/tools/ai-roi-calculator/', '/tools/ai-roi-calculator/index.html']);
   let active = false;
   let loaded = false;
 
