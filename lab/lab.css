@@ -33,3 +33,5 @@ body::before{display:none}
 .lab-footer nav a:hover{color:var(--gold)}
 @media(max-width:720px){.lab-intro{grid-template-columns:1fr;gap:22px;padding-top:42px}.lab-intro h1{font-size:4.5rem}.lab-lead br{display:none}.wide-only{display:none}.lab-project{grid-template-columns:1fr;gap:28px}.project-atlas{grid-template-columns:1fr;gap:18px}.atlas-note{justify-self:start}.lab-close{align-items:start;flex-direction:column;gap:24px}.lab-footer{gap:14px}.lab-footer nav{gap:16px}.lab-footer>p{width:100%}}
 @media(prefers-reduced-motion:reduce){.project-preview img{transition:none}}
+
+.project-copy .atlas-experimental{font-size:.8rem;color:var(--mute);margin-top:16px}

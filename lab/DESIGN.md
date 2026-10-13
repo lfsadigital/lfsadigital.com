@@ -51,9 +51,9 @@ Each public row contains a title, question, description, topics, explicit action
 
 The two local WebP assets are actual public app captures. Comfy Days is 1100 × 627; Drive Lab is 1100 × 764. The first image has high fetch priority; the second loads lazily. Preview hover raises brightness to 1.05 over .25s; reduced motion removes the image transition.
 
-### In progress row
+### Atlas preview
 
-Atlas · Brazil elections uses project copy and a separate gold In progress label with a short availability note. It has no preview or external app link. Keep its access URL private.
+Atlas uses the same public-project columns, linked preview and action as Comfy Days and Drive Lab. The 1100 × 764 WebP is a static data illustration generated from the existing IBGE geometry and TSE 2022 runoff votes, not a screenshot. Its caption identifies the election and format. An experimental note describes SP districts and neighborhoods.
 
 ### Navigation and accessibility
 
@@ -68,6 +68,6 @@ The closing note names the builder and links to selected client work. The compac
 - Do reuse the authoritative shared tokens and navigation styles.
 - Do use actual static public screenshots and ordinary app links.
 - Do retain the mobile column stack, readable text widths, and direct Lab link.
-- Do preserve the election project's In progress label and lack of an external link.
+- Do keep the Atlas preview date and static-map caption visible.
 - Don't add app embeds, application data, JavaScript, trackers, or forms to this surface.
-- Don't publish the private election access URL or create a separate Lab brand system.
+- Don't embed Atlas application data or create a separate Lab brand system.

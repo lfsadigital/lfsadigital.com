@@ -13,3 +13,5 @@
 - Independent design review: ship, no material fixes. Font detector warning is intentional: Space Grotesk and Inter are specified LFSA brand fonts. The detector used a degraded regex fallback and did not establish computed contrast.
 
 Publication: GitHub Pages, main branch at repository root, existing CNAME retained. The public route is https://lfsadigital.com/lab/ . For the Atlas link update, verify the published HTML anonymously over HTTP; Computer Use is prohibited by the user.
+
+Atlas preview update: 1100 × 764 WebP, generated from existing TSE 2022 presidential runoff and IBGE geometry. 5,570 municipality shapes; no browser capture. Preview is labeled static and opens the public Atlas. User prohibited Computer Use; HTML/source and local image inspection replace browser QA for this update.
