@@ -1,6 +1,6 @@
 # Lab
 
-Personal projects by Luiz Almeida, presented inside the existing LFSA Digital website. Visitors can discover and open the public Comfy Days and Drive Lab apps. Atlas · Brazil elections is shown as In progress, without an app URL, following the user's explicit choice to keep it private.
+Personal projects by Luiz Almeida, presented inside the existing LFSA Digital website. Visitors can discover and open Comfy Days, Drive Lab and the public Atlas at https://atlas.lfsadigital.com/. Atlas compares election results and municipal violence rates per 100,000 people. São Paulo districts and neighborhoods remain experimental.
 
 ## Stack
 
@@ -8,4 +8,4 @@ Existing static HTML/CSS, published from GitHub Pages main/root. The Lab uses LF
 
 ## Brand and boundaries
 
-Preserve LFSA navy/deep navy, gold, blue, Space Grotesk/Inter, logo and navigation. Keep client work under Work and personal projects under Lab. Main business content, contact routes and application deployments are outside this change. Public previews are actual anonymous captures of the two public apps. Do not publish the private election app or its access URL.
+Preserve LFSA navy/deep navy, gold, blue, Space Grotesk/Inter, logo and navigation. Keep client work under Work and personal projects under Lab. Main business content, contact routes and application deployments are outside this change. Public previews are actual anonymous captures of the two public apps. Atlas publication and the Lab link were explicitly authorized by the user.

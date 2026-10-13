@@ -19,11 +19,11 @@ body::before{display:none}
 .project-preview img{width:100%;height:auto;transition:filter .25s ease-out}
 .project-preview:hover img{filter:brightness(1.05)}
 .preview-label{display:block;padding:10px 14px;font-family:var(--font-display);font-size:.75rem;color:var(--text-2);border-top:1px solid var(--line)}
-.project-upcoming{grid-template-columns:1.25fr .75fr;padding-block:52px}
-.project-upcoming .project-copy>p{max-width:54ch}
-.upcoming-note{justify-self:end;max-width:24ch}
+.project-atlas{grid-template-columns:1.25fr .75fr;padding-block:52px}
+.project-atlas .project-copy>p{max-width:54ch}
+.atlas-note{justify-self:end;max-width:24ch}
 .project-status{display:inline-block;font-family:var(--font-display);color:var(--gold);font-size:.95rem;font-weight:600;padding:7px 0}
-.upcoming-note p{font-size:.9rem;color:var(--text-2);margin-top:8px}
+.atlas-note p{font-size:.9rem;color:var(--text-2);margin-top:8px}
 .lab-close{border-top:1px solid var(--line);padding:38px var(--sec-x);display:flex;justify-content:space-between;align-items:center;gap:32px;color:var(--text-2);font-size:.9rem}
 .lab-close>a{color:var(--mute)}
 .lab-close>a span{display:flex;align-items:center;gap:12px;color:var(--gold);margin-top:6px;font-family:var(--font-display);font-weight:600}
@@ -31,5 +31,5 @@ body::before{display:none}
 .lab-footer nav{display:flex;gap:24px;flex-wrap:wrap}
 .lab-footer nav a{color:var(--text-2);min-height:44px;display:flex;align-items:center}
 .lab-footer nav a:hover{color:var(--gold)}
-@media(max-width:720px){.lab-intro{grid-template-columns:1fr;gap:22px;padding-top:42px}.lab-intro h1{font-size:4.5rem}.lab-lead br{display:none}.wide-only{display:none}.lab-project{grid-template-columns:1fr;gap:28px}.project-upcoming{grid-template-columns:1fr;gap:18px}.upcoming-note{justify-self:start}.lab-close{align-items:start;flex-direction:column;gap:24px}.lab-footer{gap:14px}.lab-footer nav{gap:16px}.lab-footer>p{width:100%}}
+@media(max-width:720px){.lab-intro{grid-template-columns:1fr;gap:22px;padding-top:42px}.lab-intro h1{font-size:4.5rem}.lab-lead br{display:none}.wide-only{display:none}.lab-project{grid-template-columns:1fr;gap:28px}.project-atlas{grid-template-columns:1fr;gap:18px}.atlas-note{justify-self:start}.lab-close{align-items:start;flex-direction:column;gap:24px}.lab-footer{gap:14px}.lab-footer nav{gap:16px}.lab-footer>p{width:100%}}
 @media(prefers-reduced-motion:reduce){.project-preview img{transition:none}}
