@@ -6,3 +6,6 @@
 
 # Claude Code local
 .claude/
+
+# Local design review artifacts
+.impeccable/

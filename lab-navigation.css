@@ -1,0 +1,7 @@
+/* Keep Lab findable on narrow screens without hiding existing navigation. */
+.navbar .navstrip{min-width:0;justify-content:safe center}
+.nav-lab{flex:0 0 auto;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-2);font-family:var(--font-display);font-size:.875rem;font-weight:500;letter-spacing:.3px}
+.nav-lab:hover,.nav-lab[aria-current=page]{color:var(--gold)}
+@media(max-width:720px){.navbar{gap:10px}.navbar .nav-cta{padding:9px 12px}}
+
+@media(max-width:410px){.navbar .mobile-page-title{min-width:0;white-space:normal;line-height:1.2;font-size:.75rem}}
