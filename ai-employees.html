@@ -151,14 +151,39 @@ footer .fnav a:hover{color:var(--text)}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 
-.proof-viewport{aspect-ratio:1.65;overflow:hidden;background:#071630;position:relative}
-.proof-viewport img{display:block;width:100%;height:auto;position:absolute;left:0;top:0;transform:translateY(var(--proof-offset,0%));transition:transform 450ms cubic-bezier(.16,1,.3,1)}
-.proof-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px;background:var(--deep)}
-.proof-tabs{display:flex;gap:4px;flex-wrap:wrap}
-.proof-controls button{border:0;background:transparent;color:var(--text-2);font:500 .72rem var(--font-display);padding:10px 8px;min-height:44px;cursor:pointer;border-radius:4px}
-.proof-controls button[aria-pressed="true"]{color:var(--gold);background:rgba(245,197,24,.1)}
+.proof-viewport{
+  display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;background:var(--deep);
+}
+.proof-viewport::-webkit-scrollbar{display:none}
+#proof-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.proof-viewport:focus-visible{outline-offset:-3px;position:relative;z-index:1}
+.proof-slide{flex:0 0 100%;aspect-ratio:1.65;overflow:hidden;position:relative;scroll-snap-align:start}
+.proof-slide img{
+  display:block;width:100%;height:auto;position:absolute;left:0;top:0;
+  transform:translateY(var(--proof-offset,0%));user-select:none;
+}
+.proof-slide:nth-child(2){--proof-offset:-37%}
+.proof-slide:nth-child(3){--proof-offset:-51%}
+.proof-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;background:var(--deep)}
+.proof-controls[hidden]{display:none}
+.proof-tabs,.proof-arrows{display:flex;flex-wrap:wrap;gap:4px}
+.proof-controls button{
+  border:0;background:transparent;color:var(--text-2);font:500 .8rem var(--font-display);
+  padding:8px;min-height:44px;cursor:pointer;border-radius:var(--r-btn);
+}
+.proof-controls button[aria-pressed="true"]{color:var(--gold);background:var(--gold-tint)}
 .proof-controls button:hover{color:var(--gold)}
 .proof-controls button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.proof-arrows button{display:grid;place-items:center;width:44px;border:1px solid var(--line);font-size:1rem}
+.proof-arrows button:active:not([aria-disabled="true"]){background:var(--gold-tint)}
+.proof-arrows button[aria-disabled="true"]{opacity:.42;cursor:default}
+.proof-arrows svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:560px){
+  .proof-tabs{flex:1 0 100%}
+  .proof-tabs button{flex:1}
+  .proof-arrows{margin-left:auto}
+}
 
 </style>
 <script src="/analytics.js" defer></script>
@@ -216,10 +241,25 @@ footer .fnav a:hover{color:var(--text)}
         </div>
       </div>
       <div class="proof-frame">
-        <div class="proof-bar"><span class="proof-dots" aria-hidden="true"><span></span><span></span><span></span></span><span>Admin Hire · Client queue</span><span>Sample data</span></div>
-        <div class="proof-gallery" aria-label="Admin Hire dashboard views">
-          <div class="proof-viewport"><img id="proof-image" src="work/assets/admin-hire-current-queue.png" alt="Admin Hire client queue and document status" width="1440" height="1753"></div>
-          <div class="proof-controls"><div class="proof-tabs" aria-label="Choose dashboard view"><button type="button" data-view="0" aria-pressed="true">Client queue</button><button type="button" data-view="1" aria-pressed="false">Document checks</button><button type="button" data-view="2" aria-pressed="false">Follow-up draft</button></div><button type="button" id="proof-pause" aria-label="Pause dashboard rotation">Pause</button></div>
+        <div class="proof-bar"><span class="proof-dots" aria-hidden="true"><span></span><span></span><span></span></span><span>Admin Hire dashboard</span><span>Sample data</span></div>
+        <div class="proof-gallery" role="group" aria-label="Admin Hire dashboard walkthrough">
+          <div id="proof-viewport" class="proof-viewport" role="region" tabindex="0" aria-label="Dashboard screenshots. Use the left and right arrow keys to browse.">
+            <div class="proof-slide"><img src="work/assets/admin-hire-current-queue.png" alt="Admin Hire client queue and document status" width="1440" height="1753" draggable="false"></div>
+            <div class="proof-slide"><img src="work/assets/admin-hire-current-queue.png" alt="Cedar document checks showing wrong-period and missing statements" width="1440" height="1753" draggable="false"></div>
+            <div class="proof-slide"><img src="work/assets/admin-hire-current-queue.png" alt="Cedar follow-up draft awaiting approval" width="1440" height="1753" draggable="false"></div>
+          </div>
+          <div class="proof-controls" hidden>
+            <div class="proof-tabs" role="group" aria-label="Choose dashboard view">
+              <button type="button" data-view="0" aria-pressed="true" aria-controls="proof-viewport">Client queue</button>
+              <button type="button" data-view="1" aria-pressed="false" aria-controls="proof-viewport">Document checks</button>
+              <button type="button" data-view="2" aria-pressed="false" aria-controls="proof-viewport">Follow-up draft</button>
+            </div>
+            <div class="proof-arrows" role="group" aria-label="Browse dashboard views">
+              <button type="button" data-direction="-1" aria-label="Previous dashboard view" aria-controls="proof-viewport" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+              <button type="button" data-direction="1" aria-label="Next dashboard view" aria-controls="proof-viewport" aria-disabled="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+            </div>
+          </div>
+          <span aria-live="polite" id="proof-status"></span>
         </div>
         <p class="proof-caption">Working demo. Fictional clients. Real agent execution.</p>
       </div>
@@ -376,21 +416,64 @@ footer .fnav a:hover{color:var(--text)}
 
 <script>
 (() => {
- const gallery=document.querySelector('.proof-gallery');
- const image=document.getElementById('proof-image');
- const tabs=[...gallery.querySelectorAll('[data-view]')];
- const pause=document.getElementById('proof-pause');
- const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- const offsets=['0%','-37%','-51%'];
- const labels=['Admin Hire client queue and document status','Cedar document checks showing wrong-period and missing statements','Cedar follow-up draft awaiting approval'];
- let current=0, paused=reduced.matches, timer;
- const show=(index)=>{current=index;image.style.setProperty('--proof-offset',offsets[index]);image.alt=labels[index];tabs.forEach((tab,i)=>tab.setAttribute('aria-pressed',String(i===index)));};
- const sync=()=>{clearInterval(timer);pause.textContent=paused?'Play':'Pause';pause.setAttribute('aria-label',paused?'Play dashboard rotation':'Pause dashboard rotation');if(!paused&&!document.hidden)timer=setInterval(()=>show((current+1)%tabs.length),2000);};
- tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{show(i);sync();}));
- pause.addEventListener('click',()=>{paused=!paused;sync();});
- document.addEventListener('visibilitychange',sync);
- reduced.addEventListener('change',()=>{if(reduced.matches){paused=true;sync();}});
- sync();
+ const viewport = document.getElementById('proof-viewport');
+ const slides = [...viewport.children];
+ const controls = document.querySelector('.proof-controls');
+ const tabs = [...controls.querySelectorAll('[data-view]')];
+ const arrows = [...controls.querySelectorAll('[data-direction]')];
+ const status = document.getElementById('proof-status');
+ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+ let current = 0;
+ let requested = null;
+ let settleTimer;
+
+ function select(index) {
+   current = index;
+   tabs.forEach((tab, i) => tab.setAttribute('aria-pressed', String(i === index)));
+   arrows[0].setAttribute('aria-disabled', String(index === 0));
+   arrows[1].setAttribute('aria-disabled', String(index === slides.length - 1));
+ }
+
+ function settle() {
+   clearTimeout(settleTimer);
+   requested = null;
+   const index = viewport.clientWidth ? Math.max(0, Math.min(slides.length - 1, Math.round(viewport.scrollLeft / viewport.clientWidth))) : current;
+   select(index);
+   status.textContent = tabs[index].textContent + ', ' + (index + 1) + ' of ' + tabs.length;
+ }
+
+ function go(index) {
+   if (!Number.isInteger(index) || index < 0 || index >= slides.length || index === current) return;
+   requested = index;
+   select(index);
+   viewport.scrollTo({
+     left: slides[index].offsetLeft - slides[0].offsetLeft,
+     behavior: reducedMotion.matches ? 'instant' : 'smooth'
+   });
+   clearTimeout(settleTimer);
+   settleTimer = setTimeout(settle, 160);
+ }
+
+ tabs.forEach((tab, index) => tab.addEventListener('click', () => go(index)));
+ arrows.forEach(arrow => arrow.addEventListener('click', () => go(current + Number(arrow.dataset.direction))));
+ viewport.addEventListener('keydown', event => {
+   const destinations = {ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: slides.length - 1};
+   if (!Object.hasOwn(destinations, event.key)) return;
+   event.preventDefault();
+   go(destinations[event.key]);
+ });
+ viewport.addEventListener('scroll', () => {
+   clearTimeout(settleTimer);
+   const width = viewport.clientWidth;
+   if (requested === null && width) {
+     select(Math.max(0, Math.min(slides.length - 1, Math.round(viewport.scrollLeft / width))));
+   }
+   settleTimer = setTimeout(settle, 160);
+ }, {passive:true});
+ for (const eventType of ['pointerdown', 'wheel']) {
+   viewport.addEventListener(eventType, () => { requested = null; }, {passive:true});
+ }
+ controls.hidden = false;
 })();
 </script>
 </body>

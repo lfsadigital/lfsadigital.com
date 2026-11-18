@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI in Your Business: Find 5–10 Hours a Week | LFSA Digital</title>
-<meta name="description" content="Find 5–10 hours a week with a 45-minute session, an exact action plan, and a new 5-page website with booking and intake. Under 5 hours? You don't pay.">
+<meta name="description" content="Find 5–10 hours a week with a $999 AI assessment for small businesses. Already know the job? Explore managed AI employees for intake, inboxes, and follow-ups.">
 <meta property="og:title" content="AI in Your Business: Find 5–10 Hours a Week + a New Website, Guaranteed">
 <meta property="og:description" content="A 45-minute session, a plan with the exact fixes that get your hours back, and a new website with online booking built in. Money back if we can't find you 5 hours a week, and the site is yours either way.">
 <meta property="og:type" content="website">
@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="tokens.css">
 <style>
 /* Page-specific styles only.
-   Tokens, the reset, page shell, focus ring, range thumb and the shared
+   Tokens, the reset, page shell, focus ring and the shared
    components (.wrap .sec .dark .card .btn-y .btn-outline .eyebrow .lede
    .pill .step-num .steps5) now come from tokens.css — see that file to
    change a brand value once instead of here in many places. */
@@ -161,23 +161,69 @@ footer .fnav a:hover{color:var(--text)}
 
 /* calculator */
 .calcwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,44px);align-items:start}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,.12);outline:none;margin:14px 0 6px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:var(--r-full);background:var(--gold);cursor:pointer;border:3px solid var(--deep);box-shadow:0 2px 8px rgba(0,0,0,.4)}
-input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r-full);background:var(--gold);cursor:pointer;border:3px solid var(--deep)}
-.rate-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:var(--text-2);border-radius:9px;padding:12px 14px;cursor:pointer;font-family:var(--font-body);text-align:left;transition:all .18s;width:100%}
+.hours-heading,.hours-limits{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.hours-heading label{font-family:var(--font-display);font-weight:600}
+#c-hours-out{color:var(--gold);font-family:var(--font-display);font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hours-limits{font-size:.8rem;color:var(--text-2)}
+.hours-limits span:last-child{text-align:right}
+#c-hours{
+  appearance:none;display:block;width:100%;height:44px;margin:2px 0 0;
+  background:linear-gradient(to right,var(--gold) var(--hours-progress,40%),var(--line) var(--hours-progress,40%)) center / calc(100% - 28px) 6px no-repeat;
+  border:0;border-radius:8px;cursor:ew-resize;touch-action:pan-y;
+  -webkit-tap-highlight-color:transparent;
+}
+#c-hours::-webkit-slider-runnable-track{height:6px;background:transparent}
+#c-hours::-moz-range-track{height:6px;background:transparent}
+#c-hours::-webkit-slider-thumb{appearance:none;width:28px;height:28px;margin-top:-11px;background:var(--gold);border:3px solid var(--deep);border-radius:50%}
+#c-hours::-moz-range-thumb{box-sizing:border-box;width:28px;height:28px;background:var(--gold);border:3px solid var(--deep);border-radius:50%}
+#c-hours:active::-webkit-slider-thumb{background:var(--gold-hover)}
+#c-hours:active::-moz-range-thumb{background:var(--gold-hover)}
+@media(forced-colors:active){
+  #c-hours{appearance:auto;background:transparent}
+}
+.rate-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:var(--text-2);border-radius:9px;padding:12px 14px;cursor:pointer;font-family:var(--font-body);text-align:left;transition:background-color var(--t),border-color var(--t),color var(--t);width:100%}
 .rate-btn:hover{border-color:rgba(245,197,24,.4)}
 .rate-btn.on{background:var(--gold-tint);border-color:var(--gold);color:var(--text)}
 .rate-btn .rr{font-family:var(--font-display);font-weight:700;font-size:1rem;display:block}
-#rate-custom{cursor:text}
+#rate-custom{cursor:text;display:block}
 #c-custom{width:74px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:5px;color:inherit;font-family:var(--font-display);font-weight:700;font-size:1rem;padding:1px 6px;-moz-appearance:textfield;appearance:textfield}
 #c-custom::-webkit-outer-spin-button,#c-custom::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-#c-custom:focus{outline:none;border-color:var(--gold);background:rgba(245,197,24,.12)}
+#c-custom:focus{border-color:var(--gold);background:rgba(245,197,24,.12)}
 #rate-custom.on #c-custom{border-color:rgba(245,197,24,.5)}
 .rate-btn .rd{font-size:.78rem;color:var(--mute);display:block;margin-top:2px}
 .rate-btn.on .rd{color:var(--text-2)}
 .outrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--divide)}
 .outrow .ol{color:var(--mute);font-size:.92rem}
+.outrow .ov,#c-days{font-variant-numeric:tabular-nums}
 .outrow .ov{font-family:var(--font-display);font-weight:700;font-size:1.15rem}
+/* The second offer follows the hero and pairs the scope with a working demo. */
+.hero-actions,.employee-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.hero-actions .btn-outline:active,.employee-actions .btn-outline:active{background:var(--blue-tint)}
+.hero-sample{display:block;color:inherit}
+.hero-sample-link{display:inline-block;margin-top:15px;color:var(--gold);font-size:.9rem;text-decoration:underline;text-underline-offset:4px}
+.hero-sample:hover .hero-sample-link{color:var(--text)}
+#ai-employees-teaser{border-block:1px solid var(--line);scroll-margin-top:var(--nav-h)}
+.employee-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
+.employee-layout p{margin-bottom:20px}
+.employee-layout .employee-detail{color:var(--text-2);font-size:.95rem;max-width:47ch;margin-bottom:26px}
+.employee-demo{position:relative;isolation:isolate;display:block;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-tile);background:var(--deep);color:var(--text)}
+.employee-demo:hover,.employee-demo:focus-visible{border-color:var(--gold);color:var(--text)}
+.employee-demo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;
+  background:radial-gradient(ellipse 280px 220px at var(--spot-x,50%) var(--spot-y,90%),rgba(245,197,24,.19),transparent 100%);
+  transition:opacity 180ms ease-out;
+}
+.employee-demo:focus-visible::after{opacity:1}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .employee-demo[data-spotlight]::after{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){.employee-demo::after{transition:none}}
+.employee-demo img{display:block;width:100%;height:auto;aspect-ratio: 16 / 9;object-fit:cover;object-position:top}
+.employee-demo-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
+.employee-demo-caption strong{font-family:var(--font-display)}
+.employee-demo-caption small{display:block;color:var(--text-2);font-size:.78rem}
+.employee-demo-caption i{color:var(--gold);font-size:1.4rem}
+@media(max-width:740px){.employee-layout{grid-template-columns:1fr}}
 </style>
 <noscript><style>
 /* Without JS the accordion can't open, so show every answer and drop the
@@ -217,15 +263,14 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
     <div>
       <div class="eyebrow" style="margin-bottom:20px"><span class="line"></span><span class="txt">AI <em style="font-style:italic">in Your Business</em> · Money-back</span></div>
       <h1 style="font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px">Find 5&ndash;10 hours a week to reclaim. <span style="color:var(--gold)">Guaranteed.</span></h1>
-      <p style="color:var(--mute);font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute session and a plan with the exact fixes that get those hours back.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <p style="color:var(--mute);font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute AI assessment for small business owners. Get a practical plan to reclaim those hours, plus a five-page website with online booking and intake.</p>
+      <div class="hero-actions">
         <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
-        <a class="btn-outline" href="/report.html">Read a sample report <i class="fa-solid fa-arrow-right" style="font-size:.85em"></i></a>
+        <a class="btn-outline" href="#ai-employees-teaser">Explore AI Employees <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
       </div>
       <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--text-2);font-size:.92rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
-      <p style="color:var(--mute);font-size:.92rem;margin-top:14px">Looking for an AI employee? <a href="/ai-employees" style="font-family:var(--font-display);font-weight:600;border-bottom:1px solid rgba(245,197,24,.4)">See AI Employees · Watch Admin Hire</a>.</p>
     </div>
-    <div class="card" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
+    <a class="card hero-sample" href="/report.html" aria-label="Read the sample AI assessment report" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
         <span class="gk" style="font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)">Sample Report</span>
         <span class="gk" style="font-size:.62rem;font-weight:700;letter-spacing:1px;color:var(--deep);background:var(--gold);padding:3px 9px;border-radius:5px">SAMPLE</span>
@@ -242,7 +287,28 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
         <div><div class="gk" style="font-size:.68rem;font-weight:600;letter-spacing:1.2px;color:var(--mute);margin-bottom:5px">NET MONTHLY ROI</div><div class="gk" style="font-size:2rem;font-weight:700">$4,800<span style="font-size:.95rem;font-weight:500;color:var(--mute)">/mo</span></div></div>
         <div style="font-size:.76rem;color:var(--mute);text-align:right;line-height:1.5">15.8 hrs/wk found<br>4-day start plan incl.</div>
       </div>
+      <span class="hero-sample-link">Read the sample report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+  </div>
+</section>
+
+<section id="ai-employees-teaser" class="sec dark" tabindex="-1" aria-labelledby="employee-title">
+  <div class="wrap employee-layout">
+    <div>
+      <h2 id="employee-title" class="big">An AI employee for one job you do every week.</h2>
+      <p class="lede">We build and run a managed AI employee in the tools you already use. Give it one recurring job, like checking intake documents, triaging your inbox, or drafting follow-ups.</p>
+      <p class="employee-detail">It starts draft-only for the first 30 days, so your team can review the work. If you already know which job to hand off, you can go straight to a role call.</p>
+      <div class="employee-actions">
+        <a href="/ai-employees" class="btn-outline">See AI Employees <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
     </div>
+    <a class="employee-demo" href="https://www.tella.tv/video/ai-admin-agent-for-accounting-firms-3xck" target="_blank" rel="noopener">
+      <img src="/work/assets/admin-first-review.png" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <span class="employee-demo-caption">
+        <span><strong>Watch the Admin Hire demo</strong><small>Document checks for an accounting firm · Sample data</small></span>
+        <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+      </span>
+    </a>
   </div>
 </section>
 
@@ -267,22 +333,25 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
     <p class="lede" style="margin-bottom:44px">It finds 5&ndash;10 hours a week. Here&rsquo;s what that&rsquo;s actually worth to you, using conservative numbers, not flattering ones.</p>
     <div class="calcwrap">
       <div>
-        <label for="c-hours" class="gk" style="font-size:.95rem;font-weight:600;display:block">Hours to reclaim each week</label>
-        <input type="range" id="c-hours" min="5" max="10" step="0.5" value="7" aria-describedby="c-hours-out">
-        <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <span style="color:var(--mute);font-size:.8rem">5, our guaranteed minimum</span>
-          <span id="c-hours-out" class="gk" style="color:var(--gold);font-weight:700;font-size:1.3rem">7 hrs</span>
+        <div class="hours-heading">
+          <label for="c-hours">Hours to reclaim each week</label>
+          <span id="c-hours-out" aria-hidden="true">7 hrs</span>
+        </div>
+        <input type="range" id="c-hours" min="5" max="10" step="0.1" value="7" aria-valuetext="7 hours per week" aria-describedby="c-hours-min">
+        <div class="hours-limits">
+          <span id="c-hours-min">5 hrs · guaranteed minimum</span>
+          <span>10 hrs</span>
         </div>
 
         <div class="gk" style="font-size:.95rem;font-weight:600;margin:30px 0 6px">What&rsquo;s an hour of this work worth?</div>
         <p style="color:var(--mute);font-size:.84rem;margin-bottom:12px">Most owners have no idea, so pick the anchor that fits. We default to the cheapest one.</p>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <button type="button" class="rate-btn on" data-rate="45"><span class="rr">$45 / hour</span><span class="rd">What it costs to hire someone for this work</span></button>
-          <button type="button" class="rate-btn" data-rate="75"><span class="rr">$75 / hour</span><span class="rd">A skilled employee doing it properly</span></button>
-          <div class="rate-btn" id="rate-custom" tabindex="0" role="button" aria-label="Use your own hourly value">
-            <span class="rr">$<input type="number" id="c-custom" value="100" min="1" max="9999" step="5" aria-label="Your hourly value in dollars"> / hour</span>
+          <button type="button" class="rate-btn on" data-rate="45" aria-pressed="true"><span class="rr">$45 / hour</span><span class="rd">What it costs to hire someone for this work</span></button>
+          <button type="button" class="rate-btn" data-rate="75" aria-pressed="false"><span class="rr">$75 / hour</span><span class="rd">A skilled employee doing it properly</span></button>
+          <label class="rate-btn" id="rate-custom">
+            <span class="rr">$<input type="number" id="c-custom" value="100" min="1" max="9999" step="1" inputmode="numeric" aria-label="Your hourly value in dollars"> / hour</span>
             <span class="rd">Your own time, if you&rsquo;re the bottleneck. Type your number</span>
-          </div>
+          </label>
         </div>
       </div>
 
@@ -362,33 +431,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:var(--r
           <div style="display:flex;gap:14px;align-items:center"><span class="gk" style="flex-shrink:0;width:44px;height:44px;border-radius:9px;background:rgba(45,160,224,.1);border:1px solid rgba(45,160,224,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--blue)">THU</span><div><div style="font-size:.94rem;color:var(--body)">Draft your weekly update from one saved prompt.</div><div style="font-size:.74rem;color:var(--mute);margin-top:2px">&lt; 10 min</div></div></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="ai-employees-teaser" class="sec dark">
-  <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
-    <div>
-      <div class="eyebrow"><span class="line"></span><span class="txt">AI employees</span></div>
-      <h2 class="big" style="margin-bottom:20px">Know the job already? We can build and operate it.</h2>
-      <p style="color:var(--mute);font-size:1.08rem;line-height:1.7;margin-bottom:24px;max-width:540px">An AI employee is one narrow role built around your existing workflow. It produces visible work, starts draft-only, and expands only with your approval. If you already know the job you want off your plate, you do not need to buy the $999 audit first.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px">
-        <span class="pill">Inbox triage</span><span class="pill">Research &amp; reporting</span><span class="pill">CRM hygiene</span><span class="pill">Deal materials</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
-        <div class="gk" style="font-size:1.15rem;font-weight:700;line-height:1.4;max-width:300px">One role, scoped before anything is built</div>
-        <a href="/ai-employees" class="gk" style="display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:600;font-size:1rem;border-bottom:1px solid rgba(245,197,24,.35);padding-bottom:3px">See AI employees <i class="fa-solid fa-arrow-right" style="font-size:.85em" aria-hidden="true"></i></a>
-      </div>
-    </div>
-    <div class="card">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(45,160,224,.08));display:flex;align-items:center;justify-content:center;color:var(--gold)"><i class="fa-solid fa-inbox"></i></span><div><div class="gk" style="font-weight:700;font-size:1rem">Inbox Employee</div><div style="font-size:.8rem;color:var(--mute)">Friday report · draft-only first 30 days</div></div></div>
-      <div style="display:flex;flex-direction:column;gap:11px">
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Triaged inbox by category, every morning</div>
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Drafted replies for routine threads</div>
-        <div style="display:flex;gap:11px;align-items:center;font-size:.9rem;color:var(--text-2)"><i class="fa-solid fa-check" style="color:var(--blue);font-size:.85em"></i> Follow-up detection on anything gone quiet</div>
-      </div>
-      <div style="height:1px;background:rgba(255,255,255,.09);margin:20px 0 16px"></div>
-      <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:.82rem;color:var(--mute)">You review &amp; approve everything</span><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i></div>
     </div>
   </div>
 </section>
@@ -590,20 +632,46 @@ if(!wasOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true')
 });
 });
 
+const demo = document.querySelector('.employee-demo');
+const canTrackPointer = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+let spotlightFrame = 0;
+demo.addEventListener('pointermove', (event) => {
+  if (!canTrackPointer.matches || event.pointerType === 'touch') return;
+  cancelAnimationFrame(spotlightFrame);
+  spotlightFrame = requestAnimationFrame(() => {
+    const bounds = demo.getBoundingClientRect();
+    demo.style.setProperty('--spot-x', (event.clientX - bounds.left) + 'px');
+    demo.style.setProperty('--spot-y', (event.clientY - bounds.top) + 'px');
+    demo.setAttribute('data-spotlight', '');
+  });
+});
+demo.addEventListener('pointerleave', () => {
+  cancelAnimationFrame(spotlightFrame);
+  demo.removeAttribute('data-spotlight');
+  demo.style.removeProperty('--spot-x');
+  demo.style.removeProperty('--spot-y');
+});
+
 var hoursEl=document.getElementById('c-hours'),customEl=document.getElementById('c-custom'),customBox=document.getElementById('rate-custom'),rate=45;
 function calc(){
 var h=parseFloat(hoursEl.value);
 var hm=h*4.33, vm=hm*rate, vy=vm*12, perDay=vm/30, days=Math.max(1,Math.round(999/perDay));
 var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-document.getElementById('c-hours-out').textContent=(h%1===0?h:h.toFixed(1))+' hrs';
+hoursEl.style.setProperty('--hours-progress', ((h - Number(hoursEl.min)) / (Number(hoursEl.max) - Number(hoursEl.min))) * 100 + '%');
+hoursEl.setAttribute('aria-valuetext', h + ' hours per week');
+document.getElementById('c-hours-out').textContent=h+' hrs';
 document.getElementById('c-hm').textContent=Math.round(hm)+' hrs';
 document.getElementById('c-vm').textContent=fmt(vm);
 document.getElementById('c-vy').textContent=fmt(vy);
 document.getElementById('c-days').textContent=days;
 }
 function pick(el,r){
-document.querySelectorAll('.rate-btn').forEach(function(x){x.classList.remove('on');});
-el.classList.add('on');rate=r;calc();
+document.querySelectorAll('.rate-btn').forEach(function(choice){
+var active=choice===el;
+choice.classList.toggle('on',active);
+if(choice.tagName==='BUTTON'){choice.setAttribute('aria-pressed',String(active));}
+});
+rate=r;calc();
 }
 hoursEl.addEventListener('input',calc);
 document.querySelectorAll('button.rate-btn').forEach(function(b){
@@ -615,11 +683,9 @@ if(!v||v<1){v=1;}
 if(v>9999){v=9999;customEl.value=9999;}
 pick(customBox,v);
 }
-customBox.addEventListener('click',useCustom);
-customBox.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();customEl.focus();useCustom();}});
 customEl.addEventListener('input',useCustom);
 customEl.addEventListener('focus',useCustom);
-customEl.addEventListener('click',function(e){e.stopPropagation();useCustom();});
+customEl.addEventListener('click',useCustom);
 customEl.addEventListener('blur',function(){var v=parseFloat(customEl.value);if(!v||v<1){customEl.value=100;useCustom();}});
 calc();
 
