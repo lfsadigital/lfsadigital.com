@@ -36,37 +36,25 @@ body::before{display:none}
 
 .project-copy .atlas-experimental{font-size:.8rem;color:var(--mute);margin-top:16px}
 
-/* Win10min uses its own product palette inside the Lab’s navy frame. */
+/* The interactive device preview uses Win10min’s Roman map and palette. */
+#win10min{scroll-margin-top:calc(var(--nav-h) + 12px)}
 .win-showcase{
   --win-ink:#fbefd9;
   --win-gold:#efd39b;
-  position:relative;
   isolation:isolate;
-  display:grid;
-  grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);
-  align-items:center;
-  overflow:hidden;
-  margin:0 0 clamp(34px,5vw,62px);
-  scroll-margin-top:calc(var(--nav-h) + 12px);
-  border:1px solid #665237;
-  border-radius:clamp(18px,3vw,32px);
+  min-width:0;
+  padding-bottom:60px;
   background:#191613;
   color:var(--win-ink);
+  border-color:#665237;
 }
-.win-showcase::before,.win-showcase::after{
+.win-showcase::before{
   content:"";
   position:absolute;
   inset:0;
-  z-index:-2;
-  pointer-events:none;
-}
-.win-showcase::before{
-  background:url("assets/win10min/roman-map.webp") 72% 48% / cover no-repeat;
-  opacity:.50;
-}
-.win-showcase::after{
   z-index:-1;
-  background:linear-gradient(90deg,#17130f 1%,#17130f 23%,rgba(23,19,15,.86) 38%,rgba(18,15,12,.28) 70%,rgba(18,15,12,.64) 100%);
+  pointer-events:none;
+  background:linear-gradient(rgba(23,19,15,.48),rgba(23,19,15,.68)),url("assets/win10min/roman-map.webp") 72% 48% / cover no-repeat;
 }
 .win-spotlight{
   position:absolute;
@@ -78,53 +66,29 @@ body::before{display:none}
   transition:opacity .22s ease-out;
 }
 .win-showcase[data-lit] .win-spotlight{opacity:1}
-.win-copy{position:relative;z-index:1;padding:clamp(28px,5vw,64px) 0 clamp(28px,5vw,64px) clamp(28px,5.6vw,74px)}
-.win-copy h2{
-  font:700 clamp(2.7rem,5vw,4.65rem)/.98 var(--font-display);
-  letter-spacing:-.04em;
-}
-.win-line{
-  margin:clamp(15px,2.4vw,25px) 0 12px;
-  color:var(--win-gold);
-  font:400 clamp(1.8rem,3.5vw,3.15rem)/1.02 "Baskervville",Georgia,"Liberation Serif",serif;
-  letter-spacing:-.025em;
-}
-.win-description{max-width:30ch;color:#e0d0ba;font-size:clamp(.9rem,1.3vw,1.02rem)}
-.win-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:clamp(17px,3vw,30px)}
-.win-actions a,.win-film button,.win-picker button{
-  min-height:44px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font:600 .9rem/1.25 var(--font-display);
-}
-.win-open{gap:8px;padding:10px 14px;border-radius:7px;background:var(--win-gold);color:#211810}
-.win-open:hover{color:#211810;background:#fff0cb}
-.win-open svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.win-film-link{color:var(--win-ink);text-decoration:underline;text-underline-offset:4px}
-.win-film-link:hover{color:var(--win-gold)}
-.win-device{position:relative;z-index:1;min-width:0;padding-bottom:62px}
-.win-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.win-gallery{position:relative;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .win-gallery::-webkit-scrollbar{display:none}
 .win-gallery:focus-visible{outline-offset:-4px}
 .win-panel{
   position:relative;
   flex:0 0 100%;
   margin:0;
-  height:clamp(300px,39vw,510px);
+  height:clamp(255px,31vw,400px);
   scroll-snap-align:start;
   overflow:hidden;
 }
 .win-panel img{display:block;height:auto}
 .win-iphone img{
   position:absolute;
+  width:auto;
+  height:84%;
   top:50%;
   border:1px solid #7b6750;
   border-radius:15% / 7%;
   box-shadow:0 18px 35px rgba(10,8,5,.58);
 }
-.win-timer{left:26%;width:clamp(132px,15.4vw,213px);transform:translateY(-49%) rotate(-9deg)}
-.win-empire{left:48%;width:clamp(118px,14vw,205px);transform:translateY(-54%) rotate(13deg);filter:brightness(.83)}
+.win-timer{left:42%;transform:translate(-50%,-48%) rotate(-9deg)}
+.win-empire{left:60%;transform:translate(-50%,-54%) rotate(13deg);filter:brightness(.83)}
 .win-mac{display:grid;place-items:center;padding:7%}
 .win-mac img{
   width:100%;
@@ -147,6 +111,8 @@ body::before{display:none}
 }
 .win-picker[hidden]{display:none}
 .win-picker button{
+  min-height:44px;
+  font:600 .9rem/1.25 var(--font-display);
   appearance:none;
   padding:0 19px;
   border:0;
@@ -157,33 +123,10 @@ body::before{display:none}
 }
 .win-picker button[aria-pressed="true"]{background:var(--win-gold);color:#211810}
 .win-picker button:active{opacity:.82}
-.win-film{
-  margin:auto;
-  width:min(880px,calc(100% - 32px));
-  max-height:calc(100% - 32px);
-  padding:0;
-  overflow:auto;
-  border:1px solid #7a654e;
-  border-radius:16px;
-  background:#16120f;
-  color:var(--win-ink);
-}
-.win-film::backdrop{background:rgba(9,8,8,.88)}
-.win-film-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 16px}
-.win-film-bar h3{font-size:1rem}
-.win-film button{padding:0 12px;border:1px solid #7a654e;border-radius:8px;background:none;color:var(--win-ink);cursor:pointer}
-.win-film video{display:block;width:100%;aspect-ratio:16/9;background:#0a0807}
-.win-film-error{padding:14px 16px}
-.win-film-error a{text-decoration:underline;color:var(--win-gold)}
 @media(max-width:720px){
-  .win-showcase{grid-template-columns:1fr}
-  .win-showcase::after{background:linear-gradient(180deg,#17130f 2%,rgba(23,19,15,.93) 21%,rgba(23,19,15,.45) 63%,rgba(18,15,12,.72) 100%)}
-  .win-copy{padding:25px 23px 0}
-  .win-line br{display:none}
-  .win-description{max-width:39ch}
-  .win-panel{height:clamp(275px,78vw,415px)}
-  .win-timer{left:calc(50% - 111px);width:clamp(113px,33vw,163px)}
-  .win-empire{left:calc(50% + 4px);width:clamp(115px,32vw,154px)}
+  .win-panel{height:clamp(235px,69vw,365px)}
+  .win-timer{left:39%}
+  .win-empire{left:63%}
   .win-mac{padding:6%}
 }
 @media(prefers-reduced-motion:reduce){.win-spotlight{display:none}}

@@ -49,24 +49,3 @@ showcase.addEventListener('pointerleave', () => {
   cancelAnimationFrame(frame);
   showcase.removeAttribute('data-lit');
 });
-
-const filmLink = showcase.querySelector('.win-film-link');
-const film = showcase.querySelector('.win-film');
-const video = film.querySelector('video');
-const errorMessage = film.querySelector('.win-film-error');
-filmLink.addEventListener('click', event => {
-  if (!film.showModal || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  errorMessage.hidden = true;
-  film.showModal();
-  video.src = video.canPlayType('video/webm; codecs="vp9"') ? video.dataset.film : filmLink.href;
-  if (motion.matches) video.load();
-  else video.play().catch(() => {});
-});
-video.addEventListener('error', () => { errorMessage.hidden = false; });
-film.addEventListener('close', () => {
-  video.pause();
-  video.removeAttribute('src');
-  video.load();
-  filmLink.focus();
-});

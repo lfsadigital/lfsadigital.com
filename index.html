@@ -160,6 +160,7 @@ footer .fnav a:hover{color:var(--text)}
 .wa:hover{transform:scale(1.08)}
 
 /* calculator */
+#calc{scroll-margin-top:var(--nav-h)}
 .calcwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,44px);align-items:start}
 .hours-heading,.hours-limits{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .hours-heading label{font-family:var(--font-display);font-weight:600}
@@ -212,7 +213,13 @@ footer .fnav a:hover{color:var(--text)}
 .outrow .ol{color:var(--mute);font-size:.92rem}
 .outrow .ov,#c-days{font-variant-numeric:tabular-nums}
 .outrow .ov{font-family:var(--font-display);font-weight:700;font-size:1.15rem}
-/* The second offer follows the hero and pairs the scope with a working demo. */
+/* The assessment guarantee closes the first offer before AI Employees. */
+.assessment-guarantee{background:var(--gold);color:var(--deep);padding:clamp(20px,4vw,36px) var(--sec-x)}
+.guarantee-layout{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:clamp(12px,2.5vw,28px)}
+.guarantee-layout i{font-size:clamp(1.15rem,2.7vw,1.8rem);margin-top:.22em}
+.guarantee-layout h2{font-size:clamp(1.24rem,3vw,2rem);line-height:1.15;margin-bottom:6px}
+.guarantee-layout p{font-size:.98rem;max-width:66ch}
+
 .hero-actions,.employee-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
 .hero-actions .btn-outline:active,.employee-actions .btn-outline:active{background:var(--blue-tint)}
 .hero-sample{display:block;color:inherit}
@@ -221,7 +228,8 @@ footer .fnav a:hover{color:var(--text)}
 #ai-employees-teaser{border-block:1px solid var(--line);scroll-margin-top:var(--nav-h)}
 .employee-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
 .employee-layout p{margin-bottom:20px}
-.employee-demo{overflow:hidden;border:1px solid var(--line);border-radius:var(--r-tile);background:var(--deep);color:var(--text)}
+.employee-layout .employee-label{margin-bottom:10px;color:var(--gold);font:700 1rem var(--font-display)}
+.employee-demo{overflow:hidden;border:1px solid rgba(245,197,24,.5);border-radius:var(--r-tile);background:var(--deep);color:var(--text)}
 [data-glow]{position:relative;isolation:isolate}
 [data-glow]::after{
   content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;
@@ -233,6 +241,8 @@ footer .fnav a:hover{color:var(--text)}
   [data-glow][data-spotlight]::after{opacity:1}
 }
 .employee-demo:hover,.employee-demo:focus-within{border-color:var(--gold)}
+.employee-screen::after{opacity:1;background:linear-gradient(140deg,rgba(245,197,24,.16),transparent 37%)}
+.employee-screen[data-spotlight]::after{background:radial-gradient(ellipse 300px 240px at var(--spot-x,50%) var(--spot-y,50%),rgba(245,197,24,.35),transparent 100%)}
 .employee-screen{position:relative;isolation:isolate;display:block;aspect-ratio:1.65;overflow:hidden}
 .employee-screen img{
   position:absolute;top:0;left:0;display:block;width:100%;height:auto;
@@ -295,7 +305,6 @@ footer .fnav a:hover{color:var(--text)}
         <a class="btn-y assessment-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Get AI in Your Business · $999</span></a>
         <a class="btn-outline" href="#ai-employees-teaser">Explore AI Employees <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--text-2);font-size:.92rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
     </div>
     <a class="card hero-sample" data-glow href="/report.html" aria-label="Read the sample AI assessment report" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
@@ -319,11 +328,22 @@ footer .fnav a:hover{color:var(--text)}
   </div>
 </section>
 
+<section class="assessment-guarantee" aria-labelledby="guarantee-title">
+  <div class="wrap guarantee-layout">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    <div>
+      <h2 id="guarantee-title">The only thing you risk is 45 minutes.</h2>
+      <p>If the assessment finds less than five hours a week to reclaim, you get a full refund and keep the website.</p>
+    </div>
+  </div>
+</section>
+
 <section id="ai-employees-teaser" class="sec dark" tabindex="-1" aria-labelledby="employee-title">
   <div class="wrap employee-layout">
     <div>
-      <h2 id="employee-title" class="big">An AI admin employee that keeps work moving.</h2>
-      <p class="lede">Hand off document checks, inbox triage, or follow-up drafts. We build and run it in the tools you already use.</p>
+      <p class="employee-label">AI Employees</p>
+      <h2 id="employee-title" class="big">Hand off a recurring job.</h2>
+      <p class="lede">Already know what to delegate? We build and run an AI employee for that job in your existing tools. You can start with a role call.</p>
       <div class="employee-actions">
         <a href="/ai-employees" class="btn-outline">See AI Employees <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </div>
@@ -342,25 +362,11 @@ footer .fnav a:hover{color:var(--text)}
   </div>
 </section>
 
-<section style="background:var(--gold);color:var(--deep);padding:clamp(48px,7vw,76px) clamp(20px,5vw,24px)">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(28px,5vw,52px)">
-    <div style="flex-shrink:0;width:138px;height:138px;border-radius:50%;border:2px solid rgba(6,22,64,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
-      <div class="gk" style="font-size:2.1rem;font-weight:700;line-height:1">100%</div>
-      <div class="gk" style="font-size:.66rem;font-weight:700;letter-spacing:2px;margin-top:3px">MONEY BACK</div>
-    </div>
-    <div style="flex:1;min-width:min(100%,320px)">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:24px;height:1px;background:var(--deep)"></span><span class="gk" style="text-transform:uppercase;font-size:.72rem;font-weight:700;letter-spacing:3px">The guarantee</span></div>
-      <h2 style="font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:700;line-height:1.08;letter-spacing:-.5px;margin-bottom:14px">The only thing you risk is 45 minutes.</h2>
-      <p style="font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.6;color:var(--deep);font-weight:500;max-width:660px">If we don&rsquo;t find you at least 5 hours a week, you get 100% of your money back. No argument, no conditions. <strong style="font-weight:700">And the website stays yours either way.</strong></p>
-    </div>
-  </div>
-</section>
-
 <section id="calc" class="sec">
   <div class="wrap">
-    <div class="eyebrow"><span class="line"></span><span class="txt">What it's worth</span></div>
+    <div class="eyebrow"><span class="line"></span><span class="txt">Assessment calculator</span></div>
     <h2 class="big">Do the maths yourself.</h2>
-    <p class="lede" style="margin-bottom:44px">It finds 5&ndash;10 hours a week. Here&rsquo;s what that&rsquo;s actually worth to you, using conservative numbers, not flattering ones.</p>
+    <p class="lede" style="margin-bottom:44px">See what reclaiming 5&ndash;10 hours a week could be worth to your business.</p>
     <div class="calcwrap">
       <div>
         <div class="hours-heading">
@@ -726,7 +732,12 @@ syncPreview();
 var hoursEl=document.getElementById('c-hours'),customEl=document.getElementById('c-custom'),customBox=document.getElementById('rate-custom'),rate=45;
 function calc(){
 var h=parseFloat(hoursEl.value);
-var hm=h*4.33, vm=hm*rate, vy=vm*12, perDay=vm/30, days=Math.max(1,Math.round(999/perDay));
+// The slider moves in tenths; multiply before dividing to preserve half-dollar rounding.
+var monthlyHoursNumerator=Math.round(h*10)*433;
+var hm=monthlyHoursNumerator/1000;
+var vm=monthlyHoursNumerator*rate/1000;
+var vy=monthlyHoursNumerator*rate*12/1000;
+var days=Math.max(1,Math.round(999/(vm/30)));
 var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
 hoursEl.parentElement.style.setProperty('--hours-progress', ((h - Number(hoursEl.min)) / (Number(hoursEl.max) - Number(hoursEl.min))) * 100 + '%');
 hoursEl.setAttribute('aria-valuetext', h + ' hours per week');

@@ -10,18 +10,18 @@
   <meta property="og:description" content="A focus timer, weather maps, NFL analytics, and Brazilian election and violence maps. Personal projects by Luiz Almeida.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lfsadigital.com/lab/">
-  <meta property="og:image" content="https://lfsadigital.com/lab/assets/win10min/film-poster.webp">
+  <meta property="og:image" content="https://lfsadigital.com/lab/assets/win10min/mac-focus.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/logo-mark.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/tokens.css">
   <link rel="stylesheet" href="/work/portfolio.css?v=20260914-5">
   <link rel="stylesheet" href="/lab-navigation.css?v=20261013">
-  <link rel="stylesheet" href="lab.css?v=20261118-win10min">
-  <script src="win10min.js?v=20261118" defer></script>
+  <link rel="stylesheet" href="lab.css?v=20261118-projects">
+  <script src="win10min.js?v=20261118-projects" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to projects</a>
@@ -46,18 +46,16 @@
     <div><p class="lab-lead">Personal projects,<br> built for fun.</p><p>A focus timer, weather maps, NFL analytics, and maps of voting and violence in Brazil.</p></div>
   </header>
   <section class="lab-projects" aria-label="Personal projects">
-    <article id="win10min" class="win-showcase" aria-labelledby="win10min-title">
-      <div class="win-spotlight" aria-hidden="true"></div>
-      <div class="win-copy">
+    <article id="win10min" class="lab-project" aria-labelledby="win10min-title">
+      <div class="project-copy">
         <h2 id="win10min-title">Win10min</h2>
-        <p class="win-line">Ten minutes.<br> One task.</p>
-        <p class="win-description">A focus timer that turns each completed session into Roman progress. For Mac and iPhone.</p>
-        <div class="win-actions">
-          <a class="win-open" href="https://win10minutes.app/">Explore Win10min <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-          <a class="win-film-link" href="assets/win10min/emperor-breakout.mp4">Watch the film</a>
-        </div>
+        <p class="project-question">What can you get done in ten minutes?</p>
+        <p>Pick one task, start the timer, and grow a Roman empire as you finish focus sessions.</p>
+        <p class="project-topics">Focus timer · Mac and iPhone</p>
+        <a class="project-action" href="https://win10minutes.app/" target="_blank" rel="noopener noreferrer">Explore Win10min <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
       </div>
-      <div class="win-device">
+      <div class="project-preview win-showcase">
+        <div class="win-spotlight" aria-hidden="true"></div>
         <div id="win-gallery" class="win-gallery" role="region" aria-label="Win10min app previews, swipe or use arrow keys" tabindex="0">
           <figure class="win-panel win-iphone" aria-label="iPhone">
             <img class="win-empire" src="assets/win10min/iphone-empire.webp" width="420" height="909" alt="The Roman empire map in Win10min for iPhone" decoding="async">
@@ -72,14 +70,6 @@
           <button type="button" aria-controls="win-gallery" aria-pressed="false">Mac</button>
         </div>
       </div>
-      <dialog class="win-film" aria-labelledby="win-film-title">
-        <div class="win-film-bar">
-          <h3 id="win-film-title">Win10min film</h3>
-          <form method="dialog"><button type="submit" autofocus>Close</button></form>
-        </div>
-        <video controls muted playsinline preload="none" data-film="assets/win10min/emperor-breakout.webm" poster="assets/win10min/film-poster.webp" aria-label="An illustrated Roman emperor breaks out of a phone screen"></video>
-        <p class="win-film-error" hidden>Couldn’t play the film. <a href="assets/win10min/emperor-breakout.mp4">Open the video</a></p>
-      </dialog>
     </article>
     <article class="lab-project" aria-labelledby="comfy-title">
       <div class="project-copy">
