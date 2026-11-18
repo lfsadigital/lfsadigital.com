@@ -41,14 +41,34 @@
 .case-end a{white-space:normal}
 @media(max-width:740px){.case-study{grid-template-columns:1fr}.case-jump{gap:0 16px}}
 </style>
+<link rel="stylesheet" href="/mobile-card-nav.css">
+<script src="/mobile-card-nav.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#case-studies">Skip to case studies</a>
 <header class="site-nav">
-  <nav class="navbar" aria-label="Primary navigation">
+  <nav class="navbar has-mobile-card-nav" aria-label="Primary navigation">
     <a class="brand-mark" href="/" aria-label="LFSA Digital home"><img src="/logo-mark.svg" width="44" height="44" alt=""></a>
-    <a href="/ai-employees">AI Employees</a>
-    <a class="nav-lab" href="https://lfsadigital.com/work/" style="margin-left:auto">Full portfolio</a>
+    <a class="case-nav-service" href="/ai-employees">AI Employees</a>
+    
+<details class="mobile-card-nav">
+  <summary>Menu <span class="mobile-menu-icon" aria-hidden="true"></span></summary>
+  <div class="mobile-card-panel" aria-label="Site links">
+    <div class="mobile-card-group"><p class="mobile-card-label">Services</p><ul>
+      <li><a href="/ai-employees">AI Employees</a></li>
+      <li><a href="/#how">How the assessment works</a></li>
+      <li><a href="/tools/ai-roi-calculator/">Free AI ROI calculator</a></li>
+    </ul></div>
+    <div class="mobile-card-group"><p class="mobile-card-label">Explore</p><ul>
+      <li><a href="/work/">Selected work</a></li>
+      <li><a href="/work/case-studies/" aria-current="page">Case studies</a></li>
+      <li><a href="/lab/">Lab</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul></div>
+  </div>
+</details>
+<a class="nav-lab case-nav-portfolio" href="/work/" style="margin-left:auto">Full portfolio</a>
   </nav>
 </header>
 <main id="case-studies">

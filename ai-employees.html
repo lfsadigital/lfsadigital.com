@@ -186,24 +186,44 @@ footer .fnav a:hover{color:var(--text)}
 </style>
 <script src="/analytics.js" defer></script>
 <link rel="stylesheet" href="/lab-navigation.css?v=20261013">
+<link rel="stylesheet" href="/mobile-card-nav.css">
+<script src="/mobile-card-nav.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div id="top" style="position:relative;z-index:1">
 
 <nav>
-  <div class="navbar">
+  <div class="navbar has-mobile-card-nav">
     <a href="/" style="flex-shrink:0;display:flex;align-items:center" aria-label="LFSA Digital home"><img src="logo-mark.svg" alt="LFSA Digital" width="44" height="44" style="height:44px;width:44px"></a>
     <span class="mobile-page-title">AI employees</span>
     <div class="navstrip">
       <a href="/#how">How it works</a>
       <a href="/ai-employees" class="here" aria-current="page">AI employees</a>
-      <a href="/#proof">Work</a>
+      <a href="/work/">Work</a>
       <a href="/#about">About</a>
       <a href="/#faq">FAQ</a>
     </div>
     <a class="nav-lab" href="/lab/">Lab</a>
-      <a class="nav-cta" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener">Discuss a role</a>
+      
+<details class="mobile-card-nav">
+  <summary>Menu <span class="mobile-menu-icon" aria-hidden="true"></span></summary>
+  <div class="mobile-card-panel" aria-label="Site links">
+    <div class="mobile-card-group"><p class="mobile-card-label">Services</p><ul>
+      <li><a href="/ai-employees" aria-current="page">AI Employees</a></li>
+      <li><a href="/#how">How the assessment works</a></li>
+      <li><a href="/tools/ai-roi-calculator/">Free AI ROI calculator</a></li>
+    </ul></div>
+    <div class="mobile-card-group"><p class="mobile-card-label">Explore</p><ul>
+      <li><a href="/work/">Selected work</a></li>
+      <li><a href="/work/case-studies/">Case studies</a></li>
+      <li><a href="/lab/">Lab</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul></div>
+  </div>
+</details>
+<a class="nav-cta" href="https://cal.com/luiz-almeida-9d1muz/automation-call-with-luiz" target="_blank" rel="noopener">Discuss a role</a>
   </div>
 </nav>
 

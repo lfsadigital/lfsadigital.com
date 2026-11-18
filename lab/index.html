@@ -22,11 +22,13 @@
   <link rel="stylesheet" href="/lab-navigation.css?v=20261013">
   <link rel="stylesheet" href="lab.css?v=20261118-projects">
   <script src="win10min.js?v=20261118-projects" defer></script>
+<link rel="stylesheet" href="/mobile-card-nav.css">
+<script src="/mobile-card-nav.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to projects</a>
 <nav class="site-nav" aria-label="Primary navigation">
-  <div class="navbar">
+  <div class="navbar has-mobile-card-nav">
     <a class="brand-mark" href="/" aria-label="LFSA Digital home"><img src="/logo-mark.svg" width="44" height="44" alt=""></a>
     <div class="navstrip">
       <a href="/#how">How it works</a>
@@ -37,7 +39,25 @@
       <a href="/#faq">FAQ</a>
     </div>
     <a class="nav-lab" href="/lab/" aria-current="page">Lab</a>
-    <a class="nav-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener">Get started</a>
+    
+<details class="mobile-card-nav">
+  <summary>Menu <span class="mobile-menu-icon" aria-hidden="true"></span></summary>
+  <div class="mobile-card-panel" aria-label="Site links">
+    <div class="mobile-card-group"><p class="mobile-card-label">Services</p><ul>
+      <li><a href="/ai-employees">AI Employees</a></li>
+      <li><a href="/#how">How the assessment works</a></li>
+      <li><a href="/tools/ai-roi-calculator/">Free AI ROI calculator</a></li>
+    </ul></div>
+    <div class="mobile-card-group"><p class="mobile-card-label">Explore</p><ul>
+      <li><a href="/work/">Selected work</a></li>
+      <li><a href="/work/case-studies/">Case studies</a></li>
+      <li><a href="/lab/" aria-current="page">Lab</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul></div>
+  </div>
+</details>
+<a class="nav-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener">Get started</a>
   </div>
 </nav>
 <main id="main">
