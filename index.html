@@ -166,21 +166,37 @@ footer .fnav a:hover{color:var(--text)}
 #c-hours-out{color:var(--gold);font-family:var(--font-display);font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
 .hours-limits{font-size:.8rem;color:var(--text-2)}
 .hours-limits span:last-child{text-align:right}
+.hours-slider{position:relative;margin-top:2px}
+.hours-slider::before{
+  content:"";position:absolute;inset:calc(50% - 4px) 16px;height:8px;border-radius:8px;
+  background:linear-gradient(90deg,var(--gold) var(--hours-progress,40%),var(--line) var(--hours-progress,40%));
+  pointer-events:none;
+}
 #c-hours{
-  appearance:none;display:block;width:100%;height:44px;margin:2px 0 0;
-  background:linear-gradient(to right,var(--gold) var(--hours-progress,40%),var(--line) var(--hours-progress,40%)) center / calc(100% - 28px) 6px no-repeat;
-  border:0;border-radius:8px;cursor:ew-resize;touch-action:pan-y;
+  position:relative;appearance:none;display:block;width:100%;height:44px;margin:0;
+  background:none;border:0;border-radius:12px;cursor:grab;touch-action:pan-y;
   -webkit-tap-highlight-color:transparent;
 }
-#c-hours::-webkit-slider-runnable-track{height:6px;background:transparent}
-#c-hours::-moz-range-track{height:6px;background:transparent}
-#c-hours::-webkit-slider-thumb{appearance:none;width:28px;height:28px;margin-top:-11px;background:var(--gold);border:3px solid var(--deep);border-radius:50%}
-#c-hours::-moz-range-thumb{box-sizing:border-box;width:28px;height:28px;background:var(--gold);border:3px solid var(--deep);border-radius:50%}
+#c-hours:active{cursor:grabbing}
+#c-hours::-webkit-slider-runnable-track{height:8px;background:transparent}
+#c-hours::-moz-range-track{height:8px;background:transparent}
+#c-hours::-webkit-slider-thumb{
+  appearance:none;width:32px;height:24px;margin-top:-8px;border:2px solid var(--deep);border-radius:12px;
+  background:var(--gold);box-shadow:0 2px 5px rgba(0,0,0,.24);
+}
+#c-hours::-moz-range-thumb{
+  box-sizing:border-box;width:32px;height:24px;border:2px solid var(--deep);border-radius:12px;
+  background:var(--gold);box-shadow:0 2px 5px rgba(0,0,0,.24);
+}
 #c-hours:active::-webkit-slider-thumb{background:var(--gold-hover)}
 #c-hours:active::-moz-range-thumb{background:var(--gold-hover)}
 @media(forced-colors:active){
-  #c-hours{appearance:auto;background:transparent}
+  .hours-slider::before{display:none}
+  #c-hours{appearance:auto}
 }
+.assessment-cta{text-align:center;max-width:100%;gap:10px}
+.assessment-cta i{flex:none}
+.calc-cta{width:100%;justify-content:center;margin-top:18px;padding-inline:12px}
 .rate-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:var(--text-2);border-radius:9px;padding:12px 14px;cursor:pointer;font-family:var(--font-body);text-align:left;transition:background-color var(--t),border-color var(--t),color var(--t);width:100%}
 .rate-btn:hover{border-color:rgba(245,197,24,.4)}
 .rate-btn.on{background:var(--gold-tint);border-color:var(--gold);color:var(--text)}
@@ -205,24 +221,35 @@ footer .fnav a:hover{color:var(--text)}
 #ai-employees-teaser{border-block:1px solid var(--line);scroll-margin-top:var(--nav-h)}
 .employee-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,80px);align-items:center}
 .employee-layout p{margin-bottom:20px}
-.employee-layout .employee-detail{color:var(--text-2);font-size:.95rem;max-width:47ch;margin-bottom:26px}
-.employee-demo{position:relative;isolation:isolate;display:block;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-tile);background:var(--deep);color:var(--text)}
-.employee-demo:hover,.employee-demo:focus-visible{border-color:var(--gold);color:var(--text)}
-.employee-demo::after{
+.employee-demo{overflow:hidden;border:1px solid var(--line);border-radius:var(--r-tile);background:var(--deep);color:var(--text)}
+[data-glow]{position:relative;isolation:isolate}
+[data-glow]::after{
   content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;
   background:radial-gradient(ellipse 280px 220px at var(--spot-x,50%) var(--spot-y,90%),rgba(245,197,24,.19),transparent 100%);
   transition:opacity 180ms ease-out;
 }
-.employee-demo:focus-visible::after{opacity:1}
+[data-glow]:focus-visible::after{opacity:1}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .employee-demo[data-spotlight]::after{opacity:1}
+  [data-glow][data-spotlight]::after{opacity:1}
 }
-@media(prefers-reduced-motion:reduce){.employee-demo::after{transition:none}}
-.employee-demo img{display:block;width:100%;height:auto;aspect-ratio: 16 / 9;object-fit:cover;object-position:top}
-.employee-demo-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
-.employee-demo-caption strong{font-family:var(--font-display)}
-.employee-demo-caption small{display:block;color:var(--text-2);font-size:.78rem}
-.employee-demo-caption i{color:var(--gold);font-size:1.4rem}
+.employee-demo:hover,.employee-demo:focus-within{border-color:var(--gold)}
+.employee-screen{position:relative;isolation:isolate;display:block;aspect-ratio:1.65;overflow:hidden}
+.employee-screen img{
+  position:absolute;top:0;left:0;display:block;width:100%;height:auto;
+  opacity:0;transform:translateY(var(--screen-offset,0%));transition:opacity 260ms ease-out;
+}
+.employee-screen img:nth-child(2){--screen-offset:-37%}
+.employee-screen img:nth-child(3){--screen-offset:-51%}
+.employee-screen img.active{opacity:1}
+.employee-demo-caption{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 12px;border-top:1px solid var(--line)}
+.employee-demo-caption a,.employee-demo-caption button{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 .88rem var(--font-display)}
+.employee-demo-caption a{color:var(--text)}
+.employee-demo-caption a:hover{color:var(--gold)}
+.employee-demo-caption a i{color:var(--gold)}
+.employee-demo-caption button{padding:0 8px;border:0;border-radius:var(--r-btn);background:transparent;color:var(--text-2);cursor:pointer}
+.employee-demo-caption button:hover{color:var(--gold)}
+.employee-demo-caption button[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){[data-glow]::after,.employee-screen img{transition:none}}
 @media(max-width:740px){.employee-layout{grid-template-columns:1fr}}
 </style>
 <noscript><style>
@@ -265,12 +292,12 @@ footer .fnav a:hover{color:var(--text)}
       <h1 style="font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;line-height:1.04;letter-spacing:-1.5px;margin-bottom:22px">Find 5&ndash;10 hours a week to reclaim. <span style="color:var(--gold)">Guaranteed.</span></h1>
       <p style="color:var(--mute);font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.7;margin-bottom:34px;max-width:520px">A 45-minute AI assessment for small business owners. Get a practical plan to reclaim those hours, plus a five-page website with online booking and intake.</p>
       <div class="hero-actions">
-        <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
+        <a class="btn-y assessment-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Get AI in Your Business · $999</span></a>
         <a class="btn-outline" href="#ai-employees-teaser">Explore AI Employees <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
       </div>
       <div style="display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--text-2);font-size:.92rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> If we can&rsquo;t find you 5 hrs/week, you get 100% back, and the website is still yours.</div>
     </div>
-    <a class="card hero-sample" href="/report.html" aria-label="Read the sample AI assessment report" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
+    <a class="card hero-sample" data-glow href="/report.html" aria-label="Read the sample AI assessment report" style="box-shadow:0 24px 60px rgba(0,0,0,.35)">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
         <span class="gk" style="font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)">Sample Report</span>
         <span class="gk" style="font-size:.62rem;font-weight:700;letter-spacing:1px;color:var(--deep);background:var(--gold);padding:3px 9px;border-radius:5px">SAMPLE</span>
@@ -295,20 +322,23 @@ footer .fnav a:hover{color:var(--text)}
 <section id="ai-employees-teaser" class="sec dark" tabindex="-1" aria-labelledby="employee-title">
   <div class="wrap employee-layout">
     <div>
-      <h2 id="employee-title" class="big">An AI employee for one job you do every week.</h2>
-      <p class="lede">We build and run a managed AI employee in the tools you already use. Give it one recurring job, like checking intake documents, triaging your inbox, or drafting follow-ups.</p>
-      <p class="employee-detail">It starts draft-only for the first 30 days, so your team can review the work. If you already know which job to hand off, you can go straight to a role call.</p>
+      <h2 id="employee-title" class="big">An AI admin employee that keeps work moving.</h2>
+      <p class="lede">Hand off document checks, inbox triage, or follow-up drafts. We build and run it in the tools you already use.</p>
       <div class="employee-actions">
         <a href="/ai-employees" class="btn-outline">See AI Employees <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
-    <a class="employee-demo" href="https://www.tella.tv/video/ai-admin-agent-for-accounting-firms-3xck" target="_blank" rel="noopener">
-      <img src="/work/assets/admin-first-review.png" alt="" width="1600" height="900" loading="lazy" decoding="async">
-      <span class="employee-demo-caption">
-        <span><strong>Watch the Admin Hire demo</strong><small>Document checks for an accounting firm · Sample data</small></span>
-        <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
-      </span>
-    </a>
+    <div class="employee-demo">
+      <a class="employee-screen" data-glow href="https://www.tella.tv/video/ai-admin-agent-for-accounting-firms-3xck" target="_blank" rel="noopener" aria-label="Watch the Admin Hire demo">
+        <img class="active" src="/work/assets/admin-hire-current-queue.png" alt="" width="1440" height="1753" loading="lazy" decoding="async">
+        <img src="/work/assets/admin-hire-current-queue.png" alt="" width="1440" height="1753" loading="lazy" decoding="async">
+        <img src="/work/assets/admin-hire-current-queue.png" alt="" width="1440" height="1753" loading="lazy" decoding="async">
+      </a>
+      <div class="employee-demo-caption">
+        <a href="https://www.tella.tv/video/ai-admin-agent-for-accounting-firms-3xck" target="_blank" rel="noopener"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Watch Admin Hire</a>
+        <button type="button" id="employee-rotation" hidden>Pause preview</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -337,7 +367,9 @@ footer .fnav a:hover{color:var(--text)}
           <label for="c-hours">Hours to reclaim each week</label>
           <span id="c-hours-out" aria-hidden="true">7 hrs</span>
         </div>
-        <input type="range" id="c-hours" min="5" max="10" step="0.1" value="7" aria-valuetext="7 hours per week" aria-describedby="c-hours-min">
+        <div class="hours-slider">
+          <input type="range" id="c-hours" min="5" max="10" step="0.1" value="7" aria-valuetext="7 hours per week" aria-describedby="c-hours-min">
+        </div>
         <div class="hours-limits">
           <span id="c-hours-min">5 hrs · guaranteed minimum</span>
           <span>10 hrs</span>
@@ -364,7 +396,7 @@ footer .fnav a:hover{color:var(--text)}
           <div class="gk" style="font-size:clamp(2.2rem,5vw,2.8rem);font-weight:700;line-height:1"><span id="c-days">22</span> <span style="font-size:1.1rem;font-weight:500;color:var(--text-2)">days</span></div>
         </div>
         <p style="color:var(--mute);font-size:.8rem;margin-top:16px;line-height:1.6">Savings depend on implementing the recommendations. Time value is not cash savings.</p>
-        <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:18px"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> &middot; $999</a>
+        <a class="btn-y assessment-cta calc-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Get AI in Your Business · $999</span></a>
       </div>
     </div>
   </div>
@@ -582,7 +614,7 @@ footer .fnav a:hover{color:var(--text)}
     <div class="eyebrow center"><span class="line"></span><span class="txt">Start here</span><span class="line"></span></div>
     <h2 class="gk" style="font-size:clamp(2.1rem,5vw,3.2rem);font-weight:700;line-height:1.06;letter-spacing:-1px;margin-bottom:18px">Find your 5 hours.</h2>
     <p style="color:var(--mute);font-size:1.12rem;margin:0 auto 34px;max-width:480px">One 45-minute audit. A costed plan you own. A new website built as the first fix. Money back if we don&rsquo;t find the time, and the site stays yours.</p>
-    <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="padding:17px 30px;font-size:1.05rem"><i class="fa-solid fa-calendar-check"></i> Get AI <em style="font-style:italic;font-weight:inherit">in Your Business</em> <span style="opacity:.55;font-weight:500">·</span> $999</a>
+    <a class="btn-y assessment-cta" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" target="_blank" rel="noopener" style="padding:17px 30px;font-size:1.05rem"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Get AI in Your Business · $999</span></a>
     <p style="color:var(--mute);margin-top:18px;font-size:.9rem"><i class="fa-solid fa-shield-halved" style="color:var(--blue)"></i> 100% money-back guarantee &nbsp;·&nbsp; or email <a href="mailto:luiz@lfsadigital.com">luiz@lfsadigital.com</a></p>
   </div>
 </section>
@@ -632,32 +664,71 @@ if(!wasOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true')
 });
 });
 
-const demo = document.querySelector('.employee-demo');
 const canTrackPointer = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-let spotlightFrame = 0;
-demo.addEventListener('pointermove', (event) => {
-  if (!canTrackPointer.matches || event.pointerType === 'touch') return;
-  cancelAnimationFrame(spotlightFrame);
-  spotlightFrame = requestAnimationFrame(() => {
-    const bounds = demo.getBoundingClientRect();
-    demo.style.setProperty('--spot-x', (event.clientX - bounds.left) + 'px');
-    demo.style.setProperty('--spot-y', (event.clientY - bounds.top) + 'px');
-    demo.setAttribute('data-spotlight', '');
+for (const surface of document.querySelectorAll('[data-glow]')) {
+  let frame;
+  surface.addEventListener('pointermove', event => {
+    if (!canTrackPointer.matches || event.pointerType === 'touch') return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const bounds = surface.getBoundingClientRect();
+      surface.style.setProperty('--spot-x', (event.clientX - bounds.left) + 'px');
+      surface.style.setProperty('--spot-y', (event.clientY - bounds.top) + 'px');
+      surface.setAttribute('data-spotlight', '');
+    });
   });
+  surface.addEventListener('pointerleave', () => {
+    cancelAnimationFrame(frame);
+    surface.removeAttribute('data-spotlight');
+    surface.style.removeProperty('--spot-x');
+    surface.style.removeProperty('--spot-y');
+  });
+}
+
+const preview = document.querySelector('.employee-screen');
+const screens = [...preview.querySelectorAll('img')];
+const rotation = document.getElementById('employee-rotation');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let screenIndex = 0;
+let playing = !reducedMotion.matches;
+let visible = false;
+let timer;
+function syncPreview() {
+  clearInterval(timer);
+  rotation.textContent = playing ? 'Pause preview' : 'Play preview';
+  if (!playing || !visible || document.hidden) return;
+  timer = setInterval(() => {
+    screens[screenIndex].classList.remove('active');
+    screenIndex = (screenIndex + 1) % screens.length;
+    screens[screenIndex].classList.add('active');
+  }, 5500);
+}
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    syncPreview();
+  }, {threshold:.25}).observe(preview);
+} else {
+  visible = true;
+}
+rotation.hidden = false;
+rotation.addEventListener('click', () => {
+  playing = !playing;
+  syncPreview();
 });
-demo.addEventListener('pointerleave', () => {
-  cancelAnimationFrame(spotlightFrame);
-  demo.removeAttribute('data-spotlight');
-  demo.style.removeProperty('--spot-x');
-  demo.style.removeProperty('--spot-y');
+reducedMotion.addEventListener?.('change', () => {
+  if (reducedMotion.matches) playing = false;
+  syncPreview();
 });
+document.addEventListener('visibilitychange', syncPreview);
+syncPreview();
 
 var hoursEl=document.getElementById('c-hours'),customEl=document.getElementById('c-custom'),customBox=document.getElementById('rate-custom'),rate=45;
 function calc(){
 var h=parseFloat(hoursEl.value);
 var hm=h*4.33, vm=hm*rate, vy=vm*12, perDay=vm/30, days=Math.max(1,Math.round(999/perDay));
 var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
-hoursEl.style.setProperty('--hours-progress', ((h - Number(hoursEl.min)) / (Number(hoursEl.max) - Number(hoursEl.min))) * 100 + '%');
+hoursEl.parentElement.style.setProperty('--hours-progress', ((h - Number(hoursEl.min)) / (Number(hoursEl.max) - Number(hoursEl.min))) * 100 + '%');
 hoursEl.setAttribute('aria-valuetext', h + ' hours per week');
 document.getElementById('c-hours-out').textContent=h+' hrs';
 document.getElementById('c-hm').textContent=Math.round(hm)+' hrs';
