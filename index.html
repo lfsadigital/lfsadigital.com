@@ -262,8 +262,7 @@ footer .fnav a:hover{color:var(--text)}
 @media(prefers-reduced-motion:reduce){[data-glow]::after,.employee-screen img{transition:none}}
 @media(max-width:740px){.employee-layout{grid-template-columns:1fr}}
 .proof-section-head{margin-bottom:clamp(25px,4vw,45px)}
-.proof-example{padding-block:clamp(21px,3vw,34px);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr) auto;gap:14px clamp(24px,4vw,52px);align-items:baseline}
-.proof-example.featured{grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);align-items:center}
+.proof-example{padding-block:clamp(21px,3vw,34px);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);gap:16px clamp(24px,4vw,52px);align-items:center}
 .proof-feature-copy>p:not(.proof-evidence-type){margin-block:12px 5px}
 .proof-feature-figure{margin:0;overflow:hidden;border-radius:var(--r-tile);border:1px solid var(--line);background:#f7f9fc;color:#344054}
 .proof-feature-figure img{display:block;width:100%;height:auto}
@@ -272,9 +271,13 @@ footer .fnav a:hover{color:var(--text)}
 .proof-example h3{font-size:clamp(1.12rem,2vw,1.55rem);line-height:1.15;letter-spacing:-.02em}
 .proof-example p:not(.proof-evidence-type){color:var(--text-2);max-width:56ch}
 .proof-example .proof-evidence-type{font-size:.82rem;color:var(--text-2);margin-bottom:6px}
-.proof-example a{color:var(--gold);display:inline-flex;align-items:center;gap:7px;min-height:44px;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
-.proof-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-@media(max-width:740px){.proof-example,.proof-example.featured{grid-template-columns:1fr;gap:8px}.proof-example a{justify-self:start}}
+.proof-example a{color:var(--gold);display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.tutorial-downloads{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:clamp(28px,5vw,50px);padding-top:clamp(20px,4vw,30px);border-top:1px solid var(--line)}
+.tutorial-downloads h3{font-size:clamp(1.18rem,2.2vw,1.55rem);margin-bottom:5px}
+.tutorial-downloads p{max-width:62ch;color:var(--text-2)}
+.tutorial-downloads a{min-height:44px;display:inline-flex;align-items:center;color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.tutorial-downloads a:hover,.proof-example a:hover{color:var(--text)}
+@media(max-width:740px){.proof-example{grid-template-columns:1fr;gap:10px}}
 </style>
 <noscript><style>
 /* Without JS the accordion can't open, so show every answer and drop the
@@ -429,7 +432,7 @@ footer .fnav a:hover{color:var(--text)}
       <p class="lede">From checking client documents to turning a phone call into a booking request.</p>
     </div>
     <div class="proof-example-list">
-      <article class="proof-example featured">
+      <article class="proof-example">
         <div class="proof-feature-copy">
           <p class="proof-evidence-type">Working demo · sample data</p>
           <h3>Admin Hire</h3>
@@ -437,19 +440,33 @@ footer .fnav a:hover{color:var(--text)}
           <a href="/work/case-studies/#admin-hire">See the Admin Hire case</a>
         </div>
         <figure class="proof-feature-figure">
-          <img src="/work/assets/admin-first-review.png" width="1600" height="900" alt="Admin Hire dashboard with two document gaps flagged in the first review" loading="lazy" decoding="async">
-          <figcaption>Saved first review · two verified document gaps</figcaption>
+          <img src="/work/assets/admin-first-review-detail.webp" width="721" height="464" alt="Close-up of Admin Hire flagging an incomplete bank statement and a missing sales export" loading="lazy" decoding="async">
+          <figcaption>Saved first review · detail of the two document gaps</figcaption>
         </figure>
       </article>
       <article class="proof-example">
-        <div><p class="proof-evidence-type">Product test · verified end to end</p><h3>AInvictus AI Receptionist</h3></div>
-        <p>A test call checked availability, created a Jobber request, and left a dashboard record and internal notifications.</p>
-        <a href="/work/case-studies/#ainvictus-receptionist">See the case <span class="proof-sr-only">for AInvictus AI Receptionist</span></a>
+        <div class="proof-feature-copy">
+          <p class="proof-evidence-type">Product test · verified end to end</p>
+          <h3>AInvictus AI Receptionist</h3>
+          <p>A test call checked availability, created a Jobber request, and left a dashboard record and internal notifications.</p>
+          <a href="/work/case-studies/#ainvictus-receptionist">See the AInvictus case</a>
+        </div>
+        <figure class="proof-feature-figure">
+          <img src="/work/assets/ainvictus-receptionist-proof.svg" width="1600" height="900" alt="Diagram of the verified test, from a phone call to a Jobber request and internal notifications" loading="lazy" decoding="async">
+          <figcaption>Verified phone-to-Jobber test</figcaption>
+        </figure>
       </article>
       <article class="proof-example">
-        <div><p class="proof-evidence-type">Past client implementation</p><h3>Medical clinic intake</h3></div>
-        <p>Connected Instagram and Facebook messages to the clinic’s lead queue, with approved answers for routine questions and a handoff for clinical or uncertain ones.</p>
-        <a href="/work/case-studies/#clinic">See the case <span class="proof-sr-only">for Medical clinic intake</span></a>
+        <div class="proof-feature-copy">
+          <p class="proof-evidence-type">Past client implementation</p>
+          <h3>Medical clinic intake</h3>
+          <p>Connected Instagram and Facebook messages to the clinic’s lead queue, with approved answers for routine questions and a handoff for clinical or uncertain ones.</p>
+          <a href="/work/case-studies/#clinic">See the clinic intake case</a>
+        </div>
+        <figure class="proof-feature-figure">
+          <img src="/work/assets/clinic-intake-map.svg" width="1600" height="900" alt="Diagram of clinic social messages grouped by conversation and added to a reviewable lead queue" loading="lazy" decoding="async">
+          <figcaption>Sanitized intake workflow · no patient data</figcaption>
+        </figure>
       </article>
     </div>
   </div>
@@ -569,6 +586,13 @@ footer .fnav a:hover{color:var(--text)}
         <div class="cap"><h3>OpenClaw: Automating Socials, Updates &amp; Hard Truths</h3></div>
       </a>
     </div>
+    <aside class="tutorial-downloads" aria-labelledby="downloads-title">
+      <div>
+        <h3 id="downloads-title">Free automation templates and guides</h3>
+        <p>Download n8n workflows, AI prompts, and setup guides from my builds. Pay what you want, including $0.</p>
+      </div>
+      <a href="https://lfsadigital.gumroad.com/">Browse free downloads</a>
+    </aside>
   </div>
 </section>
 
