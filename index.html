@@ -261,6 +261,20 @@ footer .fnav a:hover{color:var(--text)}
 .employee-demo-caption button[hidden]{display:none}
 @media(prefers-reduced-motion:reduce){[data-glow]::after,.employee-screen img{transition:none}}
 @media(max-width:740px){.employee-layout{grid-template-columns:1fr}}
+.proof-section-head{margin-bottom:clamp(25px,4vw,45px)}
+.proof-example{padding-block:clamp(21px,3vw,34px);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr) auto;gap:14px clamp(24px,4vw,52px);align-items:baseline}
+.proof-example.featured{grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);align-items:center}
+.proof-feature-copy>p:not(.proof-evidence-type){margin-block:12px 5px}
+.proof-feature-figure{margin:0;overflow:hidden;border-radius:var(--r-tile);border:1px solid var(--line);background:#f7f9fc;color:#344054}
+.proof-feature-figure img{display:block;width:100%;height:auto}
+.proof-feature-figure figcaption{padding:9px 13px;font-size:.82rem}
+.proof-example:last-child{border-bottom:1px solid var(--line)}
+.proof-example h3{font-size:clamp(1.12rem,2vw,1.55rem);line-height:1.15;letter-spacing:-.02em}
+.proof-example p:not(.proof-evidence-type){color:var(--text-2);max-width:56ch}
+.proof-example .proof-evidence-type{font-size:.82rem;color:var(--text-2);margin-bottom:6px}
+.proof-example a{color:var(--gold);display:inline-flex;align-items:center;gap:7px;min-height:44px;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.proof-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:740px){.proof-example,.proof-example.featured{grid-template-columns:1fr;gap:8px}.proof-example a{justify-self:start}}
 </style>
 <noscript><style>
 /* Without JS the accordion can't open, so show every answer and drop the
@@ -408,21 +422,36 @@ footer .fnav a:hover{color:var(--text)}
   </div>
 </section>
 
-<section id="workflow-answers" class="sec dark">
-  <div class="wrap" style="max-width:920px">
-    <div class="eyebrow"><span class="line"></span><span class="txt">Start with one task</span></div>
-    <h2 class="big">Where can you save time?</h2>
-    <p class="lede" style="margin-bottom:36px">Start with one task your team handles often.</p>
-    <div style="display:grid;gap:32px">
-<article style="border-top:1px solid rgba(255,255,255,.16);padding-top:24px"><h3 style="font-size:1.35rem;margin-bottom:10px">Document checks</h3><p style="color:var(--mute);line-height:1.7;max-width:720px">Check incoming files, flag missing information and prepare follow-ups for review.</p></article>
-<article style="border-top:1px solid rgba(255,255,255,.16);padding-top:24px"><h3 style="font-size:1.35rem;margin-bottom:10px">Customer messages</h3><p style="color:var(--mute);line-height:1.7;max-width:720px">Organize inquiries, keep the conversation context and route requests to your team.</p></article>
-<article style="border-top:1px solid rgba(255,255,255,.16);padding-top:24px"><h3 style="font-size:1.35rem;margin-bottom:10px">Lead qualification</h3><p style="color:var(--mute);line-height:1.7;max-width:720px">Assess inquiries against your criteria and highlight leads for your sales team.</p></article>
-<article style="border-top:1px solid rgba(255,255,255,.16);padding-top:24px"><h3 style="font-size:1.35rem;margin-bottom:10px">Quote requests</h3><p style="color:var(--mute);line-height:1.7;max-width:720px">Collect the details your team needs to prepare a quote.</p></article>
-<article style="border-top:1px solid rgba(255,255,255,.16);padding-top:24px"><h3 style="font-size:1.35rem;margin-bottom:10px">Calls &amp; appointments</h3><p style="color:var(--mute);line-height:1.7;max-width:720px">Handle inquiries and appointment requests through a workflow built around your tools.</p></article>
-<article style="border-top:1px solid rgba(255,255,255,.16);padding-top:24px"><h3 style="font-size:1.35rem;margin-bottom:10px">CRM updates</h3><p style="color:var(--mute);line-height:1.7;max-width:720px">Keep inquiry details and next steps together in your CRM.</p></article>
+<section id="workflow-answers" class="sec dark" aria-labelledby="workflow-title">
+  <div class="wrap">
+    <div class="proof-section-head">
+      <h2 class="big" id="workflow-title">See what the automation did.</h2>
+      <p class="lede">From checking client documents to turning a phone call into a booking request.</p>
     </div>
-    <p style="margin-top:30px;color:var(--text-2)">See an example: <a href="https://www.tella.tv/video/automating-clinic-dm-inquiries-with-ai-ctif" style="color:var(--gold);text-decoration:underline">watch the clinic messaging walkthrough</a>. It shows a clinic messaging workflow. Your setup may differ.</p>
-    <a class="btn-y" href="https://cal.com/luiz-almeida-xjku7w/lfsa-digital-ai-in-your-business" style="margin-top:24px">Get AI in Your Business · $999</a>
+    <div class="proof-example-list">
+      <article class="proof-example featured">
+        <div class="proof-feature-copy">
+          <p class="proof-evidence-type">Working demo · sample data</p>
+          <h3>Admin Hire</h3>
+          <p>Flagged a half-month statement and a missing sales export, drafted a follow-up for review, then withdrew it when the files arrived.</p>
+          <a href="/work/case-studies/#admin-hire">See the Admin Hire case</a>
+        </div>
+        <figure class="proof-feature-figure">
+          <img src="/work/assets/admin-first-review.png" width="1600" height="900" alt="Admin Hire dashboard with two document gaps flagged in the first review" loading="lazy" decoding="async">
+          <figcaption>Saved first review · two verified document gaps</figcaption>
+        </figure>
+      </article>
+      <article class="proof-example">
+        <div><p class="proof-evidence-type">Product test · verified end to end</p><h3>AInvictus AI Receptionist</h3></div>
+        <p>A test call checked availability, created a Jobber request, and left a dashboard record and internal notifications.</p>
+        <a href="/work/case-studies/#ainvictus-receptionist">See the case <span class="proof-sr-only">for AInvictus AI Receptionist</span></a>
+      </article>
+      <article class="proof-example">
+        <div><p class="proof-evidence-type">Past client implementation</p><h3>Medical clinic intake</h3></div>
+        <p>Connected Instagram and Facebook messages to the clinic’s lead queue, with approved answers for routine questions and a handoff for clinical or uncertain ones.</p>
+        <a href="/work/case-studies/#clinic">See the case <span class="proof-sr-only">for Medical clinic intake</span></a>
+      </article>
+    </div>
   </div>
 </section>
 
